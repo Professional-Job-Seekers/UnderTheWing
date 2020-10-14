@@ -13,6 +13,7 @@
   - [Accounts](#accounts)
   - [Scheduling](#scheduling)
 - [Models](#models)
+  - [Schema](#schema)
 - [User](#user)
 - [Team](#team)
 - [Acknowledgements](#acknowledgements)
@@ -46,6 +47,10 @@ Under the Wing is a virtual mentoring platform that pairs college students & wor
 ![Alt text](docs/wireframes/views/scheduling-view.png?raw=true "Account View")
 
 ## Models
+
+### Schema
+
+![Alt text](docs/wireframes/models/schema.png?raw=true "Schema")
 
 ## User
 

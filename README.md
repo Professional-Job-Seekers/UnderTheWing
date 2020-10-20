@@ -4,17 +4,18 @@
 
 - [Overview](#overview)
   - [Description](#description)
+- [Stack](#stack)
+  - [API](#api)
+  - [React client](#react-client)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Deployment Instructions](#deployment-instructions)
-- [Wireframes](#wireframes)
-  - [Login](#login)
-  - [Accounts](#accounts)
-  - [Scheduling](#scheduling)
-- [Models](#models)
-  - [Schema](#schema)
-- [User](#user)
+  - [Project Structure](#project-structure)
+- [Dev Setup](#dev-setup)
+  - [Create a postgres db](#create-a-postgres-db)
+  - [Running the app](#running-the-app)
+- [Deployment](#deployment)
+  - [Setting up Heroku](#setting-up-heroku)
+  - [Create a Heroku project](#create-a-heroku-project)
+  - [Deploying the app](#deploying-the-app)
 - [Team](#team)
 - [Acknowledgements](#acknowledgements)
 
@@ -24,63 +25,22 @@
 
 Under the Wing is a virtual mentoring platform that pairs college students & working professionals with highschool seniors who have similar career interests in a Mentor-Mentee relationship. The platform will support and facilitate the mentoring relationship by providing pathways for both mentors and mentees to follow. Moreover, unlike other professional networking platforms, Under the Wing guarantees that mentees get matched with a mentor and vice versa. In short, Under the Wing will provide an opportunity for Mentees to develop their professional network and skills while also providing mentors with a pipeline to talent and an opportunity to give back.
 
-## Getting Started
-
-### Prerequisites
-
-### Installation
-
-### Deployment Instructions
-
-## Wireframes
-
-### Login
-
-![Alt text](docs/wireframes/views/login-view.png?raw=true "Account View")
-
-### Accounts
-
-![Alt text](docs/wireframes/views/account-view.png?raw=true "Account View")
-
-### Scheduling
-
-![Alt text](docs/wireframes/views/scheduling-view.png?raw=true "Account View")
-
-## Models
-
-### Schema
-
-![Alt text](docs/wireframes/models/schema.png?raw=true "Schema")
-
-## User
-
-## Team
-
-1. Joshua Carpentier ([jacgit18](https://github.com/jacgit18))
-1. Muneeb Khawaja ([mtkhawaja](http://github.com/mtkhawaja))
-1. Joshua Carpentier ([PGayle](https://github.com/PGayle))
-
-## Acknowledgements
-
-
-
-# Project Starter 
-A starter repo for building CUNY Tech Prep projects with React, Express.js, and Sequelize.js
-
 ## Stack
 
-*API*
+### API
 
 - express.js
 - sequelize.js
 
-*React client*
+### React client
 
 - Built using `create-react-app` and configured to work with the api.
 - Bootstrap 4.x added to `/client/public/index.html`
 - React Router
 
-*Project Structure*
+## Getting Started
+
+### Project Structure
 
 <pre>
 .
@@ -127,7 +87,6 @@ A starter repo for building CUNY Tech Prep projects with React, Express.js, and 
 └── package.json
 </pre>
 
-
 ## Dev Setup
 
 Each team member will need to do this on their local machine.
@@ -139,13 +98,13 @@ Create a user in postgres named `ctp_user` with the password `ctp_pass`:
 > This only needs to be done one time on your machine
 > You can create additional users if you want to.
 
-```
+```postgres
 createuser -P -s -e ctp_user
 ```
 
 Create a separate db for this project:
 
-```
+```postgres
 createdb -h localhost -U ctp_user app2019_development
 ```
 
@@ -173,8 +132,8 @@ npm install
 npm start
 ```
 
-- api-backend will launch at: http://localhost:8080
-- react-client will launch at: http://localhost:3000
+- api-backend will launch at: [http://localhost:8080](http://localhost:8080)
+- react-client will launch at: [http://localhost:3000](http://localhost:3000)
 
 > In production you will only deploy a single app. The react client will build into static files that will be served from the backend.
 
@@ -182,7 +141,7 @@ npm start
 
 ### Setting up Heroku
 
-Install the heroku cli if you don't already have it. 
+Install the heroku cli if you don't already have it.
 
 > You will also need a heroku account
 > And this will only be done once on your machine
@@ -202,8 +161,7 @@ heroku create cool-appname
 heroku addons:create heroku-postgresql:hobby-dev
 ```
 
-> This will deploy your apps to https://cool-appname.herokuapp.com, assuming that it is not taken already.
-
+> This will deploy your apps to [https://cool-appname.herokuapp.com](https://cool-appname.herokuapp.com), assuming that it is not taken already.
 > You only need to do this once per app
 
 ### Deploying the app
@@ -215,3 +173,11 @@ git push heroku master
 ```
 
 > This command deploys your master branch. You can change that and deploy a different branch such as: `git push heroku development`
+
+## Team
+
+1. Joshua Carpentier ([jacgit18](https://github.com/jacgit18))
+1. Muneeb Khawaja ([mtkhawaja](http://github.com/mtkhawaja))
+1. Joshua Carpentier ([PGayle](https://github.com/PGayle))
+
+## Acknowledgements

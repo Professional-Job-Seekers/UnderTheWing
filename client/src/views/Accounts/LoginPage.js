@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from 'react-bootstrap';
 
 export default class Login extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ export default class Login extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="">
             <input
-              className=""
+              className="form-control"
               type="email"
               name="email"
               placeholder="Email"
@@ -60,8 +61,10 @@ export default class Login extends Component {
               onChange={this.handleChange}
               required
             />
+            <br/>           
+
             <input
-              className=""
+              className="form-control"
               type="password"
               name="password"
               placeholder="Password"
@@ -70,14 +73,17 @@ export default class Login extends Component {
               required
             />
           </div>
-
+          <br/> 
+  
           <div className="">
-            <button className="" type="submit">
+            <button className="btn btn-primary" type="submit">
               {" "}
               Login{" "}
             </button>
+            <br/>             <br/>
+
             <button
-              className=""
+              className="btn btn-primary"
               href="http://localhost:3000/register"
               type="button"
             >

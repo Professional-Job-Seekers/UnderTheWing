@@ -10,6 +10,10 @@ import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
+import Login from './views/Accounts/LoginPage';
+import Register from './views/Accounts/RegisterPage';
+
+
 
 import './App.css';
 
@@ -29,6 +33,18 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
+        <li className="nav-item"> 
+          {/* exact: bool When true, the active class/style will only be applied if the location is matched exactly. */}
+          <NavLink className="nav-link" exact to="/login">
+           Login
+          </NavLink>
+        </li> 
+        <li className="nav-item"> 
+          <NavLink className="nav-link" exact to="/register">
+           Registration
+          </NavLink>
+        </li> 
+      
       </ul>
     </nav>
   );
@@ -46,6 +62,8 @@ class App extends React.Component {
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
+                <Route exact path ="/login" component={Login}/>
+                <Route exact path ="/register" component={Register}/>
                 <Route path="/" component={PostsListPage} />
               </Switch>
             </div>

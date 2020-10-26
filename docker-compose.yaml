@@ -1,12 +1,27 @@
 version: '3.3'
 services:
+
+  postgres:
+    image: postgres:13.0-alpine
+    ports:
+      - "5432:5432" 
+    environment:
+        POSTGRES_USER: ctp_user
+        POSTGRES_PASSWORD: ctp_pass
+        POSTGRES_DB: app2020_docker
+
   server: 
     build: 
       context: .
       dockerfile: ./api/Dockerfile
+    volumes: 
+      - './api:/usr/app/api/'
+      - /usr/app/node_modules
     command: npm run dev
     ports:
       - "8000:8000"
+    depends_on: 
+      - postgres
     environment:
       PORT: 8000
       NODE_ENV : docker
@@ -16,18 +31,16 @@ services:
       context: ./client/
       dockerfile: ./Dockerfile
     stdin_open: true    
+    volumes: 
+      - './client:/app/'
+      - /app/node_modules
     command: npm start
+    depends_on: 
+      - server
     ports:
         - target: 3000
           published: 4960
           protocol: tcp
           mode: host
-  postgres:
-    image: postgres:13.0-alpine
-    ports:
-      - "5432:5432" 
     environment:
-        POSTGRES_USER: ctp_user
-        POSTGRES_PASSWORD: ctp_pass
-        POSTGRES_DB: app2020_docker
-    
+      PROXY: "http://server:8000"

@@ -11,6 +11,7 @@
   - [Project Structure](#project-structure)
 - [Dev Setup](#dev-setup)
   - [Create a postgres db](#create-a-postgres-db)
+- [Dev Setup with Docker](#dev-setup-with-docker)
   - [Running the app](#running-the-app)
 - [Deployment](#deployment)
   - [Setting up Heroku](#setting-up-heroku)
@@ -111,6 +112,9 @@ createdb -h localhost -U ctp_user app2019_development
 > You will create a DB for each project you start based on this repo. For other projects change `app2019_development` to the new apps database name.
 
 *For more details see this [installing postgres guide](https://github.com/CUNYTechPrep/ctp2019/blob/master/guides/installing-postgresql.md)*
+
+## Dev Setup with Docker
+
 
 ### Running the app
 

@@ -2,5 +2,6 @@
 **
 
 # Allow files and directories
+!/api/**
 !/client/**
 !/package**.json

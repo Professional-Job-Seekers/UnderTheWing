@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14.14.0-alpine
 
 # Create app directory
 WORKDIR /app
@@ -17,6 +17,6 @@ RUN npm install
 COPY . /app
 
 # Expose Port 3000
-EXPOSE 3000
+EXPOSE 8080
 
 CMD ["npm", "start"]

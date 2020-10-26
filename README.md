@@ -115,6 +115,10 @@ createdb -h localhost -U ctp_user app2019_development
 
 ## Dev Setup with Docker
 
+```bash
+# From project root.
+docker-compose build && docker-compose up
+```
 
 ### Running the app
 

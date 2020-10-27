@@ -1,22 +1,24 @@
 const express = require('express');
-const { sequelize } = require('../models');
+const { sequelize } = require('../../models');
 const router = express.Router();
-const db = require('../models');
+const db = require('../../models');
 const { Account } = db;
 const { Login } = db;
 
 
+/*
+* User login validation logic.
+*/
 const loginController = require('./logins.js');
 router.use('/logins', loginController);
 
-
-
 router.get('/', (req,res) => {
-    res.send(200);
+    res.send(201);
 });
 
 router.post('/user-account/', async (req, res) => {
     let postParams  = req.body;
+    
     try {
         const result = await sequelize.transaction(async (t) => {
             const account = await Account.create({
@@ -27,6 +29,12 @@ router.post('/user-account/', async (req, res) => {
             }, { transaction: t });
             res.status(201).json(account);;
         });
+        try {
+            const hash = await argon2.hash("password");
+            console.log(hash);
+          } catch (err) {
+            //...
+          }
       } catch (err) {
         console.log(err);
         res.send(500);

@@ -6,16 +6,18 @@
   "scripts": {
     "start": "node api/app.js",
     "dev": "nodemon -r dotenv/config api/app.js",
-    "docker_dev": "nodemon --watch -L ./api/app.js",
+    "docker_dev": "nodemon --legacy-watch ./api/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm install && npm run build"
   },
   "author": "Edgardo Molina",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
+    "node-gyp": "^7.1.2",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.22.3",

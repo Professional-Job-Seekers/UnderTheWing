@@ -18,9 +18,8 @@ const { Post } = db;
 
 router.get('/', (req,res) => {
   Post.findAll({})
-    .then(posts => res.json(posts));
+    .then(posts => res.json(posts));  
 });
-
 
 router.post('/', (req, res) => {
   let { content } = req.body;

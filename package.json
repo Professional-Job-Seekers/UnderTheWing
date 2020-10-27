@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node api/app.js",
     "dev": "nodemon -r dotenv/config api/app.js",
+    "docker_dev": "nodemon --watch -L ./api/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm install && npm run build"
   },

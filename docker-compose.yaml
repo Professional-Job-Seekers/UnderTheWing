@@ -15,16 +15,17 @@ services:
       context: .
       dockerfile: ./api/Dockerfile
     volumes: 
-      - './api:/usr/app/api/'
+      - './api:/usr/app/api'
       - /usr/app/node_modules
-    command: npm run dev
+    command: npm run docker_dev
     ports:
       - "8000:8000"
     depends_on: 
       - postgres
     environment:
       PORT: 8000
-      NODE_ENV : docker
+      NODE_ENV: "docker"
+      CHOKIDAR_USEPOLLING: "true"
 
   client:
     build:
@@ -44,3 +45,4 @@ services:
           mode: host
     environment:
       PROXY: "http://server:8000"
+      CHOKIDAR_USEPOLLING: "true"

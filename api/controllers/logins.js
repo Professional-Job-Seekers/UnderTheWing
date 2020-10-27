@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { Account } = db;
-
-
-const loginController = require('./logins.js');
-router.use('/logins', loginController);
+const { Login } = db;
 
 
 

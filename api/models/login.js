@@ -3,55 +3,48 @@ const { Model } = require('sequelize');
 
 
 module.exports = (sequelize, DataTypes) => {
-  class Account extends Model {}
-  Account.init({
-    first_name: {
+  class Login extends Model {}
+  Login.init({
+    password_hash: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true,
       }
     },
-    last_name: {
+    password_salt: {
         type: DataTypes.STRING,
         allowNull: false,
         valdiate: {
             notEmpty: true,
         }
     },
-    username: {
-        type: DataTypes.STRING,
+    last_login: {
+        type: DataTypes.DATE,
         allowNull: false,
         validate: {
             notEmpty: true,
         }
     },
-    email : {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-            isEmail: true,
-        }
-    },
+    
   }, 
   {
     sequelize,
     createdAt: true,
-    modelName: 'Account',
+    modelName: 'Login',
   },
   {
     indexes: [
         {
             unique: true,
-            fields: ['username', 'email']
+            fields: []
         }
     ]
   });
 
-  Account.associate = (models) => {
-    models.Account.hasOne(models.Login);
+  Login.associate = (models) => {
+    // associations can be defined here
   };
 
-  return Account;
+  return Login;
 };

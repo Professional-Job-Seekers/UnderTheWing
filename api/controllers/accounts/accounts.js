@@ -1,5 +1,6 @@
 const express = require('express');
 const { sequelize } = require('../../models');
+const { Op } = require("sequelize");
 const router = express.Router();
 const db = require('../../models');
 var bcrypt = require('bcryptjs');
@@ -44,10 +45,24 @@ router.post('/user-account/', async (req, res) => {
 
 
 
-
-router.get('/:id', (req, res) => {
-
+router.get('/user/', async (req, res) => {
+	const username = req.query.username; 
+	console.log(username);
+	try{
+		const user = await Account.findOne({ 
+			where: { 
+				[Op.or]: [
+					{ "email": username },
+					{ "username": username } 
+				]} 
+			});
+		res.json(user);
+	} catch(err){
+		console.log(err);
+		res.sendStatus(404);
+	}
 });
+
 
 
 router.put('/:id', (req, res) => {

@@ -1,6 +1,5 @@
 version: '3.3'
 services:
-
   postgres:
     image: postgres:13.0-alpine
     ports:
@@ -15,16 +14,17 @@ services:
       context: .
       dockerfile: ./api/Dockerfile
     volumes: 
-      - './api:/usr/app/api/'
+      - './api:/usr/app/api'
       - /usr/app/node_modules
-    command: npm run dev
+    command: npm run docker_dev
     ports:
       - "8000:8000"
     depends_on: 
       - postgres
     environment:
       PORT: 8000
-      NODE_ENV : docker
+      NODE_ENV: "docker"
+      CHOKIDAR_USEPOLLING: "true"
 
   client:
     build:
@@ -32,8 +32,8 @@ services:
       dockerfile: ./Dockerfile
     stdin_open: true    
     volumes: 
-      - './client:/app/'
-      - /app/node_modules
+      - ./client:/usr/app/
+      - /usr/app/node_modules
     command: npm start
     depends_on: 
       - server
@@ -44,3 +44,4 @@ services:
           mode: host
     environment:
       PROXY: "http://server:8000"
+      CHOKIDAR_USEPOLLING: "true"

@@ -1,7 +1,7 @@
-const proxy = require("http-proxy-middleware");
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-target_server = process.env.PROXY ||  "http://localhost:8080/";
+let target_server = process.env.PROXY ||  "http://localhost:8080/";
 
 module.exports = app => {
-  app.use(proxy("/api/*", { target: target_server }));
+  app.use("/api/*", createProxyMiddleware({ target: target_server ,changeOrigin: true}));
 }

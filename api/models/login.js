@@ -38,7 +38,11 @@ module.exports = (sequelize, DataTypes) => {
 
   Login.associate = (models) => {
     // associations can be defined here
-    Login.belongsTo(models.Account);
+    Login.belongsTo(models.Account,{
+        foreignKey: {
+          allowNull: false
+      }
+    });
   };
 
   return Login;

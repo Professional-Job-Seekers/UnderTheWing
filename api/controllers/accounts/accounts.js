@@ -33,7 +33,7 @@ router.post('/user-account/', async (req, res) => {
 			new_user = await Account.create(user, { transaction: txn });
 			hashedPassword = await bcrypt.hash(password, saltRounds);
 			Login.create({
-				"userId": new_user.Id,
+				"AccountId": new_user.id,
 				"password_hash": hashedPassword,
 			});
 		});
@@ -63,17 +63,6 @@ router.get('/user/', async (req, res) => {
 	}
 });
 
-
-
-router.put('/:id', (req, res) => {
-
-});
-
-
-router.delete('/:id', (req, res) => {
-
-
-});
 
 
 module.exports = router;

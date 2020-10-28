@@ -1,4 +1,7 @@
-# Ignore everything
+.dockerignore
+.git
+.gitignore
+**/node_modules
 *
 
 # Allow files and directories

@@ -1,6 +1,5 @@
 version: '3.3'
 services:
-
   postgres:
     image: postgres:13.0-alpine
     ports:
@@ -16,7 +15,7 @@ services:
       dockerfile: ./api/Dockerfile
     volumes: 
       - './api:/usr/app/api'
-      - /usr/app/node_modules/
+      - /usr/app/node_modules
     command: npm run docker_dev
     ports:
       - "8000:8000"
@@ -33,8 +32,8 @@ services:
       dockerfile: ./Dockerfile
     stdin_open: true    
     volumes: 
-      - './client:/app/'
-      - /app/node_modules/
+      - ./client:/usr/app/
+      - /usr/app/node_modules
     command: npm start
     depends_on: 
       - server

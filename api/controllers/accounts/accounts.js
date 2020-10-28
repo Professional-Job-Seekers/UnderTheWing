@@ -2,9 +2,9 @@ const express = require('express');
 const { sequelize } = require('../../models');
 const router = express.Router();
 const db = require('../../models');
+var bcrypt = require('bcryptjs');
 const { Account } = db;
 const { Login } = db;
-
 
 /*
 * User login validation logic.
@@ -17,29 +17,32 @@ router.get('/', (req,res) => {
 });
 
 router.post('/user-account/', async (req, res) => {
-    let postParams  = req.body;
-    
+	const saltRounds = 10;
+	let new_user, hashedPassword;
+	let postParams  = req.body;
+	let password = req.body["password"];
+	let user = {
+		"first_name": postParams['first_name'],
+		"last_name": postParams['last_name'],
+		"username": postParams['username'],
+		"email": postParams['email']
+	};
     try {
-        const result = await sequelize.transaction(async (t) => {
-            const account = await Account.create({
-                first_name: postParams['first_name'],
-                last_name: postParams['last_name'],
-                username: postParams['username'],
-                email: postParams['email'],
-            }, { transaction: t });
-            res.status(201).json(account);;
-        });
-        try {
-            const hash = await argon2.hash("password");
-            console.log(hash);
-          } catch (err) {
-            //...
-          }
-      } catch (err) {
+    	const result = await sequelize.transaction(async (txn) => {
+			new_user = await Account.create(user, { transaction: txn });
+			hashedPassword = await bcrypt.hash(password, saltRounds);
+			Login.create({
+				"userId": new_user.Id,
+				"password_hash": hashedPassword,
+			});
+		});
+		res.json(new_user);
+	} catch (err) {
         console.log(err);
-        res.send(500);
-      }
+		res.send(500);}
 });
+
+
 
 
 router.get('/:id', (req, res) => {

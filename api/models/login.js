@@ -12,21 +12,15 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    password_salt: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        valdiate: {
-            notEmpty: true,
-        }
-    },
     last_login: {
         type: DataTypes.DATE,
         allowNull: false,
+        defaultValue: DataTypes.NOW,
         validate: {
             notEmpty: true,
         }
     },
-    
+  
   }, 
   {
     sequelize,
@@ -44,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Login.associate = (models) => {
     // associations can be defined here
+    Login.belongsTo(models.Account);
   };
 
   return Login;

@@ -13,18 +13,18 @@
 
 ### Login
 
-![Alt text](wireframes/views/login-view.png?raw=true "Account View")
+![Alt text](design/wireframes/views/account-view.png?raw=true "Account View")
 
 ### Accounts
 
-![Alt text](wireframes/views/account-view.png?raw=true "Account View")
+![Alt text](design/wireframes/views/account-view.png?raw=true "Account View")
 
 ### Scheduling
 
-![Alt text](wireframes/views/scheduling-view.png?raw=true "Account View")
+![Alt text](design/wireframes/views/scheduling-view.png?raw=true "Account View")
 
 ## Models
 
 ### Schema
 
-![Alt text](models/schema.png?raw=true "Schema")
+![Alt text](design/models/schema.png?raw=true "Schema")

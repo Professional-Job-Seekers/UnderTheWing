@@ -74,7 +74,7 @@ export default class Register extends Component {
               type="lastName"
               name="lastName"
               placeholder="Lastname"
-              value={this.state.firstName}
+              value={this.state.lastName}
               onChange={this.handleChange}
               required
             />

@@ -6,6 +6,7 @@
   - [Login](#login)
   - [Accounts](#accounts)
   - [Scheduling](#scheduling)
+  - [Pathways](#pathways)
 - [Models](#models)
   - [Schema](#schema)
 
@@ -13,7 +14,7 @@
 
 ### Login
 
-![Alt text](design/wireframes/views/account-view.png?raw=true "Account View")
+![Alt text](design/wireframes/views/login-view.png?raw=true "Account View")
 
 ### Accounts
 
@@ -22,6 +23,10 @@
 ### Scheduling
 
 ![Alt text](design/wireframes/views/scheduling-view.png?raw=true "Account View")
+
+### Pathways
+
+![Alt text](design/wireframes/views/pathways-view.png?raw=true "Account View")
 
 ## Models
 

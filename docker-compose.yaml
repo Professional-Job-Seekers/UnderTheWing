@@ -32,7 +32,7 @@ services:
       dockerfile: ./Dockerfile
     stdin_open: true    
     volumes: 
-      - ./client:/usr/app/
+      - ./client:/usr/app
       - /usr/app/node_modules
     command: npm start
     depends_on: 
@@ -42,6 +42,9 @@ services:
           published: 4960
           protocol: tcp
           mode: host
+    # If all else fails: SKIP_PREFLIGHT_CHECK: "true"
+
+    # npm ci
     environment:
       PROXY: "http://server:8000"
       CHOKIDAR_USEPOLLING: "true"

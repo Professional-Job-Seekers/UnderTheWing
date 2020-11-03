@@ -1,7 +1,7 @@
 const db = require('../../models');
 const { Account } = db;
 const { sequelize } = require('../../models');
-const { Op } = require("sequelize");
+const { Op, Model } = require("sequelize");
 const { Login } = db;
 const bcrypt = require('bcryptjs');
 
@@ -23,7 +23,7 @@ async function findUser(username){
 }
 
 async function createUser(user, password, saltRounds=10){
-    let new_user = null;
+	let new_user = null, hashedPassword = null;
     try {
         const result = await sequelize.transaction(async (txn) => {
 			new_user = await Account.create(user, { transaction: txn });
@@ -41,5 +41,34 @@ async function createUser(user, password, saltRounds=10){
 
 }
 
+async function getHashedPassword(userId){
+	let hashedPassword = null; 
+	try{
+		const login = await Login.findOne({
+            where:{
+                "AccountId":  userId,
+            }
+		});
+		hashedPassword = login.password_hash;
+	}catch(err){
+		console.log(err)
+		return null;
+	}
+	return hashedPassword;
+}
+
+async function findUserByPK(userId){
+	let user = null;
+	try{
+		user = await Account.findByPk(userId);
+	}catch(err){
+		console.log(err);
+		return null;
+	}
+	return user; 
+}
+
 module.exports.findUser = findUser;
 module.exports.createUser = createUser;
+module.exports.getHashedPassword = getHashedPassword;
+module.exports.findUserByPK = findUserByPK;

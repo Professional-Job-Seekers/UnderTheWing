@@ -24,6 +24,7 @@ services:
     environment:
       PORT: 8000
       NODE_ENV: "docker"
+      SESSION_SECRET: "fa6312l3&0pzjcq#x3sadopgllurz#wknu*s=o#63ouv^entei"
       CHOKIDAR_USEPOLLING: "true"
 
   client:

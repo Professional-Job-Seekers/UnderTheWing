@@ -17,10 +17,9 @@ router.get('/', async (req, res)=>{
         console.log(err);
         res.sendStatus(500);
     }
-    const is_mentee = exists == 1;
     let response = {
         "status": 200, 
-        "is_mentee": is_mentee    
+        "is_mentee": exists    
     };
     res.json(response); 
 });
@@ -31,7 +30,21 @@ router.get('/', async (req, res)=>{
 */
 
 router.post('/', async (req, res) =>{
-
+    const username = req.body.username;
+    let user = null, mentee = null, exists = null;
+    try{
+        user = await accountQueries.findUser(username);
+        mentee = await menteeQueries.setAsMentee(user.id);
+        exists = mentee != null;
+    }catch(err){
+        console.log(err);
+        res.sendStatus(500);
+        return;
+    }
+    console.log(mentee);
+    res.status(200).json({
+        "is_mentee": exists    
+    });
 });
 
 

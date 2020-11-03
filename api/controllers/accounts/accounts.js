@@ -2,13 +2,24 @@ const express = require('express');
 const router = express.Router();
 const accountQueries = require('./queries');
 
-/*
-* User login validation logic.
-*/
+/***************************************************************************************************
+ ******************************************* Re-Routing ********************************************
+ ***************************************************************************************************/
+
 const loginController = require('./logins.js');
 router.use('/logins', loginController);
 
-router.get('/', (req,res) => {
+const menteeController = require('../mentees/mentees.js');
+router.use('/mentee', menteeController);
+
+const mentorController = require('../mentors/mentors.js');
+router.use('/mentor', mentorController);
+
+/***************************************************************************************************
+ ***************************************** Account Routing *****************************************
+ ***************************************************************************************************/
+
+ router.get('/', (req,res) => {
     res.send(201);
 });
 

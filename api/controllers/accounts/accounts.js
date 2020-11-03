@@ -1,65 +1,65 @@
 const express = require('express');
-const { sequelize } = require('../../models');
-const { Op } = require("sequelize");
 const router = express.Router();
-const db = require('../../models');
-var bcrypt = require('bcryptjs');
-const { Account } = db;
-const { Login } = db;
+const accountQueries = require('./queries');
 
-/*
-* User login validation logic.
-*/
+/***************************************************************************************************
+ ******************************************* Re-Routing ********************************************
+ ***************************************************************************************************/
+
 const loginController = require('./logins.js');
 router.use('/logins', loginController);
 
-router.get('/', (req,res) => {
+const menteeController = require('../mentees/mentees.js');
+router.use('/mentee', menteeController);
+
+const mentorController = require('../mentors/mentors.js');
+router.use('/mentor', mentorController);
+
+/***************************************************************************************************
+ ***************************************** Account Routing *****************************************
+ ***************************************************************************************************/
+
+ router.get('/', (req,res) => {
     res.send(201);
 });
 
 router.post('/user-account/', async (req, res) => {
-	const saltRounds = 10;
-	let new_user, hashedPassword;
-	let postParams  = req.body;
-	let password = req.body["password"];
+	const password = req.body.password;
+	let new_user;
 	let user = {
-		"first_name": postParams['first_name'],
-		"last_name": postParams['last_name'],
-		"username": postParams['username'],
-		"email": postParams['email']
+		"first_name": req.body.first_name,
+		"last_name": req.body.last_name,
+		"username": req.body.username,
+		"email": req.body.email
 	};
     try {
-    	const result = await sequelize.transaction(async (txn) => {
-			new_user = await Account.create(user, { transaction: txn });
-			hashedPassword = await bcrypt.hash(password, saltRounds);
-			Login.create({
-				"AccountId": new_user.id,
-				"password_hash": hashedPassword,
-			});
-		});
-		res.json(new_user);
+    	new_user = await accountQueries.createUser(user, password);
+		if(new_user){
+			res.status(200).json(new_user);
+		} else{
+			res.sendStatus(500);
+		}
 	} catch (err) {
         console.log(err);
-		res.send(500);}
+		res.sendStatus(500);
+	}
 });
-
 
 
 router.get('/user/', async (req, res) => {
 	const username = req.query.username; 
-	console.log(username);
+	let user = null;
 	try{
-		const user = await Account.findOne({ 
-			where: { 
-				[Op.or]: [
-					{ "email": username },
-					{ "username": username } 
-				]} 
-			});
-		res.json(user);
+		user = await accountQueries.findUser(username);
+		console.log(user);
+		if(user){
+			res.status(200).json(user);
+		} else{
+			res.sendStatus(404);
+		}
 	} catch(err){
 		console.log(err);
-		res.sendStatus(404);
+		res.sendStatus(500);
 	}
 });
 

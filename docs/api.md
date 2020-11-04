@@ -6,3 +6,4 @@
 - [Accounts API](./api/accounts.md)
 - [Mentors API](./api/mentors.md)
 - [Mentees API](./api/mentees.md)
+- [Pathways](./api/pathways.md)

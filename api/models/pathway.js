@@ -8,9 +8,6 @@ module.exports = (sequelize, DataTypes) => {
 		title: {
     	type: DataTypes.STRING,
 		},
-		track: {
-    	type: DataTypes.STRING,
-		},
   },
   {
     sequelize,

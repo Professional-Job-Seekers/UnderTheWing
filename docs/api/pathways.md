@@ -1,4 +1,4 @@
-# Mentors
+# Pathways
 
 ## Create Pathway
 

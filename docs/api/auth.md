@@ -1,4 +1,4 @@
-# AUTH
+# Auth
 
 ## Signup
 

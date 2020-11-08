@@ -1,28 +1,46 @@
 import React, { Component } from "react";
-import Tabs from "../../components/Tabs"; 
-import '../../App.css';
-import { Button } from 'react-bootstrap'; // go back react bootstrap vid
+import Tabs from "../../components/Tabs";
+import Card from "../../Cards/CardUI";
+import SpotlightCard from "../../Cards/SpotlightCardUI";
 
+import "../../App.css";
 
 export default class Pathway extends Component {
- 
+  // constructor(props) {
+  //   super(props);
+
+  //   function Reasd(){
+
+  //   }
+
+  // }
 
   render() {
     return (
       <div>
-         <h1>Pathway</h1>
-         <Tabs> 
-       <div label="Gator"> 
-         See ya later, <em>Alligator</em>! 
-       </div> 
-       <div label="Croc"> 
-         After 'while, <em>Crocodile</em>! 
-       </div> 
-       <div label="Sarcosuchus"> 
-         Nothing to see here, this tab is <em>extinct</em>! 
-       </div> 
-     </Tabs> 
+        <div>
+          <h1>Pathway</h1>
+          <Tabs>
+            <div label="Scientific Researcher">
+              <Card></Card>
+            </div>
+            <div label="Software Development">
+              <Card></Card>
+            </div>
+            <div label="Engineer">
+              <Card></Card>
+            </div>
+            <div label="Mathematician">
+              <Card></Card>
+            </div>
+          </Tabs>
+        </div>
 
+        <div class="">
+          <div>
+            <SpotlightCard></SpotlightCard>
+          </div>
+        </div>
       </div>
     );
   }

@@ -16,6 +16,8 @@ export default class Tabs extends Component {
     this.state = {
       activeTab: this.props.children[0].props.label,
     };
+
+    
   }
 
   onClickTabItem = (tab) => {

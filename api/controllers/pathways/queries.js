@@ -2,7 +2,6 @@ const { Model } = require('sequelize');
 const db = require('../../models');
 const { Pathway } = db;
 const { PathwayTask } = db;
-const { PathwayCategory } = db;
 
 /***************************************************************************************************
  ******************************************** Searching ********************************************

@@ -6,10 +6,10 @@ const pathwayQueries = require('./queries');
  ******************************************* Re-Routing ********************************************
  ***************************************************************************************************/
 
-const creationController = require('./creationController');
-const progressController = require('./progressController');
-const commitController = require('./commitController');
-const updateController = require('./updateController');
+const creationController = require('./creation/controller');
+const progressController = require('./progress/controller');
+const commitController = require('./commit/controller');
+const updateController = require('./update/controller');
 router.use('/create', creationController);
 router.use('/commit', commitController);
 router.use('/update', updateController);

@@ -76,6 +76,43 @@ requires_review|optional| Default value is false.
 }
 ```
 
+## Commit User to Pathway
+
+### Route & Reqeust
+
+```POST``` : pathways/commit/
+
+### JSON Request Parameters
+
+**Param**|**-** |**Description**
+:-----:|:-----: |:-----:
+username|optional| If the user is logged in, then this parameter doesn't need to be passed. It is required if the user is not logged in.
+pathway|optional| Name of the pathway.
+
+### Sample JSON Request
+
+```JSON
+{
+    "username": "thedude",
+    "pathway" : "Ninja Cats"
+}
+```
+
+### Sample JSON Response
+
+```JSON
+{
+    "active_pathway": {
+        "status": "pending_start",
+        "id": 1,
+        "account_id": 1,
+        "pathway_id": 1,
+        "updatedAt": "2020-11-09T05:47:40.181Z",
+        "createdAt": "2020-11-09T05:47:40.181Z"
+    }
+}
+```
+
 ## Update Pathway Progress
 
 ### Route & Request

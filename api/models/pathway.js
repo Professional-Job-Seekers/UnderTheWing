@@ -1,7 +1,5 @@
 'use strict';
 const { Model } = require('sequelize');
-const pathwayCategory = require('./pathwayCategory');
-
 
 module.exports = (sequelize, DataTypes) => {
 	class Pathway extends Model {}

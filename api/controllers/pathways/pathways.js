@@ -25,6 +25,7 @@ router.get('/', async (req, res)=>{
   let pathway = null;
   try{
     pathway = await pathwayQueries.findPathway(pathway_title);
+
     if (!pathway){
         res.status(404).json({"msg": "Pathway not found !"});
         return;

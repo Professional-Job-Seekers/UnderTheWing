@@ -10,15 +10,34 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'pending_start',
       allowNull: false,
     },
+
   },
   {
+    indexes: [
+      {
+        unique: true,
+        fields: ['pathway_task_id', 'account_id'],
+      }
+    ],
     sequelize,
     modelName: 'ActivePathwayTask'
 });
 
   ActivePathwayTask.associate = (models) => {
-		models.Pathway.hasOne(models.PathwayTask);
-		models.Pathway.hasOne(models.Account);
+		models.ActivePathwayTask.belongsTo(models.PathwayTask,{
+      foreignKey: { 
+        name: "pathway_task_id",
+        field: "pathway_task_id",
+        allowNull: false 
+      }
+    });
+		models.ActivePathwayTask.belongsTo(models.Account,{
+      foreignKey: { 
+        name: "account_id",
+        field: "account_id",
+        allowNull: false 
+      }
+    });
   };
 
   return ActivePathwayTask;

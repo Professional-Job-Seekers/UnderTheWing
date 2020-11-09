@@ -7,6 +7,38 @@ const { PathwayTask } = db;
  ******************************************** Searching ********************************************
  ***************************************************************************************************/
 
+ async function getPathway(pathwayTitle){
+  let pathway = "";
+  try {
+    pathway = await Pathway.findOne({
+      where : {
+        "title": pathwayTitle
+      }
+    });
+  } catch(err){
+    console.log(err);
+    return null;
+  }
+  return pathway;
+}
+
+async function getPathwayTasks(pathwayId){
+  let tasks = null;
+  try {
+    tasks = await PathwayTask.findAll({
+      where  : {
+        "pathway_id" : pathwayId
+      }
+    });
+  } catch(err){
+    console.log(err);
+    return null;
+  }
+  return tasks;
+}
+
+
+
 async function findPathway(pathway_title){
   let pathway = "", tasks = [];
   try {
@@ -127,5 +159,7 @@ module.exports.addPathwayTask = addPathwayTask;
 module.exports.createPathway = createPathway;
 module.exports.updatePathwayProgress = updatePathwayProgress;
 module.exports.findPathway = findPathway;
+module.exports.getPathway = getPathway;
+module.exports.getPathwayTasks = getPathwayTasks;
 module.exports.createPathwayWithTasks = createPathwayWithTasks;
 module.exports.createPathwayWithTasksAndCategories = createPathwayWithTasksAndCategories;

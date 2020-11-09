@@ -12,13 +12,31 @@ module.exports = (sequelize, DataTypes) => {
     },
   },
   {
+    indexes: [
+      {
+        unique: true,
+        fields: ['pathway_id', 'account_id'],
+      }
+    ],
     sequelize,
     modelName: 'ActivePathway'
 });
 
   ActivePathway.associate = (models) => {
-		models.Pathway.hasOne(models.Pathway);
-		models.Pathway.hasOne(models.Account);
+		models.ActivePathway.belongsTo(models.Pathway, {
+      foreignKey: { 
+        name: "pathway_id",
+        field: "pathway_id",
+        allowNull: false 
+      }
+    });
+		models.ActivePathway.belongsTo(models.Account, {
+      foreignKey: { 
+        name: "account_id",
+        field: "account_id",
+        allowNull: false 
+      }
+    });
   };
 
   return ActivePathway;

@@ -1,5 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
+const pathwayCategory = require('./pathwayCategory');
 
 
 module.exports = (sequelize, DataTypes) => {
@@ -7,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
 	Pathway.init({
 		title: {
     	type: DataTypes.STRING,
+      unique: true,
+      allowNull: false, 
 		},
   },
   {
@@ -16,8 +19,9 @@ module.exports = (sequelize, DataTypes) => {
 
   Pathway.associate = (models) => {
 		models.Pathway.hasMany(models.PathwayTask);
-    // associations can be defined here
+		models.Pathway.hasMany(models.PathwayCategory);
   };
-
+  
   return Pathway;
 };
+

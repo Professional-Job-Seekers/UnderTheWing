@@ -7,7 +7,16 @@ module.exports = (sequelize, DataTypes) => {
 	PathwayTask.init({
 		title: {
       type: DataTypes.STRING,
-		},
+    },
+    sequence : {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    requires_review :{
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    }
   },
   {
     sequelize,
@@ -21,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false 
       }
     });
-    // associations can be defined here
+    models.PathwayTask.hasMany(models.TaskCategory,{});
   };
 
   return PathwayTask;

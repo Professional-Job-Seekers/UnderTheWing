@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const pathwayQueries = require('./queries');
 
+/***************************************************************************************************
+ ***************************************** Pathway Routing *****************************************
+ ***************************************************************************************************/
 
 router.get('/', async (req, res)=>{
     const pathway_title = req.query.pathway;
@@ -37,12 +40,30 @@ router.post('/create', async (req, res, next) =>{
     }
 });
 
-router.post('/create', async (req, res) =>{
+router.post('/create', async (req, res, next) =>{
+    if(req.body.categories){
+        return next();
+    }
     const pathway = req.body.title;
     const tasks =  req.body.tasks;
     let newPathway = null; 
     try{
         newPathway = await pathwayQueries.createPathwayWithTasks(pathway, tasks);
+        console.log(newPathway);
+        res.status(200).json(newPathway);
+    }catch(err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+});
+
+router.post('/create', async (req, res) =>{
+    const pathway = req.body.title;
+    const tasks =  req.body.tasks;
+    const categories =  req.body.categories;
+    let newPathway = null; 
+    try{
+        newPathway = await pathwayQueries.createPathwayWithTasksAndCategories(pathway, tasks, categories);
         console.log(newPathway);
         res.status(200).json(newPathway);
     }catch(err){

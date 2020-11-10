@@ -1,0 +1,52 @@
+/* recent projects wrapper */
+.recent-projects {
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-flow: row;
+  padding-bottom: 20px;
+}
+
+/* perfect scrollbar always visible */
+.recent-projects > .ps__rail-x {
+  opacity: 0.6;
+}
+
+/* project create card */
+.recent-project-card-create > .ant-card-body {
+  height: 100%;
+  padding: 0;
+}
+
+/* recent project card */
+.recent-project-card {
+  min-width: 250px;
+  /* project card: spacing between card  */
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+/* hover animation on project card */
+.recent-project-card:hover {
+  background-color: #d9d9d940;
+  cursor: pointer;
+}
+
+/* recent project card: onclick */
+.recent-project-card:active {
+  background-color: #d9d9d980;
+}
+
+/* recent project card (leftmost card) */
+.recent-project-card:first-child {
+  margin-left: 16px;
+}
+
+/* recet project card: desription */
+.recent-project-card p {
+  margin-bottom: 0;
+}
+
+.recent-project-card > .ant-card-actions > li {
+  margin: 0;
+}

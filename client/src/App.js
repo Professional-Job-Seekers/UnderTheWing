@@ -12,6 +12,12 @@ import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import Login from './views/Accounts/LoginPage';
 import Register from './views/Accounts/RegisterPage';
+import Pathway from './views/PathwayPath/PathwayPage';
+import Events from './views/NetworkingMeetups/EventCalender';
+// import HomeSchedule from './views/NetworkingMeetups/homeSchedule';
+// import { Button } from 'react-bootstrap';
+
+
 
 
 import './App.css';
@@ -43,7 +49,16 @@ function Navigation(props) {
            Registration
           </NavLink>
         </li> 
-      
+        <li className="nav-item"> 
+          <NavLink className="nav-link" exact to="/pathway">
+          Pathway
+          </NavLink>
+        </li> 
+        <li className="nav-item"> 
+          <NavLink className="nav-link" exact to="/event">
+          Events
+          </NavLink>
+        </li> 
       </ul>
     </nav>
   );
@@ -63,6 +78,12 @@ class App extends React.Component {
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route exact path ="/login" component={Login}/>
                 <Route exact path ="/register" component={Register}/>
+                <Route exact path ="/pathway" component={Pathway}/>
+                <Route exact path ="/event" component={Events}/>
+                {/* <Route exact path ="/event" component={HomeSchedule}/> */}
+
+
+
                 <Route path="/" component={PostsListPage} />
               </Switch>
             </div>

@@ -48,4 +48,5 @@ services:
     # npm ci
     environment:
       PROXY: "http://server:8000"
+      SKIP_PREFLIGHT_CHECK: "true"
       CHOKIDAR_USEPOLLING: "true"

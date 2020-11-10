@@ -9,7 +9,7 @@ async function commitUserToPathway(userId, pathwayId){
       "account_id": userId,     
       "pathway_id": pathwayId,
     });
-    await createActivePathwayTasks(userId, pathwayId);
+    await createActivePathwayTasks(userId, pathwayId, activePathway.id);
     return {
       "active_pathway" : activePathway,
     };
@@ -19,13 +19,14 @@ async function commitUserToPathway(userId, pathwayId){
   }
 }
 
-async function createActivePathwayTasks(userId, pathwayId){
+async function createActivePathwayTasks(userId, pathwayId, activePathwayId){
   try {
     const tasks = await pathwayQueries.getPathwayTasks(pathwayId);
     const activeTaskListJob = tasks.map( function (task) {
       return { 
         "pathway_task_id" : task.id,
-        "account_id" : userId
+        "account_id" : userId,
+        "active_pathway_id" : activePathwayId
       }
     });
     return await ActivePathwayTask.bulkCreate(activeTaskListJob);

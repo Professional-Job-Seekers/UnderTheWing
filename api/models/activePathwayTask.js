@@ -31,6 +31,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false 
       }
     });
+    models.ActivePathwayTask.belongsTo(models.ActivePathway, {
+      foreignKey: {
+        name: "active_pathway_id",
+        field: "active_pathway_id",
+        allowNull: false 
+      }
+    });
 		models.ActivePathwayTask.belongsTo(models.Account,{
       foreignKey: { 
         name: "account_id",

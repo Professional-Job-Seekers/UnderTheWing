@@ -1,4 +1,81 @@
-# Pathways
+# Pathways <!-- omit in toc -->
+
+## Table Of Contents <!-- omit in toc -->
+
+- [Get Pathway](#get-pathway)
+  - [Route & Request](#route--request)
+  - [Query Request Parameters](#query-request-parameters)
+  - [Sample Request](#sample-request)
+  - [Sample Response JSON](#sample-response-json)
+- [Create Pathway](#create-pathway)
+  - [Route & Request](#route--request-1)
+  - [JSON Request Parameters](#json-request-parameters)
+  - [Sample Request JSON](#sample-request-json)
+  - [Sample Response JSON](#sample-response-json-1)
+- [Commit User to Pathway](#commit-user-to-pathway)
+  - [Route & Reqeust](#route--reqeust)
+  - [JSON Request Parameters](#json-request-parameters-1)
+  - [Sample JSON Request](#sample-json-request)
+  - [Sample JSON Response](#sample-json-response)
+- [Get Active Pathway for a User](#get-active-pathway-for-a-user)
+  - [Route & Request](#route--request-2)
+  - [Query Request Parameters](#query-request-parameters-1)
+  - [Sample GET Request Without Scope](#sample-get-request-without-scope)
+  - [Sample Response Without Scope](#sample-response-without-scope)
+  - [Sample GET Request With Scope](#sample-get-request-with-scope)
+  - [Sample Response With Scope](#sample-response-with-scope)
+- [Update Pathway Task Progress](#update-pathway-task-progress)
+  - [Route & Request](#route--request-3)
+  - [JSON Request Parameters](#json-request-parameters-2)
+  - [Sample JSON Request](#sample-json-request-1)
+  - [Sample JSON Request ads](#sample-json-request-ads)
+
+## Get Pathway
+
+### Route & Request
+
+```GET``` : pathways/
+
+### Query Request Parameters
+
+**Param**|**-** |**Description**
+:-----:|:-----: |:-----:
+pathway|required| The name of the pathway.
+
+### Sample Request
+
+```GET:``` pathways/?pathway=Ninja%20Cats
+
+### Sample Response JSON
+
+``` JSON
+{
+    "pathway": {
+        "id": 1,
+        "title": "Ninja Cats",
+        "tasks": [
+            {
+                "id": 1,
+                "title": "sneaking",
+                "sequence": 1,
+                "requires_review": false,
+                "createdAt": "2020-11-09T00:25:01.130Z",
+                "updatedAt": "2020-11-09T00:25:01.130Z",
+                "PathwayId": 1
+            },
+            {
+                "id": 2,
+                "title": "eating",
+                "sequence": 2,
+                "requires_review": false,
+                "createdAt": "2020-11-09T00:25:01.130Z",
+                "updatedAt": "2020-11-09T00:25:01.130Z",
+                "PathwayId": 1
+            }
+        ]
+    }
+}
+```
 
 ## Create Pathway
 
@@ -113,66 +190,112 @@ pathway|optional| Name of the pathway.
 }
 ```
 
-## Update Pathway Progress
+## Get Active Pathway for a User
 
 ### Route & Request
 
-```POST``` : pathways/update/
-
-### JSON Request Parameters
-
-**Param**|**-** |**Description**
-:-----:|:-----: |:-----:
-pathway|required| The name of the pathway.
-tasks|required| Array of json tasks to assign to pathway.
-
-### JSON Request Parameters
-
-### Sample JSON Response
-
-## Get Pathway
-
-### Route & Request
-
-```GET``` : pathways/
+```GET``` : pathways/progress/
 
 ### Query Request Parameters
 
 **Param**|**-** |**Description**
 :-----:|:-----: |:-----:
 pathway|required| The name of the pathway.
+username|optional| If the user is logged in, then this parameter doesn't need to be passed. It is required if the user is not logged in.
+scope|optional| Set scope to 'all' to get all active user pathways.
 
-### Sample Request
+### Sample GET Request Without Scope
 
-```GET:``` pathways/?pathway=Ninja%20Cats
+```pathways/progress/?username=thedude&pathway=Ninja Cats```
 
-### Sample Response JSON
+### Sample Response Without Scope
 
-``` JSON
+```JSON
 {
-    "pathway": {
-        "id": 1,
-        "title": "Ninja Cats",
+    "pathway_id": 1,
+    "pathway": "Ninja Cats",
+    "tasks": [
+        {
+            "id": 1,
+            "title": "sneaking",
+            "sequence": 1,
+            "requires_review": false,
+            "createdAt": "2020-11-10T03:48:59.831Z",
+            "updatedAt": "2020-11-10T03:48:59.831Z",
+            "PathwayId": 1,
+            "status": "pending_start"
+        },
+        {
+            "id": 2,
+            "title": "eating",
+            "sequence": 2,
+            "requires_review": false,
+            "createdAt": "2020-11-10T03:48:59.831Z",
+            "updatedAt": "2020-11-10T03:48:59.831Z",
+            "PathwayId": 1,
+            "status": "pending_start"
+        }
+    ]
+}
+```
+
+### Sample GET Request With Scope
+
+```pathways/progress/?username=thedude&pathway=Ninja Cats&scope=all```
+
+### Sample Response With Scope
+
+```JSON
+[
+    {
+        "pathway": "Ninja Cats",
         "tasks": [
             {
                 "id": 1,
                 "title": "sneaking",
                 "sequence": 1,
                 "requires_review": false,
-                "createdAt": "2020-11-09T00:25:01.130Z",
-                "updatedAt": "2020-11-09T00:25:01.130Z",
-                "PathwayId": 1
+                "createdAt": "2020-11-10T03:48:59.831Z",
+                "updatedAt": "2020-11-10T03:48:59.831Z",
+                "PathwayId": 1,
+                "status": "pending_start"
             },
             {
                 "id": 2,
                 "title": "eating",
                 "sequence": 2,
                 "requires_review": false,
-                "createdAt": "2020-11-09T00:25:01.130Z",
-                "updatedAt": "2020-11-09T00:25:01.130Z",
-                "PathwayId": 1
+                "createdAt": "2020-11-10T03:48:59.831Z",
+                "updatedAt": "2020-11-10T03:48:59.831Z",
+                "PathwayId": 1,
+                "status": "pending_start"
             }
         ]
     }
-}
+]
+```
+
+## Update Pathway Task Progress
+
+### Route & Request
+
+```POST``` : pathways/progress/update
+
+### JSON Request Parameters
+
+**Param**|**-** |**Description**
+:-----:|:-----: |:-----:
+task_id|required| ID of the task to update.
+status|required| Any value from: ['completed','skipped','under_review', 'pending_start', 'pending_review', 'in_progress']
+
+### Sample JSON Request
+
+```JSON
+
+```
+
+### Sample JSON Request ads
+
+```JSON
+
 ```

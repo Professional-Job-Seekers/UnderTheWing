@@ -1,8 +1,12 @@
+const { Model } = require('sequelize');
 const db = require('../../../models');
 const {ActivePathway} = db;
 const {ActivePathwayTask} = db;
 const {Pathway} = db;
 
+/***************************************************************************************************
+ **************************************** Progress Getters *****************************************
+ ***************************************************************************************************/
 
 async function getUserPathwayTasks(userId, pathwayId){
     try {
@@ -31,6 +35,27 @@ async function getAllActiveUserPathwaysAndTasks(userId){
 }
 
 /***************************************************************************************************
+ **************************************** Progress Mutators ****************************************
+ ***************************************************************************************************/
+
+ async function updateActiveTaskStatus(taskId, newStatus){
+    try {
+        const activeTask = await ActivePathwayTask.findByPk(taskId);
+        activeTask.status = newStatus;
+        activeTask.save();
+        return {
+            "task_id": activeTask.id,
+            "status": activeTask.status,
+            "msg": "Successfully Updated!"
+        };
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+ }
+
+
+/***************************************************************************************************
  ***************************************** Helper/Private ******************************************
  ***************************************************************************************************/
 
@@ -55,6 +80,7 @@ async function composeTasksFromActiveTasks(activePathwayTasks){
     return await Promise.all(activePathwayTasks.map( async function (activeTask) {
         let task = await activeTask.getPathwayTask();
         task.dataValues.status = activeTask.status;
+        task.id = activeTask.id;
         return task;
     }));
 }
@@ -73,3 +99,4 @@ async function getAllActivePathwaysForUser(userId){
 
 module.exports.getUserPathwayTasks = getUserPathwayTasks;
 module.exports.getAllActiveUserPathwaysAndTasks = getAllActiveUserPathwaysAndTasks;
+module.exports.updateActiveTaskStatus = updateActiveTaskStatus;

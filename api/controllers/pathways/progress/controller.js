@@ -35,7 +35,20 @@ router.get('/', async (req, res) =>{
     }
 });
 
+/***************************************************************************************************
+ ********************************************* Update **********************************************
+ ***************************************************************************************************/
 
-
+ router.post('/update', async (req, res) => {
+    try {
+        const activeTaskId = req.body.task_id;
+        const newStatus =  req.body.new_status;
+        const response = await progressQueries.updateActiveTaskStatus(activeTaskId, newStatus);
+        res.status(200).json(response);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+ });
 
 module.exports = router;

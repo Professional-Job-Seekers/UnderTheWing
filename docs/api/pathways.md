@@ -286,16 +286,22 @@ scope|optional| Set scope to 'all' to get all active user pathways.
 **Param**|**-** |**Description**
 :-----:|:-----: |:-----:
 task_id|required| ID of the task to update.
-status|required| Any value from: ['completed','skipped','under_review', 'pending_start', 'pending_review', 'in_progress']
+new_status|required| Any value from: ['completed','skipped','under_review', 'pending_start', 'pending_review', 'in_progress']
 
 ### Sample JSON Request
 
 ```JSON
-
+{
+    "task_id": 1,
+    "new_status": "completed"
+}
 ```
 
 ### Sample JSON Request ads
 
 ```JSON
-
+{
+    "task_id": 1,
+    "status": "completed"
+}
 ```

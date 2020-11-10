@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Tabs from "../../components/Tabs";
-import Card from "../../Cards/CardUI";
+import Card from "../../Cards/Cards";
 import SpotlightCard from "../../Cards/SpotlightCardUI";
 
 import "../../App.css";
@@ -14,11 +14,24 @@ export default class Pathway extends Component {
   //   }
 
   // }
+  // can import cards from bootstrap too 
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="container">
+
+      {/* <div className="container"> */}
+            <div className="row-fluid  ">
+        <div className="card text-white bg-dark mb-3 col">
+            <SpotlightCard></SpotlightCard>
+          </div>
+        {/* </div> */}
+      {/* </div> */}
+      {/* <div className="container"> */}
+        {/* <div className="row-fluid"> */}
+         
+          <div className="col">
+
           <h1>Pathway</h1>
           <Tabs>
             <div label="Scientific Researcher">
@@ -34,14 +47,13 @@ export default class Pathway extends Component {
               <Card></Card>
             </div>
           </Tabs>
-        </div>
-
-        <div class="">
-          <div>
-            <SpotlightCard></SpotlightCard>
           </div>
+
         </div>
+    
+      {/* </div> */}
       </div>
+
     );
   }
 }

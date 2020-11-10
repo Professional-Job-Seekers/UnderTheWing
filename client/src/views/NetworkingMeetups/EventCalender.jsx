@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import "../../Style/card-style.css"
+
 
 export default class Events extends Component {
   constructor(props) {

@@ -5,9 +5,9 @@ import React from 'react';
 
 const CardSpot = props => {
     return (
-        <div className="cardspot text-center">
+        <div className="cardspot text-center shadow  ">
             <h1> Spotlight </h1>
-            <div className="overflow">
+            <div className="overflow   ">
             </div>
         </div>    
         

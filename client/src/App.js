@@ -15,7 +15,7 @@ import Register from './views/Accounts/RegisterPage';
 import Pathway from './views/PathwayPath/PathwayPage';
 import Events from './views/NetworkingMeetups/EventCalender';
 // import HomeSchedule from './views/NetworkingMeetups/homeSchedule';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 
 
 

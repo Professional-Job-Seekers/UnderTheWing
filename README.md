@@ -11,8 +11,8 @@
   - [Project Structure](#project-structure)
 - [Dev Setup](#dev-setup)
   - [Create a postgres db](#create-a-postgres-db)
-- [Dev Setup with Docker](#dev-setup-with-docker)
   - [Running the app](#running-the-app)
+- [Dev Setup and Running the app with Docker](#dev-setup-and-running-the-app-with-docker)
 - [Deployment](#deployment)
   - [Setting up Heroku](#setting-up-heroku)
   - [Create a Heroku project](#create-a-heroku-project)
@@ -45,47 +45,147 @@ Under the Wing is a virtual mentoring platform that pairs college students & wor
 
 <pre>
 .
-├── README.md
-├── <strong>api</strong>
-│   ├── app.js
-│   ├── <strong>config</strong>
-│   │   └── config.json
-│   ├── <strong>controllers</strong>
-│   │   ├── appConfig.js
-│   │   ├── index.js
-│   │   └── posts.js
-│   └── <strong>models</strong>
-│       ├── index.js
-│       └── post.js
-├── <strong>client</strong>
-│   ├── README.md
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── <strong>public</strong>
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   ├── manifest.json
-│   │   └── robots.txt
-│   └── <strong>src</strong>
-│       ├── App.css
-│       ├── App.js
-│       ├── App.test.js
-│       ├── <strong>components</strong>
-│       │   ├── Loading.js
-│       │   └── Post.js
-│       ├── index.css
-│       ├── index.js
-│       ├── logo.svg
-│       ├── <strong>pages</strong>
-│       │   ├── AboutUsPage.js
-│       │   ├── PostFormPage.js
-│       │   ├── PostsListPage.js
-│       │   └── ShowPostPage.js
-│       └── serviceWorker.js
-├── package-lock.json
-└── package.json
+│   .dockerignore
+│   .env.example
+│   .gitignore
+│   docker-compose.yaml
+│   package-lock.json
+│   package.json
+│   README.md
+│
+├───api
+│   │   .dockerignore
+│   │   app.js
+│   │   Dockerfile
+│   │
+│   ├───config
+│   │       config.json
+│   │
+│   ├───controllers
+│   │   │   appConfig.js
+│   │   │   auth.js
+│   │   │   index.js
+│   │   │
+│   │   ├───accounts
+│   │   │       accounts.js
+│   │   │       queries.js
+│   │   │
+│   │   ├───mentees
+│   │   │       mentees.js
+│   │   │       queries.js
+│   │   │
+│   │   ├───mentors
+│   │   │       mentors.js
+│   │   │       queries.js
+│   │   │
+│   │   └───pathways
+│   │       │   pathways.js
+│   │       │   queries.js
+│   │       │
+│   │       ├───commit
+│   │       │       controller.js
+│   │       │       queries.js
+│   │       │
+│   │       ├───creation
+│   │       │       controller.js
+│   │       │       queries.js
+│   │       │
+│   │       ├───progress
+│   │       │       controller.js
+│   │       │       queries.js
+│   │       │
+│   │       └───update
+│   │               controller.js
+│   │               queries.js
+│   │
+│   ├───middlewares
+│   │       authentication.js
+│   │
+│   ├───migrations
+│   └───models
+│           account.js
+│           activePathway.js
+│           activePathwayTask.js
+│           index.js
+│           login.js
+│           mentee.js
+│           mentor.js
+│           pathway.js
+│           pathwayCategory.js
+│           pathwayTask.js
+│           taskCategory.js
+│
+├───client
+│   │   .dockerignore
+│   │   .gitignore
+│   │   Dockerfile
+│   │   package-lock.json
+│   │   package.json
+│   │   README.md
+│   │
+│   ├───public
+│   │       favicon.ico
+│   │       index.html
+│   │       logo192.png
+│   │       logo512.png
+│   │       manifest.json
+│   │       robots.txt
+│   │
+│   └───src
+│       │   App.css
+│       │   App.js
+│       │   App.test.js
+│       │   index.css
+│       │   index.js
+│       │   logo.svg
+│       │   serviceWorker.js
+│       │   setupProxy.js
+│       │
+│       ├───components
+│       │       Loading.js
+│       │       Post.js
+│       │
+│       ├───pages
+│       │       AboutUsPage.js
+│       │       PostFormPage.js
+│       │       PostsListPage.js
+│       │       ShowPostPage.js
+│       │
+│       └───views
+│           └───Accounts
+│                   LoginPage.js
+│                   RegisterPage.js
+│
+└───docs
+    │   api.md
+    │   design.md
+    │
+    ├───api
+    │       accounts.md
+    │       auth.md
+    │       mentee.md
+    │       mentors.md
+    │       pathways.md
+    │
+    └───design
+        ├───draw.io-src-files
+        │   ├───models
+        │   │       schema.drawio
+        │   │
+        │   └───views
+        │           account-view.drawio
+        │           login-view.drawio
+        │           scheduling-view.drawio
+        │
+        ├───models
+        │       schema.png
+        │
+        └───wireframes
+            └───views
+                    account-view.png
+                    login-view.png
+                    pathways-view.png
+                    scheduling-view.png
 </pre>
 
 ## Dev Setup
@@ -113,13 +213,6 @@ createdb -h localhost -U ctp_user app2019_development
 
 *For more details see this [installing postgres guide](https://github.com/CUNYTechPrep/ctp2019/blob/master/guides/installing-postgresql.md)*
 
-## Dev Setup with Docker
-
-```bash
-# From project root.
-docker-compose build && docker-compose up
-```
-
 ### Running the app
 
 For local development you will need two terminals open, one for the api-backend and another for the react-client.
@@ -144,6 +237,13 @@ npm start
 - react-client will launch at: [http://localhost:3000](http://localhost:3000)
 
 > In production you will only deploy a single app. The react client will build into static files that will be served from the backend.
+
+## Dev Setup and Running the app with Docker
+
+```bash
+# From project root.
+docker-compose build && docker-compose up
+```
 
 ## Deployment
 

@@ -1,4 +1,15 @@
-# Mentors API
+# Mentors API <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
+- [Set User as a Mentor](#set-user-as-a-mentor)
+  - [Route & Request](#route--request)
+  - [JSON Request Parameters](#json-request-parameters)
+  - [Sample Request JSON](#sample-request-json)
+  - [Sample JSON Response](#sample-json-response)
+- [Check if User Is a Mentor](#check-if-user-is-a-mentor)
+  - [Query Parameters](#query-parameters)
+  - [Sample JSON Response](#sample-json-response-1)
 
 ## Set User as a Mentor
 

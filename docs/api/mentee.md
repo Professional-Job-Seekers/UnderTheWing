@@ -1,4 +1,15 @@
-# Mentees API
+# Mentees API <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
+- [Set User as a Mentee](#set-user-as-a-mentee)
+  - [Route & Request](#route--request)
+  - [JSON Request Parameters](#json-request-parameters)
+  - [Sample Request Body JSON](#sample-request-body-json)
+  - [Sample JSON Response](#sample-json-response)
+- [Check if User Is a Mentee](#check-if-user-is-a-mentee)
+  - [Query Parameters](#query-parameters)
+  - [Sample JSON Response](#sample-json-response-1)
 
 ## Set User as a Mentee
 

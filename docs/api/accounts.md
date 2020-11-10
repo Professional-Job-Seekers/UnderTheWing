@@ -1,4 +1,11 @@
-# Accounts
+# Accounts <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
+- [Find Account](#find-account)
+  - [Request Parameters](#request-parameters)
+  - [Sample JSON Response](#sample-json-response)
+
 
 ## Find Account
 

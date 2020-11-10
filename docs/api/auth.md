@@ -1,4 +1,22 @@
-# AUTH
+# Auth <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
+- [Signup](#signup)
+  - [Route & Request](#route--request)
+  - [JSON Request Parameters](#json-request-parameters)
+  - [Sample Request JSON](#sample-request-json)
+  - [Sample JSON Response](#sample-json-response)
+- [Login](#login)
+  - [Route & Request](#route--request-1)
+  - [JSON Request Parameters](#json-request-parameters-1)
+  - [Sample Request JSON](#sample-request-json-1)
+  - [Sample JSON Response](#sample-json-response-1)
+- [Logout](#logout)
+  - [Route & Request](#route--request-2)
+  - [JSON Request Parameters](#json-request-parameters-2)
+  - [Sample Request JSON](#sample-request-json-2)
+  - [Sample JSON Response](#sample-json-response-2)
 
 ## Signup
 

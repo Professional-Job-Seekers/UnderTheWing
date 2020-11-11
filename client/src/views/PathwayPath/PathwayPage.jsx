@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-import Tabs from "../../components/Tabs";
-import Card from "../../Cards/Cards";
+import { BrowserRouter, Route} from 'react-router-dom';
+import ReactDOM from 'react-dom';
+
+import Tabs from "../../components/Tabs";import Card from "../../Cards/Cards";
 import SpotlightCard from "../../Cards/SpotlightCardUI";
+// import Pics from "../../assets/campaign-objective-icon.svg";
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import { Card } from 'react-bootstrap';
+
 
 import "../../App.css";
 
@@ -35,7 +41,14 @@ export default class Pathway extends Component {
           <h1>Pathway</h1>
           <Tabs>
             <div label="Scientific Researcher">
-              <Card></Card>
+            <Card>
+            {/* bootstrap wont display image */}
+              {/* <Card className="mb-3 card-img-top" style={{color: "#000"}}> */}
+               {/* <Card.Img src="../../assets/campaign-objective-icon.svg" /> */}
+               {/* <Card.Title>
+                gsgeg
+               </Card.Title>*/}
+              </Card> 
             </div>
             <div label="Software Development">
               <Card></Card>

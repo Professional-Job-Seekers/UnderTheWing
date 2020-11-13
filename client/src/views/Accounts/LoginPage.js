@@ -4,9 +4,8 @@ import { Button } from 'react-bootstrap';
 export default class Login extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      email: "",
+      username: "",
       password: "",
       loginErrors: "",
     };
@@ -22,28 +21,24 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit(event) {
-    // proably will use post
-    // eslint-disable-next-lineS
-    const { email, password, loginErrors } = this.state;
-
-    // SomethingLikeAnAPI.post("http://localhost:3000/login", {
-    //  user: {
-    //   email: email,
-    //   password: password,
-    //   password_Confirmation: password_Confirmation
-    //  }
-    // },
-    // {withCredentials: true}
-
-    // ).then(response=>{
-    //   console.log(`registration `)
-    //   .catch(error => {
-    //     console.log(`Registration error ${error}`)
-
-    //   });
-    // })
-
+async handleSubmit(event) {
+    event.preventDefault();
+    const { username, password, loginErrors } = this.state;
+    const loginRequestJSON = {
+      "username": username,
+      "password": password
+    };
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(loginRequestJSON)
+    };
+    try {
+      const response = await fetch('api/auth/login/', requestOptions);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
     event.preventDefault();
   }
 
@@ -54,15 +49,14 @@ export default class Login extends Component {
           <div className="">
             <input
               className="form-control"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
+              type="text"
+              name="username"
+              placeholder="Username or Email"
+              value={this.state.username}
               onChange={this.handleChange}
               required
             />
             <br/>           
-
             <input
               className="form-control"
               type="password"

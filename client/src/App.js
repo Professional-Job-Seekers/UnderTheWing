@@ -6,19 +6,14 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
-import PostsListPage from './pages/PostsListPage';
-import PostFormPage from './pages/PostFormPage';
-import ShowPostPage from './pages/ShowPostPage';
-import AboutUsPage from './pages/AboutUsPage';
 import Login from './views/Accounts/LoginPage';
 import Register from './views/Accounts/RegisterPage';
 import Pathway from './views/PathwayPath/PathwayPage';
 import Events from './views/NetworkingMeetups/EventCalender';
+import AboutUsPage from './pages/AboutUsPage';
+
 // import HomeSchedule from './views/NetworkingMeetups/homeSchedule';
 // import { Button } from 'react-bootstrap';
-
-
-
 
 import './App.css';
 
@@ -26,18 +21,8 @@ import './App.css';
 function Navigation(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand" to="/">Micro Blog</Link>
+      <Link className="navbar-brand" to="/">Under The Wing</Link>
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/new">
-            Create a Micro Post
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/about-us">
-            About Us
-          </NavLink>
-        </li>
         <li className="nav-item"> 
           {/* exact: bool When true, the active class/style will only be applied if the location is matched exactly. */}
           <NavLink className="nav-link" exact to="/login">
@@ -59,6 +44,11 @@ function Navigation(props) {
           Events
           </NavLink>
         </li> 
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/about-us">
+            About Us
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
@@ -73,18 +63,12 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-                <Route path="/posts/new" component={PostFormPage} />
-                <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route exact path ="/login" component={Login}/>
                 <Route exact path ="/register" component={Register}/>
                 <Route exact path ="/pathway" component={Pathway}/>
                 <Route exact path ="/event" component={Events}/>
                 {/* <Route exact path ="/event" component={HomeSchedule}/> */}
-
-
-
-                <Route path="/" component={PostsListPage} />
               </Switch>
             </div>
           </div>

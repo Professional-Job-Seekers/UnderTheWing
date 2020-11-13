@@ -5,7 +5,7 @@ const accountQueries = require('../../accounts/queries');
 const progressQueries = require('./queries');
 
 
-router.get('/', async (req, res, next) =>{
+router.get('/', async (req, res, next) => {
     if (req.query.scope === "all"){
         return next();
     }

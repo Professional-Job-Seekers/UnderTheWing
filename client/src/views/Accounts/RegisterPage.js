@@ -7,16 +7,9 @@ export default class Register extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      userName: "",
+      username: "",
       email: "",
-      email_Confirmation: "",
       password: "",
-      password_Confirmation: "",
-      passwordHash: "",
-      passwordSalt: "",
-      UserType: "",
-      company: "",
-      address: "",
       registrationErrors: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,33 +18,35 @@ export default class Register extends Component {
 
   handleChange(event) {
     console.log(`handle change ${event}`);
-
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
-  handleSubmit(event) {
-    // proably will use post
-    // eslint-disable-next-line
-    const {
-      firstName,
-      lastName,
-      userName,
-      email,
-      email_Confirmation,
-      password,
-      password_Confirmation,
-      passwordHash,
-      passwordSalt,
-      UserType, // add functionality to add more fields based on type
-      company,
-      address,
-      registrationErrors,
-    } = this.state;
-
-    console.log(`form submit`);
+  async handleSubmit(event) {
     event.preventDefault();
+    const { email, password, firstName, lastName, username, registrationErrors} = this.state;
+    const signupRequestJSON = {
+      "first_name": firstName,
+      "last_name": lastName,
+      "username": username,
+      "email": email,
+      "password": password
+    };
+    console.log(signupRequestJSON);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(signupRequestJSON)
+    };
+    try {
+      const response = await fetch('api/auth/signup/', requestOptions);
+      console.log(response);
+      alert();
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(`form submit`);
   }
 
   render() {
@@ -62,7 +57,7 @@ export default class Register extends Component {
               className="form-control"
               type="firstName"
               name="firstName"
-              placeholder="Firstname"
+              placeholder="First Name"
               value={this.state.firstName}
               onChange={this.handleChange}
               required
@@ -73,7 +68,7 @@ export default class Register extends Component {
               className="form-control"
               type="lastName"
               name="lastName"
-              placeholder="Lastname"
+              placeholder="Last Name"
               value={this.state.lastName}
               onChange={this.handleChange}
               required
@@ -82,25 +77,13 @@ export default class Register extends Component {
 
             <input
               className="form-control"
-              type="userName"
-              name="userName"
+              type="username"
+              name="username"
               placeholder="Username"
-              value={this.state.userName}
+              value={this.state.username}
               onChange={this.handleChange}
               required
             />
-
-            <br/>            
-
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Select UserType</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Pick User</option>
-                <option>Mentor</option>
-                <option>Mentee</option>
-
-              </select>
-            </div>
 
             <br/>            
 
@@ -110,18 +93,6 @@ export default class Register extends Component {
               name="email"
               placeholder="Email"
               value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-
-            <br/>            
-
-            <input
-              className="form-control"
-              type="email"
-              name="email_Confirmation"
-              placeholder="Email_Confirmation"
-              value={this.state.email_Confirmation}
               onChange={this.handleChange}
               required
             />
@@ -143,15 +114,14 @@ export default class Register extends Component {
             <input
               className="form-control"
               type="password"
-              name="password_Confirmation"
-              placeholder="Password_Confirmation"
+              name="passwordConfirmation"
+              placeholder="Retype Password"
               value={this.state.password_Confirmation}
               onChange={this.handleChange}
               required
             />
           </div>
 
-            
             <button className="btn btn-primary" type="submit">
               {" "}
               Register{" "}
@@ -160,3 +130,26 @@ export default class Register extends Component {
     );
   }
 }
+
+
+/*
+    const { email, password, firstName, lastName, username, loginErrors } = this.state;
+    const signupRequestJSON = {
+      "first_name": firstName,
+      "last_name": lastName,
+      "username": username,
+      "email": email,
+      "password": password
+    };
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(signupRequestJSON)
+    };
+    try {
+      const response = fetch('/auth/signup/', requestOptions);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  */

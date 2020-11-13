@@ -21,7 +21,38 @@ import Events from './views/NetworkingMeetups/EventCalender';
 
 
 import './App.css';
+import './Style/banner.css';
 
+
+
+function Banner(props) {
+  return (
+    <div className=" jumbotron-fluid ">
+	
+
+  <div class="container1">
+    <h1>Under the Wing</h1>
+    <div class="bird-container bird-container--one">
+      <div class="bird bird--one"></div>
+    </div>
+    <div class="bird-container bird-container--two">
+      <div class="bird bird--two"></div>
+    </div>
+    <div class="bird-container bird-container--three">
+      <div class="bird bird--three"></div>
+    </div>
+    <div class="bird-container bird-container--four">
+      <div class="bird bird--four"></div>
+    </div>
+  </div>
+
+
+
+    </div>
+    
+
+  );
+}
 
 function Navigation(props) {
   return (
@@ -64,11 +95,22 @@ function Navigation(props) {
   );
 }
 
+function Myfooter(props) {
+  return (
+    <div className="container-fluid ">
+
+    </div>
+    
+
+  );
+}
+
 
 class App extends React.Component {
   render() {
     return (
         <Router>
+          <Banner/>
           <Navigation />
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
@@ -88,6 +130,7 @@ class App extends React.Component {
               </Switch>
             </div>
           </div>
+          <Myfooter/>
         </Router>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
 
-export default class Login extends Component {
+export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,6 @@ export default class Login extends Component {
 
   handleChange(event) {
     console.log(`handle change ${event}`);
-
     this.setState({
       [event.target.name]: event.target.value,
     });

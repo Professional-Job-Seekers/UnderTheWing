@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Register extends Component {
+export default class RegistrationForm extends Component {
   constructor(props) {
     super(props);
 
@@ -132,24 +132,3 @@ export default class Register extends Component {
 }
 
 
-/*
-    const { email, password, firstName, lastName, username, loginErrors } = this.state;
-    const signupRequestJSON = {
-      "first_name": firstName,
-      "last_name": lastName,
-      "username": username,
-      "email": email,
-      "password": password
-    };
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify(signupRequestJSON)
-    };
-    try {
-      const response = fetch('/auth/signup/', requestOptions);
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  */

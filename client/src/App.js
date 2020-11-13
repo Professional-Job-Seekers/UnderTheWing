@@ -6,8 +6,8 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
-import Login from './views/Accounts/LoginPage';
-import Register from './views/Accounts/RegisterPage';
+import Login from './pages/LoginPage';
+import Register from './pages/RegistrationPage';
 import Pathway from './views/PathwayPath/PathwayPage';
 import Events from './views/NetworkingMeetups/EventCalender';
 import AboutUsPage from './pages/AboutUsPage';

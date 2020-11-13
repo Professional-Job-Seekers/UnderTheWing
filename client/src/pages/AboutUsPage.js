@@ -3,7 +3,7 @@ import aboutUsText from '../text/aboutUs'
 
 function AboutUsPage(props) {
   return (
-  <div> <p>{aboutUsText}</p> </div>
+    <div> <p>{aboutUsText}</p> </div>
   );
 }
 

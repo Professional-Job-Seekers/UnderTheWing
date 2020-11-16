@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+::selection {
+    background: #cc0000;
+    text-shadow: none;
+}
+
+object,iframe,p {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    text-rendering: optimizeLegibility;
+  }
+
+
+
+

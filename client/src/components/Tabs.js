@@ -38,7 +38,7 @@ export default class Tabs extends Component {
     } = this;
 
     return (
-      <div className="tabs">
+      <div className="tabs ">
         <ol className="tab-list">
           {children.map((child) => {
             const { label } = child.props;
@@ -53,7 +53,7 @@ export default class Tabs extends Component {
             );
           })}
         </ol>
-        <div className="tab-content">
+        <div className="tab-content ">
           {children.map((child) => {
             if (child.props.label !== activeTab) return undefined;
             return child.props.children;

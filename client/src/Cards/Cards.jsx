@@ -14,8 +14,8 @@ export default class Cards extends Component {
       <div className="container-fluid d-flex justify-content-center">
         <div className="row">
           {/* create for loop and also iterate objective */}
-          <div className="col-sm-3">
-            <Card imgSrc={Pics} title="Objective" />
+          <div className="col-sm-3 ">
+            <Card imgSrc={Pics} title="Objective"  />
           </div>
           <div className="col-sm-3">
           <Card imgSrc={Pics} title="Objective" />

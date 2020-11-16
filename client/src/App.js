@@ -53,7 +53,7 @@ function Banner(props) {
 
 function Navigation(props) {
   return (
-    <div className="bg-dark " >
+    <div className="bg-dark "  >
       <Banner/>
       <nav className="navbar navbar-expand-sm navbar-dark shadow mb-3">
       <Link className="navbar-brand" to="/">Under The Wing</Link>
@@ -100,16 +100,15 @@ function Navigation(props) {
 
 function Myfooter(props) {
   return (
-    <footer className="footer bg-dark ">
-          <div className="container-fluid ">
+    <footer id="footer">
 
-      <div className="container-fluid ">
-      <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-      </div>
-
+      <div className="footer-main"> 
+      
+            
+     </div>
+      
     </footer>
-    
+        
 
   );
 }
@@ -118,10 +117,10 @@ function Myfooter(props) {
 class App extends React.Component {
   render() {
     return (
-        <Router>
+        <Router   >
           <Navigation />
-          <div className="container-fluid text-center">
-            <div className="row justify-content-center">
+          <div className="container-fluid text-center" style={{backgroundColor: '#a37d1c'}}>
+            <div className="row justify-content-center" >
               <Switch>
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route exact path ="/login" component={Login}/>

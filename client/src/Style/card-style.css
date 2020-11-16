@@ -1,10 +1,10 @@
 body{
-    background: radial-gradient(#e5e5e5 )
+    background: radial-gradient(#241717 )
 }
 
 .card{
     widows: 20em;
-    background-color: #040505;
+
 }
 
 .card:hover{
@@ -13,13 +13,17 @@ body{
 
 .card-body{
     padding: 3rem 0 !important;
+    
 }
 
 .card-text{
     font-size: 0.9rem;
     padding: 0.4rem 1.9rem;
+    color: #0a0907;
+
 }
 
 .container-fluid .row{
     padding-top: 1rem;
+    /* style={{backgroundColor: '#0a0907'}} */
 }

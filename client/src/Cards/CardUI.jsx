@@ -5,14 +5,14 @@ import "../Style/card-style.css";
 
 const Card = props => {
     return (
-        <div className="card text-center shadow">
+        <div className="card text-center shadow" style={{backgroundColor: '#0a0907'}} >
             <div className="overflow">
                 <img src={props.imgSrc} alt="" className="card-img-top" />
                 <div className="card-body text-dark">
                 <h4 className="card-title"> {props.title}: 0 </h4>
                 
                 {/* <p> Description </p> */}
-                <a href='#' className="btn btn-outline-success"> Take a Look</a>
+                <a href='#' className="btn btn-outline-success">Take a Look</a>
                 </div>
             </div>
         </div>    

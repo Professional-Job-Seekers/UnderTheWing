@@ -21,11 +21,12 @@
   color: #09d3ac;
 }
 */
-body {
-background-color: rgb(138, 103, 8);
-}
 
-.tab-list {  border-bottom: 1px solid #ccc;
+/* body {
+  background-color: #a37d1c;
+} */
+
+.tab-list {  border-bottom: 1px solid rgb(0, 0, 0);
   padding-left: 0;
 }
 

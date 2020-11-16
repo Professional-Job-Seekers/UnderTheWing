@@ -2,7 +2,6 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 
-// export default class const Card = props => {
 
 const CardSpot = props => {
     return (

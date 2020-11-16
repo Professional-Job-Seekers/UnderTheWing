@@ -51,7 +51,6 @@ export default class Login extends Component {
   render() {
     return (
       <div >
-        <h1 id="litheader">Sign In</h1>
 
         <form  id="accesspanel" onSubmit={this.handleSubmit}>
           

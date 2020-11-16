@@ -1,17 +1,12 @@
 import React, { Component } from "react";
 // eslint-disable-next-line
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from "react-router-dom";
 // eslint-disable-next-line
-import ReactDOM from 'react-dom';
-
-import Tabs from "../../components/Tabs";import Card from "../../Cards/Cards";
+import ReactDOM from "react-dom";
+import Tabs from "../../components/Tabs";
+import Card from "../../Cards/ObjectiveCards";
 import SpotlightCard from "../../Cards/SpotlightCardUI";
-// import Pics from "../../assets/campaign-objective-icon.svg";
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import { Card } from 'react-bootstrap';
 
-
-import "../../App.css";
 
 export default class Pathway extends Component {
   // constructor(props) {
@@ -22,53 +17,44 @@ export default class Pathway extends Component {
   //   }
 
   // }
-  // can import cards from bootstrap too 
 
   render() {
     return (
       <div className="container">
-
-      {/* <div className="container"> */}
-            <div className="row-fluid  ">
-        <div className="card text-white bg-dark mb-3 col">
-            <SpotlightCard></SpotlightCard>
-          </div>
-        {/* </div> */}
-      {/* </div> */}
-      {/* <div className="container"> */}
-        {/* <div className="row-fluid"> */}
-         
+        {/* <div className="container"> */}
+        <div className="row-fluid  ">
           <div className="col mx-auto ">
-
-          <h1>Pathway</h1>
-          <Tabs>
-            <div label="Scientific Researcher" className="">
-            <Card>
-            {/* bootstrap wont display image */}
-              {/* <Card className="mb-3 card-img-top" style={{color: "#000"}}> */}
-               {/* <Card.Img src="../../assets/campaign-objective-icon.svg" /> */}
-               {/* <Card.Title>
-                gsgeg
-               </Card.Title>*/}
-              </Card> 
+            <div className="card text-white bg-dark mb-3 col">
+              <SpotlightCard></SpotlightCard>
             </div>
-            <div label="Software Development">
-              <Card></Card>
-            </div>
-            <div label="Engineer">
-              <Card></Card>
-            </div>
-            <div label="Mathematician">
-              <Card></Card>
-            </div>
-          </Tabs>
           </div>
 
-        </div>
-    
-      {/* </div> */}
-      </div>
+          {/* </div> */}
+          {/* </div> */}
+          {/* <div className="container"> */}
+          {/* <div className="row-fluid"> */}
 
+          <div className="col mx-auto ">
+            <h1>Pathway</h1>
+            <Tabs>
+              <div label="Scientific Researcher" className="">
+                <Card></Card>
+              </div>
+              <div label="Software Development" className="">
+                <Card></Card>
+              </div>
+              <div label="Engineer" className="">
+                <Card></Card>
+              </div>
+              <div label="Mathematician" className="">
+                <Card></Card>
+              </div>
+            </Tabs>
+          </div>
+        </div>
+
+        {/* </div> */}
+      </div>
     );
   }
 }

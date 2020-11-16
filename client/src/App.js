@@ -17,6 +17,8 @@ import AboutUsPage from './pages/AboutUsPage';
 
 import './App.css';
 import './Style/banner.css';
+import Pics2 from "./assets/CompanyLogo.svg";
+
 
 
 
@@ -27,8 +29,14 @@ function Banner(props) {
   <div className="container1 img-fluid  "  alt="Responsive image">
   <div className="row mx-md-n5 ">
 
- 
-    <h1>Under the Wing</h1>
+    <center>
+    {/* <h1>Under the Wing</h1> */}
+    <img src={Pics2} className="img-fluid w-25 p-3 " alt="CompanyLogo" />
+
+    {/* <img id="CpLogo2" src={Pics2} className="" alt="CompanyLogo" /> */}
+    </center>
+  
+
     <div className="bird-container bird-container--one">
       <div className="bird bird--one"></div>
     </div>
@@ -105,7 +113,7 @@ function Myfooter(props) {
       <div className="footer-main"> 
       <div className="footer-left">
       <div className="footer-left-content">
-        <h3>Make an impact & Mentor</h3>
+        <h3>Mentor & Make an Impact </h3>
         <ul className="footer-links">
           
 
@@ -113,10 +121,7 @@ function Myfooter(props) {
 
       </div>
       <div className="footer-logo">
-        <ul className="footer-links">
-          
-
-        </ul>
+      <img id="CpLogo" src={Pics2} className="" alt="CompanyLogo" />
 
       </div>
       </div> 

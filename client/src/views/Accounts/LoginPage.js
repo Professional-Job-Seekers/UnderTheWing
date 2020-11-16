@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
+import '../../Style/login.css';
 
 export default class Login extends Component {
   constructor(props) {
@@ -49,8 +50,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div >
+        <h1 id="litheader">Sign In</h1>
+
+        <form  id="accesspanel" onSubmit={this.handleSubmit}>
+          
           <div className="">
             <input
               className="form-control"

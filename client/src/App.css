@@ -31,7 +31,25 @@ body {
 
 } 
 
+#CpLogo{
+ 
 
+  letter-spacing: .025em;
+color: #000;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+width: 14em;
+justify-self: end;
+}
+
+#CpLogo2{
+justify-self: end;
+}
 
 
 

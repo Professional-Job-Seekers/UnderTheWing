@@ -21,6 +21,9 @@
   color: #09d3ac;
 }
 */
+body {
+background-color: rgb(138, 103, 8);
+}
 
 .tab-list {  border-bottom: 1px solid #ccc;
   padding-left: 0;

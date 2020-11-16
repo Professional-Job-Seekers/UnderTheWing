@@ -22,25 +22,27 @@ import './Style/banner.css';
 
 function Banner(props) {
   return (
-    <div className=" jumbotron-fluid ">
+    <div className="jumbotron-fluid mx-auto ">
 	
+  <div className="container1 img-fluid  "  alt="Responsive image">
+  <div className="row mx-md-n5 ">
 
-  <div class="container1">
+ 
     <h1>Under the Wing</h1>
-    <div class="bird-container bird-container--one">
-      <div class="bird bird--one"></div>
+    <div className="bird-container bird-container--one">
+      <div className="bird bird--one"></div>
     </div>
-    <div class="bird-container bird-container--two">
-      <div class="bird bird--two"></div>
+    <div className="bird-container bird-container--two">
+      <div className="bird bird--two"></div>
     </div>
-    <div class="bird-container bird-container--three">
-      <div class="bird bird--three"></div>
+    <div className="bird-container bird-container--three">
+      <div className="bird bird--three"></div>
     </div>
-    <div class="bird-container bird-container--four">
-      <div class="bird bird--four"></div>
+    <div className="bird-container bird-container--four">
+      <div className="bird bird--four"></div>
     </div>
   </div>
-
+  </div>
 
 
     </div>
@@ -51,7 +53,9 @@ function Banner(props) {
 
 function Navigation(props) {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
+    <div className="bg-dark " >
+      <Banner/>
+      <nav className="navbar navbar-expand-sm navbar-dark shadow mb-3">
       <Link className="navbar-brand" to="/">Under The Wing</Link>
       <ul className="navbar-nav mr-auto">
         <li className="nav-item"> 
@@ -81,15 +85,30 @@ function Navigation(props) {
           </NavLink>
         </li>
       </ul>
+      <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </nav>
+    
+    </div>
+    
   );
 }
 
+
+
 function Myfooter(props) {
   return (
-    <div className="container-fluid ">
+    <footer className="footer bg-dark ">
+          <div className="container-fluid ">
 
-    </div>
+      <div className="container-fluid ">
+      <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+      </div>
+
+    </footer>
     
 
   );
@@ -100,7 +119,6 @@ class App extends React.Component {
   render() {
     return (
         <Router>
-          <Banner/>
           <Navigation />
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
@@ -113,9 +131,12 @@ class App extends React.Component {
                 {/* <Route exact path ="/event" component={HomeSchedule}/> */}
               </Switch>
             </div>
+
           </div>
           <Myfooter/>
+
         </Router>
+        
     );
   }
 }

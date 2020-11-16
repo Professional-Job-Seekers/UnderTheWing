@@ -4,6 +4,7 @@ body{
 
 .card{
     widows: 20em;
+    background-color: #040505;
 }
 
 .card:hover{

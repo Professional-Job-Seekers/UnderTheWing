@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+// eslint-disable-next-line
 import { BrowserRouter, Route} from 'react-router-dom';
+// eslint-disable-next-line
 import ReactDOM from 'react-dom';
 
 import Tabs from "../../components/Tabs";import Card from "../../Cards/Cards";
@@ -36,11 +38,11 @@ export default class Pathway extends Component {
       {/* <div className="container"> */}
         {/* <div className="row-fluid"> */}
          
-          <div className="col">
+          <div className="col mx-auto ">
 
           <h1>Pathway</h1>
           <Tabs>
-            <div label="Scientific Researcher">
+            <div label="Scientific Researcher" className="">
             <Card>
             {/* bootstrap wont display image */}
               {/* <Card className="mb-3 card-img-top" style={{color: "#000"}}> */}

@@ -22,9 +22,18 @@
 }
 */
 
-/* body {
-  background-color: #a37d1c;
-} */
+body {
+  /* background-color: #a37d1c; */
+  /* background: linear-gradient(90deg, #9e7110 0%, #9e7110 100%); */
+
+  /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
+  background: linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);
+
+} 
+
+
+
+
 
 .tab-list {  border-bottom: 1px solid rgb(0, 0, 0);
   padding-left: 0;
@@ -43,3 +52,167 @@
   border-width: 1px 1px 0 1px;
 }
 
+#footer {
+  letter-spacing: .025em;
+  color: #000;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
+  z-index: 1;
+  background: #b2b2b2;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ :after, :before {
+  box-sizing: border-box;
+}
+
+.PageContainer-module--PageContainer--15a8r {
+  background: #f4cf64;
+  color: #000;
+  padding-top: 75px;
+  min-height: 100vh;
+}
+
+
+.footer-main {
+  letter-spacing: .025em;
+box-sizing: border-box;
+margin: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+color: #000;
+padding: 3em;
+display: flex;
+}
+
+
+
+.footer-left {
+  letter-spacing: .025em;
+color: #000;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+width: 100%;
+display: flex;
+flex-direction: column;
+flex: 2 1;
+align-items: flex-start;
+
+}
+
+.footer-left-content {
+  letter-spacing: .025em;
+color: #000;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+flex: 1 1 auto;
+
+}
+
+.footer-links {
+
+letter-spacing: .025em;
+color: #000;
+box-sizing: border-box;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+margin: 0 0 2em;
+display: flex;
+list-style: none;
+padding: 0;
+}
+
+.footer-logo {
+  letter-spacing: .025em;
+  color: #000;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; 
+    
+}
+
+
+  .footer-right {
+    letter-spacing: .025em;
+    color: #000;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+
+  }
+
+  .footer-end {
+    letter-spacing: .025em;
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #442c13;
+    padding: 2em 4em;
+    color: #e3e2db;
+}
+
+
+
+.copyright {
+  letter-spacing: .025em;
+  color: #e3e2db;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  margin: 0;
+  font-size: .8em;
+  padding-left: 0;
+}

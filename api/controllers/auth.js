@@ -27,11 +27,12 @@ router.post('/signup', async (req, res) => {
 });
 
 
-// If this function gets called, authentication was successful.
-// `req.user` contains the authenticated user.
-router.post('/login', passport.authenticate('local'), async (req, res) => {
-    res.json(req.user);
-});
+router.post('/login', passport.authenticate('local', 
+  { 
+	successRedirect: '/',
+	failureRedirect: '/login',
+  })
+);
 
 router.post('/logout', async (req, res) => {
   req.logout();

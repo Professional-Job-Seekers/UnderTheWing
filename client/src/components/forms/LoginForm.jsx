@@ -1,14 +1,16 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import '../../Style/login.css';
-
+import auth from '../../services/auth'
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
       password: "",
-      loginErrors: "",
+      failed: false,
+      redirectToReferrer: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -21,34 +23,33 @@ export default class LoginForm extends React.Component {
     });
   }
 
-async handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    const { username, password, loginErrors } = this.state;
-    const loginRequestJSON = {
-      "username": username,
-      "password": password
-    };
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify(loginRequestJSON)
-    };
+    const {username, password} = this.state;
     try {
-      const response = await fetch('api/auth/login/', requestOptions);
-      console.log(response);
+      const authStatus = await auth.authenticate(username, password);
+      this.setState({ redirectToReferrer: true });
     } catch (err) {
-      console.log(err);
+      this.setState({ failed: true });
     }
-    event.preventDefault();
   }
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer, failed } = this.state;
+    if (redirectToReferrer) {
+      return <Redirect to={from} />;
+    }
+    let err = "";
+    if (failed) {
+      err = <div className="alert alert-danger" role="alert">Login Failed</div>;
+    }
+
     return (
       <div >
-
         <form  id="accesspanel" onSubmit={this.handleSubmit}>
-          
           <div className="">
+            { err }
             <input
               className="form-control"
               type="text"
@@ -70,19 +71,12 @@ async handleSubmit(event) {
             />
           </div>
           <br/> 
-  
           <div className="">
             <button className="btn btn-primary" type="submit">
               {" "}
               Login{" "}
             </button>
-           
           </div>
-
-          <a className="" href="http://localhost:3000/register">
-            {" "}
-            Register
-          </a>
         </form>
       </div>
     );

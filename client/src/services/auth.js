@@ -25,7 +25,7 @@ const auth = {
       }
       this.isAuthenticated = true;
       return response.json();
-    } catch (er) {
+    } catch (err) {
       console.log(err);
     }
   },
@@ -42,11 +42,10 @@ const auth = {
       }
       this.isAuthenticated = false;
       return response.json();
-    } catch (er) {
+    } catch (err) {
       console.log(err);
     }
-
-    }
   }
+}
   
 export default auth; 

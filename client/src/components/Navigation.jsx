@@ -26,7 +26,7 @@ export default class Navigation extends React.Component {
             <NavLink className="nav-link" exact to="/about-us"> About Us </NavLink>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul className="nav navbar-nav navbar-right">
           <li className="nav-item mr-2"><AuthButton/></li>
           <li className="nav-item"><RegistrationButton/></li>
         </ul>

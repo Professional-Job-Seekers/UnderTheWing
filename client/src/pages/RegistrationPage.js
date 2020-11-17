@@ -4,6 +4,8 @@ import '../styles/App.css'
 
 export default function RegistrationPage(props) {
   return (
-    <RegistrationForm></RegistrationForm>
+    <main>
+      <RegistrationForm></RegistrationForm>
+    </main>
   );
 }

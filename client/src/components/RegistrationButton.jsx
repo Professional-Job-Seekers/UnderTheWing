@@ -10,7 +10,7 @@ const RegistrationButton = withRouter(({ history }) => {
   if(auth.isAuthenticated) {
     return (null);
   }
-  return <Link className={classes} to="/registration">Sign Up</Link>;
+  return <Link className={classes} to="/register">Sign Up</Link>;
 });
 
 export default RegistrationButton;

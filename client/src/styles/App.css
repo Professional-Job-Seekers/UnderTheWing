@@ -1,56 +1,134 @@
-/*.App {
-  text-align: center;
+/****************************************************************************************************
+ ********************************************* CSS RESET ********************************************
+ ****************************************************************************************************/
+/*
+ * @source https://github.com/hankchizljaw/modern-css-reset
+ */
+
+/* Box sizing rules */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Remove default margin */
+body, 
+h1, h2, h3, h4,
+p,
+ul[class], ol[class], li,
+figure, figcaption, blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-.App-link {
-  color: #09d3ac;
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
 }
-*/
 
-body {
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/***************************************************************************************************
+ ********************************************* App.css *********************************************
+ ***************************************************************************************************/
+
+
+
+/****************************************************************************************************
+******************************************* CSS VARIABLES ******************************************
+****************************************************************************************************/
+
+:root {
   /* background-color: #a37d1c; */
   /* background: linear-gradient(90deg, #9e7110 0%, #9e7110 100%); */
-
   /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
-  background: linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);
+  --main-bg-color: linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);; 
+}
 
-} 
+/****************************************************************************************************
+ ********************************************** Content *********************************************
+ ****************************************************************************************************/
+
+ html, body{
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+}
+
+body{
+  background-color: var(--main-bg-color);
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;    
+  min-height: 100vh;
+  background: var(--main-bg-color);
+}
+
+main {
+  flex: 1 0 auto;
+  padding-bottom: 2%;
+}
+
+
 
 #CpLogo{
- 
-
   letter-spacing: .025em;
-color: #000;
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-width: 14em;
-justify-self: end;
+  color: #000;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  width: 14em;
+  justify-self: end;
 }
 
 #CpLogo2{
-justify-self: end;
+  justify-self: end;
 }
-
 
 
 .tab-list {  border-bottom: 1px solid rgb(0, 0, 0);

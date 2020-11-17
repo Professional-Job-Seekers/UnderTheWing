@@ -76,16 +76,7 @@ async handleSubmit(event) {
               {" "}
               Login{" "}
             </button>
-            <br/>             <br/>
-
-            <button
-              className="btn btn-primary"
-              href="http://localhost:3000/register"
-              type="button"
-            >
-              {" "}
-              Register{" "}
-            </button>
+           
           </div>
 
           <a className="" href="http://localhost:3000/register">

@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
 /* Core Features */
-import Pathway from './views/PathwayPath/PathwayPage';
+import PathwayPage from './pages/PathwayPage';
 import Events from './views/NetworkingMeetups/EventCalender';
 
 // Removed Banner for now. Add <Banner/> anywhere in return to see banner.
@@ -25,7 +25,7 @@ export default class App extends React.Component {
               <Route exact path ="/login" component={LoginPage}/>
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>
-              <Route exact path ="/pathway" component={Pathway}/>
+              <Route exact path ="/pathway" component={PathwayPage}/>
               <Route exact path ="/event" component={Events}/>
               {/* <Route exact path ="/event" component={HomeSchedule}/> */}
             </Switch>

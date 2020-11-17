@@ -1,22 +1,16 @@
 import React, { Component } from "react";
-// eslint-disable-next-line
-import { BrowserRouter, Route } from "react-router-dom";
-// eslint-disable-next-line
-import ReactDOM from "react-dom";
-import Tabs from "../../components/Tabs";
-import Card from "../../Cards/ObjectiveCards";
-import SpotlightCard from "../../Cards/SpotlightCardUI";
-
+import Tabs from "../components/Tabs";
+import Card from "../Cards/ObjectiveCards";
+import SpotlightCard from "../Cards/SpotlightCardUI";
+import pathway from '../services/pathway';
+import '../styles/App.css'
 
 export default class Pathway extends Component {
-  // constructor(props) {
-  //   super(props);
+  /* Fetch Data Here */
+  async componentDidMount(){
 
-  //   function Reasd(){
 
-  //   }
-
-  // }
+  }
 
   render() {
     return (

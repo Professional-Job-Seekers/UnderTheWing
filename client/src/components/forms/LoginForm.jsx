@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
+import '../../Style/login.css';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -43,8 +44,10 @@ async handleSubmit(event) {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div >
+
+        <form  id="accesspanel" onSubmit={this.handleSubmit}>
+          
           <div className="">
             <input
               className="form-control"

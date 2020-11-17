@@ -1,35 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
 import { Redirect } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import '../../Style/login.css';
 import auth from '../../services/auth'
-export default class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-      failed: false,
-      redirectToReferrer: false,
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+import '../../styles/login.css';
+class LoginForm extends React.Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   }
 
-  handleChange(event) {
-    console.log(`handle change ${event}`);
+  state = {
+    failed: false,
+    redirectToReferrer: false,
+    username: "",
+    password: "",
+  };
+
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-
-  async handleSubmit(event) {
+  
+  handleSubmit = async (event) => {
     event.preventDefault();
     const {username, password} = this.state;
     try {
-      const authStatus = await auth.authenticate(username, password);
+      await auth.authenticate(username, password);
       this.setState({ redirectToReferrer: true });
     } catch (err) {
+      console.log(err);
       this.setState({ failed: true });
     }
   }
@@ -47,9 +49,9 @@ export default class LoginForm extends React.Component {
 
     return (
       <div >
+        { err }
         <form  id="accesspanel" onSubmit={this.handleSubmit}>
           <div className="">
-            { err }
             <input
               className="form-control"
               type="text"
@@ -82,3 +84,4 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+export default withRouter(LoginForm);

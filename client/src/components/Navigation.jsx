@@ -17,7 +17,10 @@ export default class Navigation extends React.Component {
             <NavLink className="nav-link" exact to="/"> Dashboard </NavLink>
           </li> 
           <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/pathway"> Pathway </NavLink>
+            <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
+          </li> 
+          <li className="nav-item"> 
+            <NavLink className="nav-link" exact to="/pathway-creator"> Creator </NavLink>
           </li> 
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/event"> Events </NavLink>

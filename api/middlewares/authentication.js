@@ -41,8 +41,11 @@ passport.deserializeUser(async (id, done) => {
 	try{
 		let user = await accountQueries.findUserByPK(id);
 		if(!user){
-			return	done(null, false);
-		}
+            done(null, false);
+            return;
+        }
+        done(null, user);
+        return;
 	} catch(err){
     	done(err, user);
   	}

@@ -27,16 +27,14 @@ router.post('/signup', async (req, res) => {
 });
 
 
-router.post('/login', passport.authenticate('local', 
-  { 
-	successRedirect: '/',
-	failureRedirect: '/login',
-  })
-);
+router.post('/login', passport.authenticate('local'), async (req, res) =>{
+	res.status(200).json({msg : "Login successful!"});
+});
+
 
 router.post('/logout', async (req, res) => {
   req.logout();
-  res.status(200).json({ message: 'Logout successful' });
+  res.status(200).json({ msg: 'Logout successful' });
 });
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import '../../styles/forms.css'
 export default class RegistrationForm extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,6 @@ export default class RegistrationForm extends Component {
   }
 
   handleChange(event) {
-    console.log(`handle change ${event}`);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -33,7 +32,6 @@ export default class RegistrationForm extends Component {
       "email": email,
       "password": password
     };
-    console.log(signupRequestJSON);
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
@@ -46,87 +44,40 @@ export default class RegistrationForm extends Component {
     } catch (err) {
       console.log(err);
     }
-    console.log(`form submit`);
   }
 
   render() {
     return (
-        <form className="" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="firstName"
-              name="firstName"
-              placeholder="First Name"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-              required
-            />
-            <br/>            
-
-            <input
-              className="form-control"
-              type="lastName"
-              name="lastName"
-              placeholder="Last Name"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-              required
-            />
-            <br/>            
-
-            <input
-              className="form-control"
-              type="username"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
-              onChange={this.handleChange}
-              required
-            />
-
-            <br/>            
-
-            <input
-              className="form-control"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-
-            <br/>            
-
-            <input
-              className="form-control"
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              required
-            />
-                        
-            <br/>            
-
-            <input
-              className="form-control"
-              type="password"
-              name="passwordConfirmation"
-              placeholder="Retype Password"
-              value={this.state.password_Confirmation}
-              onChange={this.handleChange}
-              required
-            />
+      <div class="custom-form-wrapper container justify-content-center">    
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h1> Sign Up</h1>
+                <form className="custom-form" onSubmit = {this.handleSubmit}>
+                    <div class="form-group">
+                      <input  className="form-control" type="text" name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required/>
+                    </div>
+                    <div class="form-group">
+                      <input className="form-control" type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <input className="form-control" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}  required />
+                    </div>
+                    <div class="form-group">
+                      <input className="form-control" type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <input className="form-control" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/>
+                    </div>
+                    <div class="form-group">
+                      <input className="form-control" type="password" name="passwordConfirmation" placeholder="Retype Password" value={this.state.password_Confirmation}
+                        onChange={this.handleChange} required
+                      />
+                    </div>
+                    <button className="btn btn-primary" type="submit"> Register </button>
+                </form>
+              </div>
           </div>
-
-            <button className="btn btn-primary" type="submit">
-              {" "}
-              Register{" "}
-            </button>
-        </form>
+      </div>
     );
   }
 }

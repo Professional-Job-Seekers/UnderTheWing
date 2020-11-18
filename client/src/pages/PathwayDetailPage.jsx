@@ -22,6 +22,7 @@ export default class PathwayDetailPage extends React.Component {
       <div>
         <h1>{this.state.pathway}</h1>
         {this.state.tasks}
+        <a href={`/pathway/commit/${this.state.pathway}`} className="mt-3 btn btn-primary">Commit to Pathway</a>
       </div>
     );
   }

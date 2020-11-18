@@ -1,21 +1,27 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-/* APP */ 
+/* Styles */
 import './styles/App.css';
+/* Pages*/ 
 import AboutUsPage from './pages/AboutUsPage';
-import NotFoundPage from './pages/NotFoundPage';
-import Navigation from './components/Navigation';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
-import LoginPage from './pages/LoginPage';
-import RegistrationPage from './pages/RegistrationPage';
-/* Core Features */
+// Pathways
 import PathwayPage from './pages/PathwayPage';
 import PathwayDetailPage from './pages/PathwayDetailPage';
+import PathwayCommitPage from './pages/PathwayCommitPage';
+// Auth 
+import NotFoundPage from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage';
+import RegistrationPage from './pages/RegistrationPage';
+/* Components */
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
+/* Core Features */
 import Events from './views/NetworkingMeetups/EventCalender';
 
+// import Banner from './components/Banner';
 // Removed Banner for now. Add <Banner/> anywhere in return to see banner.
+
 export default class App extends React.Component {
   render() {
     return (
@@ -26,6 +32,7 @@ export default class App extends React.Component {
             <Switch>
               {/* SUB-ROUTES */}
               <Route exact path ="/pathway/pathway-detail/:pathway" component={PathwayDetailPage}/>
+              <Route exact path ="/pathway/commit/:pathway" component={PathwayCommitPage}/>
               {/* BASE ROUTES */}
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
@@ -35,7 +42,6 @@ export default class App extends React.Component {
               <Route exact path ="/event" component={Events}/>
               {/* NOT FOUND */}
               <Route path="*" component={NotFoundPage} />
-              {/* <Route exact path ="/event" component={HomeSchedule}/> */}
             </Switch>
           </div>
         </div>

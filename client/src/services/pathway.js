@@ -1,22 +1,28 @@
 const pathway = {
+  getPathway : async (pathway) => {
+    const URL  = `/api/pathways/?pathway=${pathway}`;
+    const response = await fetch(URL);
+    console.log(response);
+    return response.json();
+  },
   getAllPathways : async () => {
-    const URL  = 'api/pathways/';
+    const URL  = '/api/pathways/';
     const response = await fetch(URL);
     return response.json();
   },
   getAllActiveUserPathways : async () =>{
     const scope = 'ALL';
-    const URL  = `api/pathways/progress/?scope=${scope}/`;
+    const URL  = `/api/pathways/progress/?scope=${scope}`;
     const response = await fetch(URL);
     return response.json();
   },
   getActiveUserPathway : async (pathway) =>{
-    const URL  = `api/pathways/${pathway}`;
+    const URL  = `/api/pathways/${pathway}`;
     const response = await fetch(URL);
     return response.json();
   },
   commitUserToPathway: async (pathway) => {
-    const URL  = `api/pathways/commit/`;
+    const URL  = `/api/pathways/commit/`;
     const requestJSON = {
       "pathway": pathway
     };
@@ -38,7 +44,7 @@ const pathway = {
   },
 
   updatePathwayTaskProgress : async (taskId, status) =>{
-    const URL  = `api/pathways/progress/update`;
+    const URL  = `/api/pathways/progress/update`;
     const requestJSON = {
       "task_id": taskId,
       "new_status": status

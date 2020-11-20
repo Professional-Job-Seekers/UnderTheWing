@@ -15,10 +15,16 @@ export default class PathwayCommitPage extends React.Component {
         failureMsg: "Unable to process your request at this time. Please try again later.",        
       })
       return;
+    } else if (commitOutcome.status === 409){
+      this.setState({
+        failureMsg: "You are already committed to this pathway. You can't commit to a pathway multiple times!.",        
+      })
+    } else {
+      this.setState({
+        success: true,
+        successMsg: "Successfuly added Pathway to Account!.",        
+      })
     }
-    this.setState({
-      failureMsg: "Successfuly added Pathway to Account!.",        
-    })
   }
   render(){
     return (

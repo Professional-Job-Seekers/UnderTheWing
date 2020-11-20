@@ -7,6 +7,7 @@ import auth from '../services/auth';
 const classes = "btn btn-primary";
 
 const AuthButton = withRouter(({ history }) => {
+  console.log(auth.isAuthenticated);
   if(!auth.isAuthenticated) {
     return <Link className={classes} to="/login">Login</Link>;
   }

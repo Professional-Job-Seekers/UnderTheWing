@@ -40,7 +40,7 @@
 
 **Param**|**-** |**Description**
 :-----:|:-----: |:-----:
-pathway|required| The name of the pathway.
+pathway|optional| The name of the pathway. If this parameter is not defined, an array of existing pathways without tasks is returned.
 
 ### Sample Request
 

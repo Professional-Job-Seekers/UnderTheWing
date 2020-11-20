@@ -48,12 +48,13 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <div >
+      <div>
+        <h1>Login</h1>
         { err }
         <form  id="accesspanel" onSubmit={this.handleSubmit}>
           <div className="">
             <input
-              className="form-control"
+              className="form-control text-center"
               type="text"
               name="username"
               placeholder="Username or Email"
@@ -63,7 +64,7 @@ class LoginForm extends React.Component {
             />
             <br/>           
             <input
-              className="form-control"
+              className="form-control text-center"
               type="password"
               name="password"
               placeholder="Password"

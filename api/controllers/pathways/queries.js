@@ -7,6 +7,17 @@ const { PathwayTask } = db;
  ******************************************** Searching ********************************************
  ***************************************************************************************************/
 
+async function getAllPathways(){
+  let pathways = "";
+  try {
+    pathways = await Pathway.findAll();
+    return pathways;
+  } catch(err){
+    console.log(err);
+    return null;
+  }
+}
+
  async function getPathway(pathwayTitle){
   let pathway = "";
   try {
@@ -159,6 +170,7 @@ module.exports.addPathwayTask = addPathwayTask;
 module.exports.createPathway = createPathway;
 module.exports.updatePathwayProgress = updatePathwayProgress;
 module.exports.findPathway = findPathway;
+module.exports.getAllPathways = getAllPathways;
 module.exports.getPathway = getPathway;
 module.exports.getPathwayTasks = getPathwayTasks;
 module.exports.createPathwayWithTasks = createPathwayWithTasks;

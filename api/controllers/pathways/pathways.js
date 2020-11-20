@@ -19,13 +19,30 @@ router.use('/progress', progressController);
  /**************************************************************************************************
  ***************************************** Pathway Search ******************************************
  ***************************************************************************************************/
+router.get('/', async (req, res, next)=>{
+  if (req.query.pathway){
+    return next();
+  } 
+  let pathways = null;
+  try{
+    pathways = await pathwayQueries.getAllPathways();
+    if (!pathways){
+        res.status(404).json({"msg": "No Pathways Exist !"});
+        return;
+    }
+    res.status(200).json(pathways);
+  } catch(err){
+      console.log(err);
+      res.sendStatus(500);
+  }
+});
+
 
 router.get('/', async (req, res)=>{
   const pathway_title = req.query.pathway;
   let pathway = null;
   try{
     pathway = await pathwayQueries.findPathway(pathway_title);
-
     if (!pathway){
         res.status(404).json({"msg": "Pathway not found !"});
         return;

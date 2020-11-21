@@ -40,7 +40,6 @@ export default class RegistrationForm extends Component {
     try {
       const response = await fetch('api/auth/signup/', requestOptions);
       console.log(response);
-      alert();
     } catch (err) {
       console.log(err);
     }

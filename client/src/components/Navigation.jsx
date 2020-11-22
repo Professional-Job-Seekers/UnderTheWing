@@ -10,7 +10,7 @@ import RegistrationButton from './RegistrationButton';
 export default class Navigation extends React.Component {
   render() {
     return (
-      <nav className="bg-dark navbar navbar-expand-sm navbar-dark shadow mb-3">
+      <nav className="bg-dark navbar navbar-expand-sm navbar-dark shadow mb-0">
         <Link className="navbar-brand" to="/">Under The Wing</Link>
         <ul className="navbar-nav mr-auto"> 
           <li className="nav-item"> 

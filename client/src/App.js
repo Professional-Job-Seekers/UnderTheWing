@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './styles/App.css';
 /* Pages*/ 
 import AboutUsPage from './pages/AboutUsPage';
+// import UserDashboardPage from './pages/UserDashboardPage'
 // Pathways
 import PathwayPage from './pages/PathwayPage';
 import PathwayDetailPage from './pages/PathwayDetailPage';
@@ -19,8 +20,6 @@ import Footer from './components/Footer';
 /* Core Features */
 import Events from './views/NetworkingMeetups/EventCalender';
 
-// import Banner from './components/Banner';
-// Removed Banner for now. Add <Banner/> anywhere in return to see banner.
 
 export default class App extends React.Component {
   render() {

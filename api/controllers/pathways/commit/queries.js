@@ -19,6 +19,23 @@ async function commitUserToPathway(userId, pathwayId){
   }
 }
 
+async function userCommittedToPathway(userId, pathwayId){
+  try{
+    const activePathwayRecord = ActivePathway.findOne({
+      where :{
+        "account_id": userId,     
+        "pathway_id": pathwayId,
+      }
+    });
+    return activePathwayRecord != null;
+  } catch(err){
+      console.log(err);
+      return null;
+  }
+}
+
+
+
 async function createActivePathwayTasks(userId, pathwayId, activePathwayId){
   try {
     const tasks = await pathwayQueries.getPathwayTasks(pathwayId);
@@ -37,3 +54,4 @@ async function createActivePathwayTasks(userId, pathwayId, activePathwayId){
 }
 
 module.exports.commitUserToPathway = commitUserToPathway; 
+module.exports.userCommittedToPathway = userCommittedToPathway;

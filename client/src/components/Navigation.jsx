@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink} from 'react-router-dom';
-import Banner from '../components/Banner';
 
 /* Auth */
 import PrivateRoute from './PrivateRoute';
@@ -11,9 +10,7 @@ import RegistrationButton from './RegistrationButton';
 export default class Navigation extends React.Component {
   render() {
     return (
-      <div>
-      <Banner/>
-         <nav className="bg-dark navbar navbar-expand-sm navbar-dark shadow mb-3">
+      <nav className="bg-dark navbar navbar-expand-sm navbar-dark shadow mb-0">
         <Link className="navbar-brand" to="/">Under The Wing</Link>
         <ul className="navbar-nav mr-auto"> 
           <li className="nav-item"> 
@@ -37,7 +34,5 @@ export default class Navigation extends React.Component {
           <li className="nav-item"><RegistrationButton/></li>
         </ul>
     </nav>  
-      </div>
-     
   );}
 }

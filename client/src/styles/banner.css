@@ -7,18 +7,24 @@ body {
     -webkit-box-sizing: border-box;
 }
 h1 {
-    font-family: 'Arima Madurai', cursive;
-    color: black;
     font-size: 4rem;
-    letter-spacing: -3px;
-    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
-    position: relative;
-    z-index: 3;
+    letter-spacing: 3px;
 }
-.container1 {
+
+.quote-text{
     z-index: 1;
-    position: relative;
-    overflow: hidden;
+    color: white;
+    font-style: italic;
+    font-weight: 700;
+    text-shadow: .5px .5px black;
+
+}
+
+.banner-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -28,14 +34,11 @@ h1 {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    min-height: 28rem;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 168, 76, 0.6)), to(rgba(255, 123, 13, 0.6))), url("https://images.unsplash.com/photo-1446824505046-e43605ffb17f");
-    background-image: linear-gradient(to bottom, rgba(255, 168, 76, 0.6) 0%, rgba(255, 123, 13, 0.6) 100%), url("https://images.unsplash.com/photo-1446824505046-e43605ffb17f");
-    background-blend-mode: soft-light;
-    background-size: cover;
-    background-position: center center;
+    background-image: linear-gradient(0deg, black, transparent 78%), url("https://images.unsplash.com/photo-1446824505046-e43605ffb17f");
     padding: 2rem;
+    background-size: 100% 100%;
 }
+
 .bird {
     background-image: url(http://www.iamramraj.com/demo/Flying_birds_CSS_animation_examples/bird-cells.svg);
     background-size: auto 100%;

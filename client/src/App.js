@@ -9,6 +9,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import PathwayPage from './pages/PathwayPage';
 import PathwayDetailPage from './pages/PathwayDetailPage';
 import PathwayCommitPage from './pages/PathwayCommitPage';
+import PathwayCreatorPage from './pages/PathwayCreatorPage';
 // Auth 
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
@@ -36,6 +37,7 @@ export default class App extends React.Component {
               {/* BASE ROUTES */}
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
+              <Route exact path ="/pathway-creator" component={PathwayCreatorPage}/>
               <Route exact path ="/dashboard" component={PathwayPage}/>
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>

@@ -105,6 +105,8 @@ body{
   flex-direction: column;    
   min-height: 100vh;
   background: var(--main-bg-color);
+  margin:0px;
+  padding: 0px;
 }
 
 main {
@@ -131,6 +133,8 @@ main {
 #CpLogo2{
   justify-self: end;
 }
+
+
 
 
 .tab-list {  border-bottom: 1px solid rgb(0, 0, 0);
@@ -188,18 +192,29 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   min-height: 100vh;
 }
 
+.wrap {
+  height: auto;
+  margin: 0 auto -80px; /* footer height + space */
+  min-height: 100%;
+  padding: 0 0 80px; /* footer height + space */
+  box-sizing: border-box;
+  overflow: auto;
+}
 
 .footer-main {
   letter-spacing: .025em;
 box-sizing: border-box;
 margin: 0;
-border: 0;
 font-size: 100%;
 font: inherit;
 vertical-align: baseline;
 color: #000;
 padding: 3em;
 display: flex;
+margin-top: 200px; /* space between content and footer */
+box-sizing: border-box;
+position: relative;
+width: 100%;
 }
 
 

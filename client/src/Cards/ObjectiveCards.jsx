@@ -13,7 +13,6 @@ const ObjectiveComp = () => {
 
   const renderCard = (card, index) => {
     return (
-      <div className="row ">
         <div className="col ">
           <Card className="mb-3 card-img-top overflow " key={index}>
             <Card.Body>
@@ -34,7 +33,6 @@ const ObjectiveComp = () => {
               
           </Card>
         </div>
-      </div>
     );
   };
 

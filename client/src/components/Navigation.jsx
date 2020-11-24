@@ -2,9 +2,7 @@ import React from "react";
 import { Link, NavLink} from 'react-router-dom';
 
 /* Auth */
-import PrivateRoute from './PrivateRoute';
 import AuthButtonGroup from './AuthButtonGroup';
-
 
 export default class Navigation extends React.Component {
   render() {
@@ -20,9 +18,6 @@ export default class Navigation extends React.Component {
           </li> 
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway-creator"> Creator </NavLink>
-          </li> 
-          <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/event"> Events </NavLink>
           </li> 
           <li className="nav-item">
             <NavLink className="nav-link" exact to="/about-us"> About Us </NavLink>

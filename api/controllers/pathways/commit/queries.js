@@ -21,7 +21,7 @@ async function commitUserToPathway(userId, pathwayId){
 
 async function userCommittedToPathway(userId, pathwayId){
   try{
-    const activePathwayRecord = ActivePathway.findOne({
+    const activePathwayRecord = await ActivePathway.findOne({
       where :{
         "account_id": userId,     
         "pathway_id": pathwayId,
@@ -33,8 +33,6 @@ async function userCommittedToPathway(userId, pathwayId){
       return null;
   }
 }
-
-
 
 async function createActivePathwayTasks(userId, pathwayId, activePathwayId){
   try {

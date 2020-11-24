@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import { Redirect } from 'react-router-dom';
 import auth from '../../services/auth'
+import {getCookie,setCookie} from '../../services/cookies'
 import '../../styles/login.css';
+
 class LoginForm extends React.Component {
   static propTypes = {
     match: PropTypes.object.isRequired,
@@ -28,8 +30,16 @@ class LoginForm extends React.Component {
     event.preventDefault();
     const {username, password} = this.state;
     try {
-      await auth.authenticate(username, password);
-      this.setState({ redirectToReferrer: true });
+      const authResponse = await auth.authenticate(username, password);
+      if(authResponse){
+        this.setState({ redirectToReferrer: true });
+        setCookie("auth", true);
+        setCookie("username", username);
+        const isMentor = await fetch(`api/accounts/mentor/?username=${username}`);
+        const userType = isMentor.is_mentor ? "mentor" : "mentee";
+        console.log(userType);
+        setCookie("user_type", userType);
+      }
     } catch (err) {
       console.log(err);
       this.setState({ failed: true });

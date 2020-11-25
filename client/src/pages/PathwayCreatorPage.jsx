@@ -13,7 +13,7 @@ export default class PathwayCreatorPage extends React.Component {
   }
   render(){
     return (
-      <PathwayCreationForm/>
+        <PathwayCreationForm/>
     );
   }
 }

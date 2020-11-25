@@ -35,12 +35,12 @@ const pathway = {
     return response;
   },
   taskStatus : {
-    completed: 'completed',
-    skipped: 'skipped',
-    underReview: 'under_review', 
-    pendingStart : 'pending_start', 
-    pendingReview: 'pending_review', 
-    inProgress: 'in_progress',
+    "completed": "Completed",
+    "skipped": "Skipped",
+    "under_review": 'Under Review', 
+    "pending_start" : 'Pending Start', 
+    "pending_review": 'Pending Review', 
+    "in_progress": 'In Progress',
   },
 
   updatePathwayTaskProgress : async (taskId, status) =>{

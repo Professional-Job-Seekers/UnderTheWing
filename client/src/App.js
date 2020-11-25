@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './styles/App.css';
 /* Pages*/ 
 import AboutUsPage from './pages/AboutUsPage';
+import UserDashboardPage from './pages/UserDashboardPage'
 import HomePage from './pages/HomePage';
 // Pathways
 import PathwayPage from './pages/PathwayPage';
@@ -21,15 +22,13 @@ import Footer from './components/Footer';
 /* Core Features */
 import Events from './views/NetworkingMeetups/EventCalender';
 
-// import Banner from './components/Banner';
-// Removed Banner for now. Add <Banner/> anywhere in return to see banner.
 
 export default class App extends React.Component {
   render() {
     return (
       <Router>
         <Navigation/>
-        <div className="container-fluid text-center" >
+        <div className="container-fluid text-center wrap" >
           <div className="row justify-content-center" >
             <Switch>
               {/* SUB-ROUTES */}
@@ -39,7 +38,12 @@ export default class App extends React.Component {
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
               <Route exact path ="/pathway-creator" component={PathwayCreatorPage}/>
-              <Route exact path ="/dashboard" component={PathwayPage}/>
+             
+              {/* Whats up with this route */}
+              <Route exact path ="/dashboard" component={PathwayPage}/> 
+
+              <Route exact path ="/userdash" component={UserDashboardPage}/>
+
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>
               <Route exact path ="/event" component={Events}/>

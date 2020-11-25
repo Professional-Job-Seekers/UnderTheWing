@@ -1,40 +1,53 @@
-import '../styles/App.css'
-import Tabs from "../components/Tabs";
-import Card from "../Cards/ObjectiveCards";
-import SpotlightCard from "../Cards/SpotlightCardUI";
+import "../styles/App.css";
+import PathwayObjectives from "../components/PathwayObjectives";
+// Services
+import { getCookie } from "../services/cookies"
+import pathwayService from "../services/pathway";
+// Components
+import React, { Component } from "react";
+import UserTimelineHeader from "../components/UserTimelineHeader";
+import UserDashboardCard from "../components/UserDashboardCard";
 
+import { Card, Col, Row, Container } from "react-bootstrap";
 
+export default class Dash extends Component {
+  state = {
 
+    username: "",
+    pathways: [],
+  };
 
-/* 
-     <div className="container">
-        <div className="row-fluid  ">
-          <div className="col mx-auto ">
-            <div className="card text-white bg-dark mb-3 col">
-              <SpotlightCard></SpotlightCard>
-            </div>
-          </div>
+  /* Fetch Data Here */
+  async componentDidMount() {
+    let username = "";
+    try{
+      username = getCookie("username");
+    } catch(err){
+      console.log(err);
+    }
+    
+    const activeUserPathways = await pathwayService.getAllActiveUserPathways();
+    console.log(activeUserPathways);
+    this.setState({
+      pathways: activeUserPathways,     
+      "username": username,  
+    });
+  }
 
-          <div className="col mx-auto ">
-            <h1>Pathway</h1>
-            <Tabs>
-              <div label="Scientific Researcher" className="">
-                <Card></Card>
-              </div>
-              <div label="Software Development" className="">
-                <Card></Card>
-              </div>
-              <div label="Engineer" className="">
-                <Card></Card>
-              </div>
-              <div label="Mathematician" className="">
-                <Card></Card>
-              </div>
-            </Tabs>
-          </div>
-        </div>
-*/
-//        {/* </div> */}
-//        </div>
-
-        
+    
+  render() {
+    return (
+      <Container className="">
+        <Row className="d-flex flex-row ">
+          <Col className="d-flex flex-column">
+            <Card bg="yellow" text="black" className="d-flex justify-content-center">              
+              <UserTimelineHeader username = {this.state.username} />
+              <UserDashboardCard cardTitleText = "About Me" cardBodyText = "Lorem ipsum" />
+              <PathwayObjectives activePathwayData = {this.state.pathways}/>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+}

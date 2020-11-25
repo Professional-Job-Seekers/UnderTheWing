@@ -2,6 +2,7 @@ import Pics from "../assets/campaign-objective-icon.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 
+
 const ObjectiveComp = () => {
   const cardinfo = [
     { title: "Objective" },
@@ -12,7 +13,6 @@ const ObjectiveComp = () => {
 
   const renderCard = (card, index) => {
     return (
-      <div className="row ">
         <div className="col ">
           <Card className="mb-3 card-img-top overflow " key={index}>
             <Card.Body>
@@ -27,9 +27,12 @@ const ObjectiveComp = () => {
             >
               Take a Look
             </a>
+            {/* btn btn-bd-download d-none d-lg-inline-block
+             mb-3 mb-md-0 ml-md-3 */}
+             
+              
           </Card>
         </div>
-      </div>
     );
   };
 

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, NavLink} from 'react-router-dom';
+import Pics from "../assets/CompanyLogo.svg";
+
 
 /* Auth */
 import AuthButtonGroup from './AuthButtonGroup';
@@ -7,15 +9,23 @@ import AuthButtonGroup from './AuthButtonGroup';
 export default class Navigation extends React.Component {
   render() {
     return (
-      <nav className="bg-dark navbar navbar-expand-sm navbar-dark shadow mb-0">
-        <Link className="navbar-brand" to="/">Under The Wing</Link>
-        <ul className="navbar-nav mr-auto"> 
+      <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 mr-auto ">
+        <Link className="navbar-brand" to="/">Under The Wing</Link> 
+        <ul className="navbar-nav mr-auto  "> 
+
           <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/"> Dashboard </NavLink>
-          </li> 
+            <NavLink className="nav-link" exact to="/"> Home </NavLink>
+          </li>
+          <li className="nav-item"> 
+            <NavLink className="nav-link" exact to="/userdash"> Dashboard </NavLink>
+          </li>  
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
           </li> 
+          {/* <Link className="navbar-brand mr-auto" to="/">  
+            <img src={Pics} id="CpLogo"  alt=""/>
+            </Link> */}
+
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway-creator"> Creator </NavLink>
           </li> 

@@ -11,7 +11,7 @@ const pathway = {
     return response.json();
   },
   getAllActiveUserPathways : async () =>{
-    const scope = 'ALL';
+    const scope = 'all';
     const URL  = `/api/pathways/progress/?scope=${scope}`;
     const response = await fetch(URL);
     return response.json();

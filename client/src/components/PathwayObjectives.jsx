@@ -4,26 +4,17 @@ import {Tabs, Tab} from "react-bootstrap";
 import Card from "../Cards/ObjectiveCards";
 import PathwayTask from "./PathwayTask";
 export default class PathwayObjectives extends React.Component{    
-  state = {
-    activePathwayRenderArray: [],
-
-  }
-  /* Fetch Data Here */
-  async componentDidMount() {
-    const activePathwayComponents = this.props.activePathwayData.map(pathway => (
-     // <Tab title={pathway.pathway}>
-       pathway.tasks.map(task => <PathwayTask taskTitle = {task.title}/>)
-     // </Tab>   
-    ));
-    this.setState({
-      "activePathwayRenderArray": activePathwayComponents,
-    });
-  }
-
   render(){
+    const activePathwayComponents = this.props.activePathwayData.map((pathway, index) => (
+      <Tab  eventKey={pathway.pathway} title={pathway.pathway} key ={index}>
+        {pathway.tasks.map((task, index) => <PathwayTask key ={index} taskTitle = {task.title}/>)}
+      </Tab>   
+    ));
     return (
       <div>
-           {this.state.activePathwayRenderArray}
+        <Tabs fill>
+            {activePathwayComponents}
+        </Tabs>
       </div>
     );
   }

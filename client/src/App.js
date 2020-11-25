@@ -38,12 +38,9 @@ export default class App extends React.Component {
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
               <Route exact path ="/pathway-creator" component={PathwayCreatorPage}/>
-             
               {/* Whats up with this route */}
               <Route exact path ="/dashboard" component={PathwayPage}/> 
-
               <Route exact path ="/userdash" component={UserDashboardPage}/>
-
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>
               <Route exact path ="/event" component={Events}/>
@@ -53,7 +50,6 @@ export default class App extends React.Component {
             </Switch>
           </div>
         </div>
-        <Footer/>
       </Router>
     );
   }

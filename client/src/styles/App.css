@@ -79,7 +79,8 @@ input, button, textarea, select {
   /* background: linear-gradient(90deg, #9e7110 0%, #9e7110 100%); */
   /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
-  --main-bg-color: linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);
+  --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%)*/;
+  --main-nav-color: white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%)*/;
 }
 
 /****************************************************************************************************
@@ -114,8 +115,6 @@ main {
   padding-bottom: 2%;
 }
 
-
-
 #CpLogo{
   letter-spacing: .025em;
   color: #000;
@@ -135,8 +134,6 @@ main {
 }
 
 
-
-
 .tab-list {  border-bottom: 1px solid rgb(0, 0, 0);
   padding-left: 0;
 }
@@ -154,19 +151,6 @@ main {
   border-width: 1px 1px 0 1px;
 }
 
-#footer {
-  letter-spacing: .025em;
-  color: #000;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  display: block;
-  z-index: 1;
-  background: #b2b2b2;
-}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
@@ -201,72 +185,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   overflow: auto;
 }
 
-.footer-main {
-    letter-spacing: .025em;
-box-sizing: border-box;
-margin: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-color: #000;
-padding: 3em;
-display: flex;
-margin-top: 200px; /* space between content and footer */
-box-sizing: border-box;
-position: relative;
-width: 100%;
-}
-
-
-
-.footer-left {
-  letter-spacing: .025em;
-color: #000;
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-width: 100%;
-display: flex;
-flex-direction: column;
-flex: 2 1;
-align-items: flex-start;
-
-}
-
-.footer-left-content {
-  letter-spacing: .025em;
-color: #000;
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-flex: 1 1 auto;
-
-}
-
-.footer-links {
-
-letter-spacing: .025em;
-color: #000;
-box-sizing: border-box;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-margin: 0 0 2em;
-display: flex;
-list-style: none;
-padding: 0;
-}
-
-.footer-logo {
+#footer {
   letter-spacing: .025em;
   color: #000;
   box-sizing: border-box;
@@ -274,31 +193,25 @@ padding: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
+  background-color: var(--main-nav-color);
+}
+
+.footer-links {
+  letter-spacing: .025em;
+  color: #000;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 100%;
   font: inherit;
-  vertical-align: baseline; 
-    
+  vertical-align: baseline;
+  margin: 0 0 2em;
+  display: flex;
+  list-style: none;
+  padding: 0;
 }
 
 
-  .footer-right {
-    letter-spacing: .025em;
-    color: #000;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    width: 100%;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1;
-
-  }
-
-  .footer-end {
+.footer-end {
     letter-spacing: .025em;
     box-sizing: border-box;
     margin: 0;
@@ -309,8 +222,8 @@ padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #442c13;
-    padding: 2em 4em;
+    background: #343a40;
+    padding: .5em;
     color: #e3e2db;
 }
 
@@ -328,3 +241,29 @@ padding: 0;
   font-size: .8em;
   padding-left: 0;
 }
+
+:root {
+  --space: 1.5em 0;
+  --space: 2em 0;
+}
+
+.Site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.Site-content {
+  flex: 1 0 auto;
+  padding: var(--space) var(--space) 0;
+  width: 100%;
+}
+
+.Site-content:after {
+  content: '\00a0';
+  display: block;
+  margin-top: var(--space);
+  height: 0;
+  visibility: hidden;
+}
+

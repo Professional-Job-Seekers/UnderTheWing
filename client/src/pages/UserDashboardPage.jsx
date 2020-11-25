@@ -12,7 +12,6 @@ import { Card, Col, Row, Container } from "react-bootstrap";
 
 export default class Dash extends Component {
   state = {
-
     username: "",
     pathways: [],
   };
@@ -25,9 +24,7 @@ export default class Dash extends Component {
     } catch(err){
       console.log(err);
     }
-    
     const activeUserPathways = await pathwayService.getAllActiveUserPathways();
-    console.log(activeUserPathways);
     this.setState({
       pathways: activeUserPathways,     
       "username": username,  
@@ -37,7 +34,7 @@ export default class Dash extends Component {
     
   render() {
     return (
-      <Container className="">
+      <Container className="mt-2">
         <Row className="d-flex flex-row ">
           <Col className="d-flex flex-column">
             <Card bg="yellow" text="black" className="d-flex justify-content-center">              

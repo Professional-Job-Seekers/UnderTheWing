@@ -7,6 +7,8 @@ import './styles/App.css';
 import AboutUsPage from './pages/AboutUsPage';
 import UserDashboardPage from './pages/UserDashboardPage'
 import HomePage from './pages/HomePage';
+import MentorPage from './pages/MentorPage';
+
 // Pathways
 import PathwayPage from './pages/PathwayPage';
 import PathwayDetailPage from './pages/PathwayDetailPage';
@@ -47,6 +49,8 @@ export default class App extends React.Component {
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>
               <Route exact path ="/event" component={Events}/>
+              <Route exact path ="/mentor" component={MentorPage}/>
+
               <Route exact path ="/" component={HomePage}/>
               {/* NOT FOUND */}
               <Route path="*" component={NotFoundPage} />

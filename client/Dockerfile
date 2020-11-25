@@ -1,7 +1,7 @@
 FROM node:14.14.0-alpine
 
 # Create app directory
-WORKDIR /usr/app
+WORKDIR /usr/app/
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied

@@ -48,6 +48,9 @@ export default class Footer extends React.Component {
         </ul>
         <p className="copyright">Under The Wing © 2020</p>
       </div>
+
+
+
     </footer>
   );}
 }

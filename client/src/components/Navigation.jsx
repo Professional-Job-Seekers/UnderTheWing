@@ -4,16 +4,15 @@ import Pics from "../assets/CompanyLogo.svg";
 
 
 /* Auth */
-import PrivateRoute from './PrivateRoute';
-import AuthButton from './AuthButton';
-import RegistrationButton from './RegistrationButton';
-
+import AuthButtonGroup from './AuthButtonGroup';
 
 export default class Navigation extends React.Component {
   render() {
     return (
       <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 mr-auto ">
+        <Link className="navbar-brand" to="/">Under The Wing</Link> 
         <ul className="navbar-nav mr-auto  "> 
+
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/"> Home </NavLink>
           </li>
@@ -23,23 +22,19 @@ export default class Navigation extends React.Component {
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
           </li> 
-          <Link className="navbar-brand mr-auto" to="/">  
+          {/* <Link className="navbar-brand mr-auto" to="/">  
             <img src={Pics} id="CpLogo"  alt=""/>
-            </Link>
+            </Link> */}
 
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway-creator"> Creator </NavLink>
-          </li> 
-          <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/event"> Events </NavLink>
           </li> 
           <li className="nav-item">
             <NavLink className="nav-link" exact to="/about-us"> About Us </NavLink>
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-          <li className="nav-item mr-2"><AuthButton/></li>
-          <li className="nav-item"><RegistrationButton/></li>
+          <li className="nav-item"><AuthButtonGroup/></li>
         </ul>
     </nav>  
   );}

@@ -4,8 +4,9 @@ import PathwayObjectives from "../components/PathwayObjectives";
 import UserInfoMainCard from "../components/UserInfoMainCard";
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card } from "react-bootstrap";
+import { Card, Col, Row, Container } from "react-bootstrap";
 import Pics from "../assets/UserLogo.svg";
+
 export default class Dash extends Component {
   state = {
     pathways: [],
@@ -20,61 +21,111 @@ export default class Dash extends Component {
 
   render() {
     return (
-      <div className="container d-flex p-2 ">
-        <div className="row-fluid d-flex flex-row  ">
-        {/* <UserInfoMainCard/> */}
-        {/* <PathwayObjectives></PathwayObjectives>
-        <SpotlightObjectives></SpotlightObjectives> */}
-
-            <div className="card ">
-
-            <div className="card-header bg-dark">
-            <img className="mb-3 card-img-top overflow " id="CpLogo" src={Pics} alt="Card image cap" />
+      <Container className="">
+        <Row className="d-flex flex-row ">
+          <Col className="d-flex flex-column">
+            <Card bg="yellow" text="black" className="d-flex justify-content-center">
+              <Card.Header>
+                <Card.Img
+                  className="mb-3 card-img-top overflow "
+                  id="CpLogo"
+                  src={Pics}
+                  alt="Card image cap"
+                />
                 <h1>User</h1>
-            </div>
-            <div className="card-body ">
-                <div className="card-content">
-                    <h2>Bio</h2>
+              </Card.Header>
+              <Card.Body>
+                <Card.Title>Primary Card Sub Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+              <Card.Body>
+                <Card.Title>Primary Card Sub Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+              <Card.Body>
+              <PathwayObjectives></PathwayObjectives>
 
-                    <div className="card-text">
-                        akfkamfkmakfj
-                        ka;lfk;alfkl;a
-                        apkf[pawlf[p]]
-                    </div>
-                </div>
+              </Card.Body>
+              
+              <Card.Body>
+                <Card.Title>Primary Card Sub Title</Card.Title>
 
-                <div className="card-content">
-                    <h2>Achievments & Badges</h2>
+              </Card.Body>
 
-                    <div className="card-text">
-                        akfkamfkmakfj
-                        ka;lfk;alfkl;a
-                        apkf[pawlf[p]]
-                    </div>
-                </div>
+              <Card.Footer className="text-muted">Test footer</Card.Footer>
+            </Card>
 
-                <div className="card-content">
-                <PathwayObjectives></PathwayObjectives>
-                </div>
+            <SpotlightObjectives ></SpotlightObjectives>
 
 
-            </div>
-            </div>
-            <SpotlightObjectives></SpotlightObjectives>
+            {/* <div className="">
+              <div className="">
+                <div className="">
+                  <UserInfoMainCard/>
+                  <PathwayObjectives></PathwayObjectives>
+                  <SpotlightObjectives></SpotlightObjectives>
+
+                  <div className="card ">
+
+                  <div className="card-header bg-dark">
+                  <img className="mb-3 card-img-top overflow " id="CpLogo" src={Pics} alt="Card image cap" />
+                      <h1>User</h1>
+                  </div>
+                  <div className="card-body ">
+                      <div className="card-content">
+                          <h2>Bio</h2>
+
+                          <div className="card-text">
+                              akfkamfkmakfj
+                              ka;lfk;alfkl;a
+                              apkf[pawlf[p]]
+                          </div>
+                      </div>
+
+                      <div className="card-content">
+                          <h2>Achievments & Badges</h2>
+
+                          <div className="card-text">
+                              akfkamfkmakfj
+                              ka;lfk;alfkl;a
+                              apkf[pawlf[p]]
+                          </div>
+                      </div>
+
+                      <div className="card-content">
+                      <PathwayObjectives></PathwayObjectives>
+                      </div>
+
+
+                  </div>
+                  </div>
+                  <SpotlightObjectives></SpotlightObjectives>
+                  
+                  <SpotlightObjectives className="d-flex flex-row-reverse"></SpotlightObjectives>
+
+                        <div className="row-fluid  ">
+
             
+              </div>
 
-        </div>
+                        {/* <h1>Pathway Offering</h1>
+                      {this.state.pathways}  
+                </div>
+              </div>
+            </div> */}
+            
+         
 
-        {/* <div className="row-fluid  ">
+          </Col>
+        </Row>
 
-       
-        </div> */}
-
-          {/* <h1>Pathway Offering</h1>
-                {this.state.pathways}  */}
-
-      </div>
-      
+      </Container>
     );
   }
 }

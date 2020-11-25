@@ -6,7 +6,7 @@ import Card from "../Cards/ObjectiveCards";
 export default class PathwayObjectives extends React.Component{    
   render(){
     return (
-      <div className="col-fluid  ">
+      <div>
             <h2>Pathway </h2>
           <Tabs>
             <div label="Scientific Researcher" className="">

@@ -4,7 +4,7 @@ export default class Footer extends React.Component {
   render(){
     return (
       <footer id="footer">
-        <div className="footer-main"> 
+        <div className="footer-main "> 
           <div className="footer-left">
             <div className="footer-left-content">
               <h3>Mentor & Make an Impact </h3>

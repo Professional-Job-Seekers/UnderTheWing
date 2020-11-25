@@ -202,7 +202,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 }
 
 .footer-main {
-  letter-spacing: .025em;
+    letter-spacing: .025em;
 box-sizing: border-box;
 margin: 0;
 font-size: 100%;

@@ -30,8 +30,8 @@ export default class App extends React.Component {
     return (
       <Router>
         <Navigation/>
-        <div className="container-fluid text-center wrap" >
-          <div className="row justify-content-center" >
+        <>
+          <div className="Content" >
             <Switch>
               {/* SUB-ROUTES */}
               <Route exact path ="/pathway/pathway-detail/:pathway" component={PathwayDetailPage}/>
@@ -53,8 +53,8 @@ export default class App extends React.Component {
               <Route path="*" component={NotFoundPage} />
             </Switch>
           </div>
-        </div>
-        {/* <Footer/> */}
+        </>
+        <Footer className="Footer"/>
 
       </Router>
     );

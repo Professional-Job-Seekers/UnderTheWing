@@ -1,6 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { FaLinkedin } from "react-icons/fa";
+//import { FaTwitter } from "react-icons/fa";
+// import {IconContext} from "react-icons";
+
 
 import { Card, Container, Row, Col } from "react-bootstrap";
 import "../styles/MentorCard.css";
@@ -68,7 +70,14 @@ const MentorPageCard = () => {
       <Row className="mb-3">
             <Col className="">
               <h1>Mentor Team</h1>
+               {/* <FaTwitter /> */}
+
               {/* <FaLinkedin/> */}
+              {/* <IconContext.Provider>
+              <div>
+                <FaTwitter />
+              </div>
+            </IconContext.Provider> */}
             </Col>
           </Row>
       <Row>

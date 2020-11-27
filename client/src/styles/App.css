@@ -216,6 +216,14 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   background-color: var(--main-nav-color);
 }
 
+.Content{
+flex: 1 0 auto;
+}
+
+.Footer{
+  flex-shrink: 0;
+}
+
 .footer-links {
   letter-spacing: .025em;
   color: #000;

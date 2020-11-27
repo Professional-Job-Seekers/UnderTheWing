@@ -1,13 +1,14 @@
 import React from "react";
 import CompanyLogo from "../assets/CompanyLogo.svg";
 import '../styles/App.css';
+// import { FaLinkedin } from "react-icons/fa";
 
 
 export default class Footer extends React.Component {
   render(){
     return (
       <footer id="footer">
-        {/* <div className="footer-main "> 
+        <div className="footer-main "> 
           <div className="footer-left">
             <div className="footer-left-content">
               <h3>Mentor & Make an Impact </h3>
@@ -25,16 +26,16 @@ export default class Footer extends React.Component {
             <h3>Stay in the loop</h3>
             <p>Be first to know about the latest community news, events, and job opportunities.</p>
           </div>
-        </div> */}
+        </div>
        <div className="footer-end">  
           <ul className="icons">
             <li>
               <a href="https://www.linkedin.com/in/joshua-carpentier/" className="icon fa-youtube" target="_blank" rel="noreferrer">
-              <span className="label">Joshua-LinkedIn</span></a>
+              <span className="label">Joshua-Linkedin</span></a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/muneebtkhawaja/" className="icon fa-linkedin" target="_blank" rel="noreferrer">
-              <span className="label">Muneeb-LinkedIn</span></a>
+              <span className="label">Muneeb-Linkedin</span></a>
             </li>
             <li>
               <a href="https://github.com/Professional-Job-Seekers/professional-ctp-project"  className="icon fa-github" target="_blank" rel="noreferrer">

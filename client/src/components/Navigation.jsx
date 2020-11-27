@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink} from 'react-router-dom';
-import Pics from "../assets/CompanyLogo.svg";
+import CompanyLogo from "../assets/CompanyLogo.svg";
 
 
 /* Auth */
@@ -9,8 +9,11 @@ import AuthButtonGroup from './AuthButtonGroup';
 export default class Navigation extends React.Component {
   render() {
     return (
-      <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 mr-auto ">
+      <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0  ">
         <Link className="navbar-brand" to="/">Under The Wing</Link> 
+
+        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+
         <ul className="navbar-nav mr-auto  "> 
 
           <li className="nav-item"> 
@@ -22,8 +25,11 @@ export default class Navigation extends React.Component {
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
           </li> 
+
+          {/* <Link className="navbar-brand" to="/">Under The Wing</Link>  */}
+
           {/* <Link className="navbar-brand mr-auto" to="/">  
-            <img src={Pics} id="CpLogo"  alt=""/>
+            <img src={CompanyLogo} id="CpLogo"  alt=""/>
             </Link> */}
 
           <li className="nav-item"> 
@@ -32,8 +38,13 @@ export default class Navigation extends React.Component {
           <li className="nav-item">
             <NavLink className="nav-link" exact to="/about-us"> About Us </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" exact to="/mentor"> Our Mentors </NavLink>
+          </li>
         </ul>
-        <ul className="nav navbar-nav navbar-right">
+       
+      </div>
+      <ul className="nav navbar-nav navbar-right">
           <li className="nav-item"><AuthButtonGroup/></li>
         </ul>
     </nav>  

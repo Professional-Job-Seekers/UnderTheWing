@@ -79,7 +79,9 @@ input, button, textarea, select {
   /* background: linear-gradient(90deg, #9e7110 0%, #9e7110 100%); */
   /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
-  --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%)*/;
+  /* --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
+  --main-bg-color:  linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);
+
   --main-nav-color: white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%)*/;
 }
 
@@ -151,6 +153,24 @@ main {
   border-width: 1px 1px 0 1px;
 }
 
+
+element.style {
+}
+a.icon {
+    transition: color .2s ease-in-out;
+}
+.icon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 1rem;
+}
+
+.fa-linkedin:before {
+  content: "\F0E1";
+}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;

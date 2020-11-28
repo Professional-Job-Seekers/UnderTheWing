@@ -60,6 +60,7 @@ export default class PathwayCreationForm extends Component {
     try {
       const response = await fetch('api/pathways/create', requestOptions);
       console.log(response);
+      window.location.replace(`pathway/pathway-detail/${title}`)
     } catch (err) {
       console.log(err);
     }

@@ -17,7 +17,7 @@ export default class PathwayPage extends Component {
   render() {
     return (
       <div>
-          <h1>Pathway Offering</h1>
+          <h1 className="mt-3 mb-3">Pathway Offering</h1>
           {this.state.pathways}
       </div>
     );

@@ -286,6 +286,5 @@ git push heroku master
 
 1. Joshua Carpentier ([jacgit18](https://github.com/jacgit18))
 1. Muneeb Khawaja ([mtkhawaja](http://github.com/mtkhawaja))
-1. Joshua Carpentier ([PGayle](https://github.com/PGayle))
 
 ## Acknowledgements

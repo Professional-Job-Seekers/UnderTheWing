@@ -1,7 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
-import Pics from "../assets/campaign-objective-done.svg";
+import ObjectiveLogo from "../assets/campaign-objective-done.svg";
 
 
 
@@ -21,7 +21,7 @@ const CardSpot = () => {
             <Card className="mb-3 card-img-top overflow p-2 " key={index}>
               <Card.Body>
                 {/* <Card.Text> Test </Card.Text> */}
-                <Card.Img src={Pics} />
+                <Card.Img src={ObjectiveLogo} />
               </Card.Body>
               <Card.Title>{card.title} </Card.Title>
               <Card.Subtitle> {index + 1} </Card.Subtitle>

@@ -1,7 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { FaLinkedin } from "react-icons/fa";
-
 import { Card, Container, Row, Col } from "react-bootstrap";
 import "../styles/MentorCard.css";
 import Stockperson1 from "../assets/Person1.jpeg";

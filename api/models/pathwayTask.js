@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     requires_review :{
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-    }
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
   },
   {
     sequelize,

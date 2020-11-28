@@ -39,7 +39,7 @@ async function generateDummyPathways(recordCount){
         let tasks = [];
         for(let j = 0; j < i + 1; j++){
             tasks.push({
-                "title": randomString,
+                "title": randomString(),
                 "sequence": j,
                 "requires_review": flip() 
             });
@@ -53,8 +53,8 @@ async function generateDummyPathways(recordCount){
 }
 
 async  function generateDummyData(recordCount) {
-    await generateDummyPathways(recordCount);
     await generateDummyUsers(recordCount);
+    await generateDummyPathways(recordCount);
 
 }
 

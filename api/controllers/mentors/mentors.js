@@ -20,6 +20,16 @@ router.get('/', async (req, res)=>{
     res.json(response); 
 });
 
+router.get('/all', async (req, res)=>{
+    try{
+        const mentors = await mentorQueries.getAllMentors();
+        res.status(200).json(mentors); 
+    } catch(err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+});
+
 router.post('/', async (req, res) =>{
     const username = req.body.username;
     let user = null, mentor = null, exists = null;

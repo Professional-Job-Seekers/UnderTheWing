@@ -64,7 +64,7 @@ const MentorPageCard = () => {
   };
 
   return (
-    <Container className="my-3 py-5 text-center">
+    <Container className="my-3  text-center">
       <Row className="mb-3">
             <Col className="">
               <h1>Mentor Team</h1>

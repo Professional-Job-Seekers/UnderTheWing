@@ -7,7 +7,7 @@ export default class PathwayObjectives extends React.Component{
   render(){
     const activePathwayComponents = this.props.activePathwayData.map((pathway, index) => (
       <Tab  eventKey={pathway.pathway} title={pathway.pathway} key ={index}>
-        {pathway.tasks.map((task, index) => <PathwayTask key ={index} taskTitle = {task.title}/>)}
+        {pathway.tasks.map((task, index) => <PathwayTask key ={index} taskTitle = {task.title} taskStatus = {task.status} />)}
       </Tab>   
     ));
     return (

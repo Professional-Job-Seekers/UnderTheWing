@@ -3,8 +3,8 @@ const accountQueries = require('../controllers/accounts/queries');
 const mentorQueries = require('../controllers/mentors/queries');
 const pathwayQueries = require('../controllers/pathways/queries');
 
-function randomString(){
-    return crypto.randomBytes(6).toString('hex');
+function randomString(strLen = 6){
+    return crypto.randomBytes(strLen).toString('hex');
 }
 function flip(){
     return Math.random().toFixed(2) < .50;
@@ -41,7 +41,8 @@ async function generateDummyPathways(recordCount){
             tasks.push({
                 "title": randomString(),
                 "sequence": j,
-                "requires_review": flip() 
+                "requires_review": flip(),
+                "description": randomString(50)
             });
         }
         try {

@@ -35,7 +35,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false 
       }
     });
-    models.PathwayTask.hasMany(models.TaskCategory,{});
+    models.PathwayTask.belongsTo(models.TaskCategory, {
+      foreignKey: { 
+        allowNull: true
+      }
+    });
   };
 
   return PathwayTask;

@@ -29,6 +29,11 @@
   - [JSON Request Parameters](#json-request-parameters-2)
   - [Sample JSON Request](#sample-json-request-1)
   - [Sample JSON Request ads](#sample-json-request-ads)
+- [Tasks](#tasks)
+  - [Create Task Category](#create-task-category)
+  - [Sample Response](#sample-response)
+  - [Get All Task Categories](#get-all-task-categories)
+  - [Sample Response](#sample-response-1)
 
 ## Get Pathway
 
@@ -304,4 +309,44 @@ new_status|required| Any value from: ['completed','skipped','under_review', 'pen
     "task_id": 1,
     "status": "completed"
 }
+```
+
+## Tasks
+
+### Create Task Category
+
+```POST```: pathways/tasks/category/create
+
+### Sample Response
+
+```JSON
+{
+    "id": 1,
+    "category": "foooooo",
+    "updatedAt": "2020-11-28T23:05:21.850Z",
+    "createdAt": "2020-11-28T23:05:21.850Z"
+}
+```
+
+### Get All Task Categories
+
+```GET```: pathways/tasks/category/all
+
+### Sample Response
+
+```JSON
+[
+    {
+        "id": 1,
+        "category": "foooooo",
+        "createdAt": "2020-11-28T23:09:09.439Z",
+        "updatedAt": "2020-11-28T23:09:09.439Z"
+    },
+    {
+        "id": 2,
+        "category": "baaaar",
+        "createdAt": "2020-11-28T23:09:20.866Z",
+        "updatedAt": "2020-11-28T23:09:20.866Z"
+    }
+]
 ```

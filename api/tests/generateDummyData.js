@@ -35,7 +35,10 @@ async function generateDummyUsers(recordCount){
 
 async function generateDummyPathways(recordCount){
     for(let i = 0; i < recordCount; i++){
-        let pathway = randomString();
+        let pathway = {
+            "title": randomString(),
+            "description": randomString(45),
+        };
         let tasks = [];
         for(let j = 0; j < i + 1; j++){
             tasks.push({

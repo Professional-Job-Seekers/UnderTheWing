@@ -1,14 +1,6 @@
-body {
-    margin: 0;
-    padding: 0;
-}
- @import url("https://fonts.googleapis.com/css?family=Arima+Madurai:300");
+@import url("https://fonts.googleapis.com/css?family=Arima+Madurai:300");
 *, *::before, *::after {
     -webkit-box-sizing: border-box;
-}
-h1 {
-    font-size: 4rem;
-    letter-spacing: 3px;
 }
 
 .quote-text{
@@ -21,9 +13,9 @@ h1 {
 }
 
 .banner-container {
-    position: absolute;
+    position: relative;
     left: 0;
-    width: 100%;
+    min-width: 100vw;
     min-height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;

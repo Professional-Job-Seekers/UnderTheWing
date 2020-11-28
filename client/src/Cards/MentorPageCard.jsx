@@ -13,7 +13,7 @@ import Stockperson4 from "../assets/person4.jpeg";
 
 const MentorPageCard = () => {
   const cardinfo = [
-    { person: Stockperson1, name: "Jenna Smith", mentortype: "Software Development" },
+    { person: Stockperson1, name: "Jenna Smith", mentortype: "Software Dev" },
     { person: Stockperson2, name: "John Doe", mentortype: "Research"   },
     { person: Stockperson3, name: "Susan Murphy", mentortype: "Engineering"  },
     { person: Stockperson4, name: "Milton Simons", mentortype: "Mathematician"  },

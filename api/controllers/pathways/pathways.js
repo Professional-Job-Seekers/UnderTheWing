@@ -10,10 +10,12 @@ const creationController = require('./creation/controller');
 const progressController = require('./progress/controller');
 const commitController = require('./commit/controller');
 const updateController = require('./update/controller');
+const taskController = require('./tasks/controller');
 router.use('/create', creationController);
 router.use('/commit', commitController);
 router.use('/update', updateController);
 router.use('/progress', progressController);
+router.use('/tasks', taskController);
 
 
  /**************************************************************************************************

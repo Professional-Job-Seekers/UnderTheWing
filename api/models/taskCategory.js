@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
 	class TaskCategory extends Model {}
 	TaskCategory.init({
 		category: {
-      primaryKey: true,
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,

@@ -106,7 +106,7 @@ async function createPathway(pathway){
 async function createPathwayWithTasks(pathway, tasks){
   let newPathway = null, newPathwayTasks = null; 
   try{
-    newPathway = await Pathway.create({ title : pathway});
+    newPathway = await Pathway.create(pathway);
     tasks.forEach(task => task.PathwayId = newPathway.id);
     newPathwayTasks = await PathwayTask.bulkCreate(tasks);
   } catch(err){
@@ -116,6 +116,7 @@ async function createPathwayWithTasks(pathway, tasks){
   const response = {
     pathway : {
       id: newPathway.id, 
+      description: newPathway.description, 
       title: newPathway.title, 
       tasks :  newPathwayTasks
     } ,

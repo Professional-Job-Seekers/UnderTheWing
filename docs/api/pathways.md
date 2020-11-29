@@ -29,6 +29,11 @@
   - [JSON Request Parameters](#json-request-parameters-2)
   - [Sample JSON Request](#sample-json-request-1)
   - [Sample JSON Request ads](#sample-json-request-ads)
+- [Tasks](#tasks)
+  - [Create Task Category](#create-task-category)
+  - [Sample Response](#sample-response)
+  - [Get All Task Categories](#get-all-task-categories)
+  - [Sample Response](#sample-response-1)
 
 ## Get Pathway
 
@@ -88,6 +93,7 @@ pathway|optional| The name of the pathway. If this parameter is not defined, an 
 **Param**|**-** |**Description**
 :-----:|:-----: |:-----:
 title|required| The name of the pathway to create.
+description|optional| A description of the pathway.
 categories|optional| Array of string categories to assign to pathway. Categories must be from a list of available categories, not new.
 tasks|optional| Array of json tasks to assign to pathway.
 
@@ -95,6 +101,7 @@ tasks|optional| Array of json tasks to assign to pathway.
 :-----:|:-----: |:-----:
 title|required| name of the task.
 sequence|required| integer representing sequence of task in pathway.
+description|optional| name of the task.
 requires_review|optional| Default value is false.
 
 ### Sample Request JSON
@@ -102,17 +109,20 @@ requires_review|optional| Default value is false.
 ``` JSON
 {
     "title": "Ninja Cats",
-    "categories": ["Default","Foo"],
+    "description": "Learn how to be an amazing ninja cat",
+    "categories": ["Default"],
     "tasks": [
         {
             "title": "sneaking",
             "sequence": 1,
-            "requires_review": false
+            "requires_review": false,
+            "description": "Learn how to sneak like a ninja"
         },
         {
             "title": "eating",
             "sequence": 2,
-            "requires_review": false
+            "requires_review": false,
+            "description": "Learn how to eat like a ninja"
         }
     ]
 }
@@ -123,30 +133,31 @@ requires_review|optional| Default value is false.
 ```JSON
 {
     "pathway": {
-        "id": 1,
+        "id": 6,
+        "description": "Learn how to be an amazing ninja cat",
         "title": "Ninja Cats",
-        "categories": [
-            "Default",
-            "Foo"
-        ],
         "tasks": [
             {
-                "id": 1,
+                "id": 16,
                 "title": "sneaking",
                 "sequence": 1,
                 "requires_review": false,
-                "PathwayId": 1,
-                "createdAt": "2020-11-09T03:07:16.099Z",
-                "updatedAt": "2020-11-09T03:07:16.099Z"
+                "description": "Learn how to sneak like a ninja",
+                "PathwayId": 6,
+                "createdAt": "2020-11-28T23:48:52.424Z",
+                "updatedAt": "2020-11-28T23:48:52.424Z",
+                "TaskCategoryId": null
             },
             {
-                "id": 2,
+                "id": 17,
                 "title": "eating",
                 "sequence": 2,
                 "requires_review": false,
-                "PathwayId": 1,
-                "createdAt": "2020-11-09T03:07:16.099Z",
-                "updatedAt": "2020-11-09T03:07:16.099Z"
+                "description": "Learn how to eat like a ninja",
+                "PathwayId": 6,
+                "createdAt": "2020-11-28T23:48:52.424Z",
+                "updatedAt": "2020-11-28T23:48:52.424Z",
+                "TaskCategoryId": null
             }
         ]
     }
@@ -304,4 +315,44 @@ new_status|required| Any value from: ['completed','skipped','under_review', 'pen
     "task_id": 1,
     "status": "completed"
 }
+```
+
+## Tasks
+
+### Create Task Category
+
+```POST```: pathways/tasks/category/create
+
+### Sample Response
+
+```JSON
+{
+    "id": 1,
+    "category": "foooooo",
+    "updatedAt": "2020-11-28T23:05:21.850Z",
+    "createdAt": "2020-11-28T23:05:21.850Z"
+}
+```
+
+### Get All Task Categories
+
+```GET```: pathways/tasks/category/all
+
+### Sample Response
+
+```JSON
+[
+    {
+        "id": 1,
+        "category": "foooooo",
+        "createdAt": "2020-11-28T23:09:09.439Z",
+        "updatedAt": "2020-11-28T23:09:09.439Z"
+    },
+    {
+        "id": 2,
+        "category": "baaaar",
+        "createdAt": "2020-11-28T23:09:20.866Z",
+        "updatedAt": "2020-11-28T23:09:20.866Z"
+    }
+]
 ```

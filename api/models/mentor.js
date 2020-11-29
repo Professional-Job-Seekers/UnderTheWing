@@ -4,7 +4,13 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Mentor extends Model {}
-  Mentor.init({},
+  Mentor.init({
+    mentor_headline: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+  },
   {
     sequelize,
     underscored: true,

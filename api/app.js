@@ -6,8 +6,8 @@ const path = require('path');
 const db = require('./models');
 const passport = require('./middlewares/authentication');
 const app = express();
+const dds =  require("./tests/generateDummyData");
 const PORT = process.env.PORT || 8000;
-
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
@@ -39,7 +39,19 @@ if(process.env.NODE_ENV==='production') {
 
 // update DB tables based on model updates. Does not handle renaming tables/columns
 // NOTE: toggling this to true drops all tables (including data)
-db.sequelize.sync({ force: false });
+
+const syncMode = process.env.NODE_ENV==='docker' ? true : false;
+
+if (syncMode) {
+  db.sequelize.sync({ force: true }).then(async res => {
+    await dds.generateDummyData(5)
+  }).catch(err => {
+    console.log(err);
+  })
+} else {
+  db.sequelize.sync({ force: false });
+}
 
 // start up the server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+

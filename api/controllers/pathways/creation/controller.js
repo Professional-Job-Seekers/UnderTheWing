@@ -28,7 +28,10 @@ router.post('/', async (req, res, next) =>{
   if(req.body.categories){
     return next();
   }
-  const pathway = req.body.title;
+  const pathway = {
+    "title": req.body.title,
+    "description":  req.body.description || ''
+  };
   const tasks =  req.body.tasks;
   let newPathway = null; 
   try{
@@ -42,9 +45,12 @@ router.post('/', async (req, res, next) =>{
 });
 
 router.post('/', async (req, res) =>{
-  const pathway = req.body.title;
+  const pathway = {
+    "title": req.body.title,
+    "description":  req.body.description || ''
+  };
+  categories =  req.body.categories;
   const tasks =  req.body.tasks;
-  const categories =  req.body.categories;
   let newPathway = null; 
   try{
     newPathway = await pathwayQueries.createPathwayWithTasksAndCategories(pathway, tasks, categories);

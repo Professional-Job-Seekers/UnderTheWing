@@ -9,7 +9,7 @@ import AuthButtonGroup from './AuthButtonGroup';
 export default class Navigation extends React.Component {
   render() {
     return (
-      <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0  ">
+      <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 container-fluid ">
         <Link className="navbar-brand" to="/">Under The Wing</Link> 
 
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
@@ -44,7 +44,7 @@ export default class Navigation extends React.Component {
         </ul>
        
       </div>
-      <ul className="nav navbar-nav navbar-right">
+      <ul className="nav navbar-nav navbar-right ">
           <li className="nav-item"><AuthButtonGroup/></li>
         </ul>
     </nav>  

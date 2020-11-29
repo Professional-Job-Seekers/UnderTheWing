@@ -154,8 +154,6 @@ main {
 }
 
 
-element.style {
-}
 a.icon {
     transition: color .2s ease-in-out;
 }
@@ -168,9 +166,6 @@ a.icon {
     margin: 0 1rem;
 }
 
-.fa-linkedin:before {
-  content: "\F0E1";
-}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;

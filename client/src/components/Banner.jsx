@@ -1,14 +1,9 @@
-/* UTW Banner / Graphic */
-// import HomeSchedule from './views/NetworkingMeetups/homeSchedule';
-// import { Button } from 'react-bootstrap';
 import '../styles/banner.css';
 import React from "react";
-import { withRouter, Link } from 'react-router-dom';
 
 export default class Banner extends React.Component{
   render(){
     return (
-      
       <div className="banner-container">
         <blockquote class="blockquote quote-text">
           <p class="mb-0"> Life’s most persistent and urgent question is, ‘What are you doing for others?’</p>

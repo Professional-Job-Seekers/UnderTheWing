@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'pending_start',
       allowNull: false,
     },
-
+    submission: {
+      type: DataTypes.STRING,
+      defaultValue: '',
+      allowNull: false,
+    },
   },
   {
     indexes: [

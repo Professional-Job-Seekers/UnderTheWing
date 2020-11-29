@@ -60,6 +60,7 @@ export default class PathwayCreationForm extends Component {
     try {
       const response = await fetch('api/pathways/create', requestOptions);
       console.log(response);
+      window.location.replace(`pathway/pathway-detail/${title}`)
     } catch (err) {
       console.log(err);
     }
@@ -87,6 +88,7 @@ export default class PathwayCreationForm extends Component {
                         </p>
                       </fieldset>
                     </div>
+                    <br></br>
                     <button className="btn btn-primary mr-2" onClick = {this.updateTaskList} type="button"> Add Task </button>
                     <button className="btn btn-primary" type="submit"> Submit </button>
                 </form>

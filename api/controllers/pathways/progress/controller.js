@@ -24,6 +24,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+
 router.get('/', async (req, res) =>{
     try {
         const user =  req.user || await accountQueries.findUser(req.query.username);

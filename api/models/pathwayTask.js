@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     requires_review :{
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-    }
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
   },
   {
     sequelize,
@@ -30,7 +35,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false 
       }
     });
-    models.PathwayTask.hasMany(models.TaskCategory,{});
+    models.PathwayTask.belongsTo(models.TaskCategory, {
+      foreignKey: { 
+        allowNull: true
+      }
+    });
   };
 
   return PathwayTask;

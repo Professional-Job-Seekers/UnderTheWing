@@ -12,12 +12,11 @@ export default class MentorCard extends Component {
                 <Card.Img className="img-fluid rounded-circle w-50 mb-3 img-thumbnail mx-auto d-block" id="CpLogo" src={UserAvatar} alt="Card image cap" />
               </Card.Header>
               <Card.Body className="">
-                <Card.Text>
-                  <p> dhahdvhavdh</p>
-                </Card.Text>
+                {this.props.headline}
               </Card.Body>
               <Card.Title> <h3> {this.props.firstName + " " + this.props.lastName}</h3></Card.Title>
               <Card.Subtitle><h5> {this.props.mentorType}</h5>{" "}</Card.Subtitle>
+              <a href={`${this.props.baseURL}/match/${this.props.mentorUsername}`} className="btn btn-primary">Match</a>
             </Card>
           </Col>
     );

@@ -13,7 +13,7 @@ export default class MentorCard extends Component {
               </Card.Header>
               <Card.Body className="">
                 <Card.Text>
-                  <p> dhahdvhavdh</p>
+                   dhahdvhavdh
                 </Card.Text>
               </Card.Body>
               <Card.Title> <h3> {this.props.firstName + " " + this.props.lastName}</h3></Card.Title>

@@ -3,24 +3,34 @@ import "../styles/App.css";
 import { Tabs, Tab, Button, Container, Row, Col } from "react-bootstrap";
 import ObjectiveCards from "../Cards/ObjectiveCards";
 import PathwayTask from "./PathwayTask";
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import Route from "react-router-dom/Route";
+import TaskStatusPage from "../pages/TaskStatusPage";
+
 export default class PathwayObjectives extends React.Component {
   render() {
+    // const newpage = <Redirect to={{
+    //   pathname: '/login',
+    //   state: { from: props.location }
+    // }} />;
     const activePathwayComponents = this.props.activePathwayData.map(
       (pathway, index) => (
         <Tab eventKey={pathway.pathway} title={pathway.pathway} key={index}>
           {pathway.tasks.map((task, index) => (
-            <PathwayTask
-              key={index}
-              taskTitle={task.title}
-              taskStatus={task.status}
-            />
+            <div>
+              <PathwayTask
+                key={index}
+                taskTitle={task.title}
+                taskStatus={task.status}
+              />
+
+             
+            </div>
           ))}
-          <Button
-            className="mt-3"
-            href={`${this.props.baseURL}/progress/update/${this.props.pathwayTitle}`}
-          >
-            Learn More
-          </Button>
+
+          {/* <Link to="/taskstatus" > click </Link> */}
+
+          {/* <Redirect to="/taskstatus" /> */}
         </Tab>
       )
     );

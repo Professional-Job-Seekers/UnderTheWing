@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/App.css'
-import pathwayService from '../services/pathway'
-import PathwayTask from '../components/PathwayTask'
+import pathwayService from '../services/pathway';
+import PathwayTask from '../components/PathwayTask';
 import { Card, Button } from "react-bootstrap";
 
 export default class PathwayDetailPage extends React.Component {

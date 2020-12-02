@@ -14,6 +14,7 @@ export default class Dash extends Component {
   state = {
     username: "",
     pathways: [],
+
   };
 
   /* Fetch Data Here */

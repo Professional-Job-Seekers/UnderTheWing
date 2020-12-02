@@ -8,6 +8,10 @@ import AboutUsPage from './pages/AboutUsPage';
 import UserDashboardPage from './pages/UserDashboardPage'
 import HomePage from './pages/HomePage';
 import MentorPage from './pages/MentorPage';
+import TaskStatusPage from './pages/TaskStatusPage';
+
+import TaskDetail from './components/TaskDetail';
+
 
 // Pathways
 import PathwayPage from './pages/PathwayPage';
@@ -40,13 +44,21 @@ export default class App extends React.Component {
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
               <Route exact path ="/pathway-creator" component={PathwayCreatorPage}/>
-              {/* Whats up with this route */}
+
               <Route exact path ="/dashboard" component={PathwayPage}/> 
+              
               <Route exact path ="/userdash" component={UserDashboardPage}/>
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>
               <Route exact path ="/event" component={Events}/>
               <Route exact path ="/mentor" component={MentorPage}/>
+              {/* <Route exact path ="/taskstatus" component={TaskStatusPage}/> */}
+              {/* <Route exact path ="/userdash/taskstatus/:userdash" component={TaskStatusPage}/> */}
+              {/* <Route exact path ="/taskdetail" component={TaskDetail}/> */}
+
+              <Route exact path ="/progress/update/:pathway" component={TaskStatusPage}/>
+              {/* <Route exact path ="/task" component={TaskStatusPage}/> */}
+
 
               <Route exact path ="/" component={HomePage}/>
               {/* NOT FOUND */}

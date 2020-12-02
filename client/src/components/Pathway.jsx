@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 
 export default class Pathway extends React.Component {
   render() {
@@ -21,28 +21,9 @@ export default class Pathway extends React.Component {
           </Button>
         </Card.Footer>
       </Card>
+
+     
     );
   }
 }
 
-// add to buttons submit to take you to a new pg with text box
-// with infor below like task name and status
-
-// new status contains taskStatus properties
-/*
-"completed": "Completed",
-    "skipped": "Skipped",
-    "under_review": 'Under Review', 
-    "pending_start" : 'Pending Start', 
-    "pending_review": 'Pending Review', 
-    "in_progress": 'In Progress',
-
-*/
-//use to make a request to this endpoint
-//POST : pathways/progress/update
-// which is already setup in updatePathwayTaskProgress method
-
-//  pathway.updatePathwayTaskProgress(pathway.taskStatus.completed)
-
-// then make a card that shows stats on current pg
-// edit Pathway.jsx file

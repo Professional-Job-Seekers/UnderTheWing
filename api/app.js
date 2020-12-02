@@ -43,7 +43,7 @@ if(process.env.NODE_ENV==='production') {
 const syncMode = process.env.NODE_ENV==='docker' ? true : false;
 
 if (syncMode) {
-  db.sequelize.sync({ force: true }).then(async res => {
+  db.sequelize.sync({ force:false }).then(async res => {
     await dds.generateDummyData(5)
   }).catch(err => {
     console.log(err);

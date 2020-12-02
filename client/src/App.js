@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /* Styles */
 import './styles/App.css';
@@ -15,23 +15,28 @@ import TaskDetail from './components/TaskDetail';
 import MentorMatchResultPage from './pages/redirects/MentorMatchResultPage';
 
 // Pathways
-import PathwayPage from './pages/PathwayPage';
-import PathwayDetailPage from './pages/PathwayDetailPage';
-import PathwayCommitPage from './pages/PathwayCommitPage';
-import PathwayCreatorPage from './pages/PathwayCreatorPage';
-// Auth 
-import NotFoundPage from './pages/NotFoundPage';
-import LoginPage from './pages/LoginPage';
-import RegistrationPage from './pages/RegistrationPage';
+import PathwayPage from "./pages/PathwayPage";
+import PathwayDetailPage from "./pages/PathwayDetailPage";
+import PathwayCommitPage from "./pages/PathwayCommitPage";
+import PathwayCreatorPage from "./pages/PathwayCreatorPage";
+// Auth
+import NotFoundPage from "./pages/NotFoundPage";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
 /* Components */
-import Navigation from './components/Navigation';
-/* Core Features */
-import Events from './views/NetworkingMeetups/EventCalender';
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
+/* Core Features */
+import Events from "./views/NetworkingMeetups/EventCalender";
 
 export default class App extends React.Component {
   render() {
     return (
+      <main class="mavens-module--Main--1u7R7">
+        <>
+          <div className="Content">
+         
       <Router>
         <Navigation/>
         <div className="container-fluid text-center wrap" >
@@ -59,17 +64,18 @@ export default class App extends React.Component {
               {/* <Route exact path ="/task" component={TaskStatusPage}/> */}
 
 
-              <Route exact path ="/" component={HomePage}/>
-              {/* NOT FOUND */}
-              <Route path="*" component={NotFoundPage} />
-            </Switch>
-          </div>
-        </div>
-        {/* <Footer/> */}
+                <Route exact path="/" component={HomePage} />
+                {/* NOT FOUND */}
+                <Route path="*" component={NotFoundPage} />
+              </Switch>
+              </div>
+              </div>
 
-      </Router>
+            </Router>
+          </div>
+          {/* <Footer className="Footer" /> */}
+        </>
+      </main>
     );
   }
 }
-
-

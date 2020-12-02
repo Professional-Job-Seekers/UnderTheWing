@@ -41,7 +41,7 @@ export default class Dash extends Component {
             <Card bg="" text="black" className="d-flex justify-content-center">              
               <UserTimelineHeader username = {this.state.username} />
               <UserDashboardCard cardTitleText = "About Me" cardBodyText = "Lorem ipsum" />
-              <PathwayObjectives activePathwayData = {this.state.pathways}/>
+              <PathwayObjectives activePathwayData = {this.state.pathways} baseURL={this.props.match.url} />
             </Card>
           </Col>
         </Row>

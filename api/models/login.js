@@ -20,27 +20,18 @@ module.exports = (sequelize, DataTypes) => {
             notEmpty: true,
         }
     },
-  
   }, 
   {
     sequelize,
     createdAt: true,
     modelName: 'Login',
-  },
-  {
-    indexes: [
-        {
-            unique: true,
-            fields: []
-        }
-    ]
   });
-
   Login.associate = (models) => {
-    // associations can be defined here
     Login.belongsTo(models.Account,{
         foreignKey: {
-          allowNull: false
+          name: "account_id",
+          field: "account_id",
+          allowNull: false,
       }
     });
   };

@@ -10,9 +10,15 @@ export default class MentorPage extends Component {
   state = {
     "mentors": []
   }
-  async componentDidMount(){
+  async componentDidMount() {
     const mentors = await accountService.getAllMentors();
-    const mentorComponents = mentors.map((mentor, index) => <MentorCard firstName ={mentor.Account.first_name} lastName ={mentor.Account.last_name}/>);
+    const mentorComponents = mentors.map((mentor, index) =>
+      <MentorCard
+        baseURL={this.props.match.url}
+        mentorUsername={mentor.Account.username}
+        firstName={mentor.Account.first_name}
+        lastName={mentor.Account.last_name}
+      />);
     this.setState({
       'mentors': mentorComponents
     })
@@ -23,7 +29,7 @@ export default class MentorPage extends Component {
       <section id="team">
         <Container className="mt-5">
           <Row>
-            {this.state.mentors} 
+            {this.state.mentors}
           </Row>
         </Container>
       </section>

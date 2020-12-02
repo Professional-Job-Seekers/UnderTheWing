@@ -1,9 +1,4 @@
-// This service object was adapted from here: 
-//  https://tylermcginnis.com/react-router-protected-routes-authentication/
-//
-// This version was modified to use real authentication implemented
-// in the backend api. It was also modified to return promises instead
-// of using callbacks `cb`.
+import {getCookie, setCookie} from "./cookies";
 
 const auth = {
   isAuthenticated: false,
@@ -24,12 +19,15 @@ const auth = {
         throw new Error('Login Failed');
       }
       this.isAuthenticated = true;
+      
       return response.json();
     } catch (err) {
       console.log(err);
     }
   },
   async signout(cb) {
+    setCookie('auth', "false");
+    setCookie('user_type', "");
     const URL = '/api/auth/logout';
     const requestOptions = {
       method: 'POST',

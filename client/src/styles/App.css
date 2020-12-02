@@ -80,7 +80,7 @@ input, button, textarea, select {
   /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
   /* --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
-  --main-bg-color:  linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);
+  /* --main-bg-color:  linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
 
   --main-nav-color: white;
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/

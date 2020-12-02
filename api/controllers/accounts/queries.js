@@ -25,10 +25,10 @@ async function findUser(username){
 async function createUser(user, password, saltRounds=10){
 	let new_user = null, hashedPassword = null;
     try {
-        const result = await sequelize.transaction(async (txn) => {
+        await sequelize.transaction(async (txn) => {
 			new_user = await Account.create(user, { transaction: txn });
 			hashedPassword = await bcrypt.hash(password, saltRounds);
-			Login.create({
+			await Login.create({
 				"AccountId": new_user.id,
 				"password_hash": hashedPassword,
 			});

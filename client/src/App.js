@@ -37,7 +37,7 @@ export default class App extends React.Component {
               <Route exact path ="/pathway/pathway-detail/:pathway" component={PathwayDetailPage}/>
               <Route exact path ="/pathway/commit/:pathway" component={PathwayCommitPage}/>
               {/* BASE ROUTES */}
-              <Route exact path ="/match/mentor/:mentor" component={MentorMatchResultPage}/>
+              <Route exact path ="/mentor/match/:mentor" component={MentorMatchResultPage}/>
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
               <Route exact path ="/pathway-creator" component={PathwayCreatorPage}/>

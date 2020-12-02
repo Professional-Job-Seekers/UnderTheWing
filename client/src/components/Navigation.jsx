@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, NavLink} from 'react-router-dom';
 // import CompanyLogo from "../assets/CompanyLogo.svg";
-import {FaTwitter}  from 'react-icons/fa';
-import {IconContext} from 'react-icons';
+// import {FaTwitter}  from 'react-icons/fa';
+// import {IconContext} from 'react-icons';
 
 // import {
 //   Nav,
@@ -13,21 +13,21 @@ import {IconContext} from 'react-icons';
 //   NavBtnLink
 // } from './NavbarElements';
 
+import ProtectedLink from "./ProtectedLink";
 /* Auth */
 import AuthButtonGroup from './AuthButtonGroup';
-
 export default class Navigation extends React.Component {
   render() {
     return (
-      <IconContext.Provider value={{color: "cornflowerblue", size: "4em"}}>
-      <>
+      // <IconContext.Provider value={{color: "cornflowerblue", size: "4em"}}>
+      // <>
 
       <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 container-fluid ">
         <Link className="navbar-brand" to="/">Under The Wing</Link> 
 
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
 
-        <FaTwitter/>
+        {/* <FaTwitter/> */}
 
         <ul className="navbar-nav mr-auto  "> 
 
@@ -35,22 +35,14 @@ export default class Navigation extends React.Component {
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/"> Home </NavLink>
           </li>
-          <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/userdash"> Dashboard </NavLink>
-          </li>  
+
+          <ProtectedLink URL ="/userdash" linkDisplayText="Dashboard" checkType="auth"/>
+          <ProtectedLink URL ="/pathway-creator" linkDisplayText="Creator" checkType="mentor"/>
+          
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
           </li> 
 
-          {/* <Link className="navbar-brand" to="/">Under The Wing</Link>  */}
-
-          {/* <Link className="navbar-brand mr-auto" to="/">  
-            <img src={CompanyLogo} id="CpLogo"  alt=""/>
-            </Link> */}
-
-          <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/pathway-creator"> Creator </NavLink>
-          </li> 
           <li className="nav-item">
             <NavLink className="nav-link" exact to="/about-us"> About Us </NavLink>
           </li>
@@ -64,7 +56,7 @@ export default class Navigation extends React.Component {
           <li className="nav-item"><AuthButtonGroup/></li>
         </ul>
     </nav>  
-    </>
-    </IconContext.Provider>
+    // </>
+    // </IconContext.Provider>
   );}
 }

@@ -44,7 +44,7 @@ const syncMode = process.env.NODE_ENV==='docker' ? true : false;
 
 if (syncMode) {
   db.sequelize.sync({ force:true }).then(async res => {
-    await dds.generateDummyData(5)
+    await dds.generateDummyData(10)
   }).catch(err => {
     console.log(err);
   })

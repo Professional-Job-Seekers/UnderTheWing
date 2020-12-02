@@ -1,11 +1,8 @@
 import React from "react";
 import { Link, NavLink} from 'react-router-dom';
-import CompanyLogo from "../assets/CompanyLogo.svg";
-
-
+import ProtectedLink from "./ProtectedLink";
 /* Auth */
 import AuthButtonGroup from './AuthButtonGroup';
-
 export default class Navigation extends React.Component {
   render() {
     return (
@@ -19,22 +16,14 @@ export default class Navigation extends React.Component {
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/"> Home </NavLink>
           </li>
-          <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/userdash"> Dashboard </NavLink>
-          </li>  
+
+          <ProtectedLink URL ="/userdash" linkDisplayText="Dashboard" checkType="auth"/>
+          <ProtectedLink URL ="/pathway-creator" linkDisplayText="Creator" checkType="mentor"/>
+          
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
           </li> 
 
-          {/* <Link className="navbar-brand" to="/">Under The Wing</Link>  */}
-
-          {/* <Link className="navbar-brand mr-auto" to="/">  
-            <img src={CompanyLogo} id="CpLogo"  alt=""/>
-            </Link> */}
-
-          <li className="nav-item"> 
-            <NavLink className="nav-link" exact to="/pathway-creator"> Creator </NavLink>
-          </li> 
           <li className="nav-item">
             <NavLink className="nav-link" exact to="/about-us"> About Us </NavLink>
           </li>

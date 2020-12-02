@@ -58,7 +58,13 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Account.associate = (models) => {
-    models.Account.hasOne(models.Login);
+    models.Account.hasOne(models.Login, {
+      foreignKey: {
+        name: "account_id",
+        field: "account_id",
+        allowNull: false,
+    }
+  });
   };
 
   return Account;

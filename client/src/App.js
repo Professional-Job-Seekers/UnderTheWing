@@ -8,6 +8,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import UserDashboardPage from './pages/UserDashboardPage'
 import HomePage from './pages/HomePage';
 import MentorPage from './pages/MentorPage';
+import MentorMatchResultPage from './pages/redirects/MentorMatchResultPage';
 
 // Pathways
 import PathwayPage from './pages/PathwayPage';
@@ -20,7 +21,6 @@ import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
 /* Components */
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
 /* Core Features */
 import Events from './views/NetworkingMeetups/EventCalender';
 
@@ -37,11 +37,11 @@ export default class App extends React.Component {
               <Route exact path ="/pathway/pathway-detail/:pathway" component={PathwayDetailPage}/>
               <Route exact path ="/pathway/commit/:pathway" component={PathwayCommitPage}/>
               {/* BASE ROUTES */}
+              <Route exact path ="/match/mentor/:mentor" component={MentorMatchResultPage}/>
               <Route exact path ="/login" component={LoginPage}/>
               <Route exact path ="/pathway" component={PathwayPage}/>
               <Route exact path ="/pathway-creator" component={PathwayCreatorPage}/>
               {/* Whats up with this route */}
-              <Route exact path ="/dashboard" component={PathwayPage}/> 
               <Route exact path ="/userdash" component={UserDashboardPage}/>
               <Route path="/about-us" component={AboutUsPage} />
               <Route exact path ="/register" component={RegistrationPage}/>

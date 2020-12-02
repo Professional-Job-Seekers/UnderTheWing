@@ -16,7 +16,7 @@ export default class MentorCard extends Component {
               </Card.Body>
               <Card.Title> <h3> {this.props.firstName + " " + this.props.lastName}</h3></Card.Title>
               <Card.Subtitle><h5> {this.props.mentorType}</h5>{" "}</Card.Subtitle>
-              <a href={`${this.props.baseURL}/match/${this.props.mentorUsername}`} className="btn btn-primary">Match</a>
+              <a href= {`${this.props.baseURL}/match/mentor/${this.props.mentorUsername}`} className="btn btn-primary">Match</a>
             </Card>
           </Col>
     );

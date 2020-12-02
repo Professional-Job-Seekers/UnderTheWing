@@ -1,7 +1,6 @@
 import ObjectiveLogo from "../assets/campaign-objective-icon.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card } from "react-bootstrap";
-
+import { Card, Button, Col } from "react-bootstrap";
 
 const ObjectiveComp = () => {
   const cardinfo = [
@@ -13,26 +12,20 @@ const ObjectiveComp = () => {
 
   const renderCard = (card, index) => {
     return (
-        <div className="col ">
-          <Card className="mb-3 card-img-top overflow " key={index}>
-            <Card.Body>
-              {/* <Card.Text> Test </Card.Text> */}
-              <Card.Img src={ObjectiveLogo} />
-            </Card.Body>
-            <Card.Title>{card.title} </Card.Title>
-            <Card.Subtitle> {index + 1} </Card.Subtitle>
-            <a
-              href="http://localhost:4960/pathway"
-              className="btn btn-outline-warning"
-            >
-              Take a Look
-            </a>
-            {/* btn btn-bd-download d-none d-lg-inline-block
+      <Col>
+        <Card className="mb-3 card-img-top overflow " key={index}>
+          <Card.Body>
+            {/* <Card.Text> Test </Card.Text> */}
+            <Card.Img src={ObjectiveLogo} />
+          </Card.Body>
+          <Card.Title>{card.title} </Card.Title>
+          <Card.Subtitle> {index + 1} </Card.Subtitle>
+          <Button href="http://localhost:4960/pathway">Take a Look</Button>
+
+          {/* btn btn-bd-download d-none d-lg-inline-block
              mb-3 mb-md-0 ml-md-3 */}
-             
-              
-          </Card>
-        </div>
+        </Card>
+      </Col>
     );
   };
 

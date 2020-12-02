@@ -8,12 +8,13 @@ import React, { Component } from "react";
 import UserTimelineHeader from "../components/UserTimelineHeader";
 import UserDashboardCard from "../components/UserDashboardCard";
 
-import { Card, Col, Row, Container } from "react-bootstrap";
+import { Card, Col, Row, Container, Button } from "react-bootstrap";
 
 export default class Dash extends Component {
   state = {
     username: "",
     pathways: [],
+
   };
 
   /* Fetch Data Here */
@@ -40,7 +41,7 @@ export default class Dash extends Component {
             <Card bg="" text="black" className="d-flex justify-content-center">              
               <UserTimelineHeader username = {this.state.username} />
               <UserDashboardCard cardTitleText = "About Me" cardBodyText = "Lorem ipsum" />
-              <PathwayObjectives activePathwayData = {this.state.pathways}/>
+              <PathwayObjectives activePathwayData = {this.state.pathways} baseURL={this.props.match.url} />
             </Card>
           </Col>
         </Row>

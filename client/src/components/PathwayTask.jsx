@@ -1,16 +1,48 @@
 import React from "react";
-import pathwayService from "../services/pathway"
-export default class PathwayTask extends React.Component{    
-  render(){
+import pathwayService from "../services/pathway";
+import { Card, Button } from "react-bootstrap";
+
+export default class PathwayTask extends React.Component {
+  state = {
+    pathway: "",
+    tasks : [],
+
+   }
+  
+  
+  
+  render() {
     return (
-      <div className="card">
-        <div className="card-body">
-            <h5 className="card-title">{this.props.taskTitle}</h5>
-            <p className="card-text">{this.props.taskDescription || "Task Description not available."}</p>
-            { (this.props.taskStatus) ? (<p> <strong>Status:</strong> {pathwayService.taskStatus[this.props.taskStatus]} </p>) : (null)}
-        </div>
-      </div>
+      <Card className="text-center mb-4">
+        <Card.Header className="bg-dark">
+          {" "}
+          <Card.Title className=" text-warning">
+            <h5>{this.props.taskTitle}</h5>
+          </Card.Title>
+        </Card.Header>
+        <Card.Body>
+          <Card.Text>
+            {this.props.taskDescription || "Task Description not available."}
+          </Card.Text>
+
+          {this.props.taskStatus ? (
+            <p>
+              {" "}
+              <strong>Status:</strong>{" "}
+              {pathwayService.taskStatus[this.props.taskStatus]}{" "}
+            </p>
+          ) : null}
+          <Card.Footer>
+            <Button
+              className="mt-3"
+              exact
+              href={`${this.props.baseURL}/pathways/progress/update/${this.props.pathwayTitle}`}
+            >
+              See more
+            </Button>
+          </Card.Footer>
+        </Card.Body>
+      </Card>
     );
   }
 }
-

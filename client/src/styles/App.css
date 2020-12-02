@@ -17,7 +17,7 @@ ol[class] {
 }
 
 /* Remove default margin */
-body, 
+
 h1, h2, h3, h4,
 p,
 ul[class], ol[class], li,
@@ -79,10 +79,11 @@ input, button, textarea, select {
   /* background: linear-gradient(90deg, #9e7110 0%, #9e7110 100%); */
   /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
-  /*--main-bg-color:  linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
-  --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);
+  /* --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
+  /* --main-bg-color:  linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
 
-  --main-nav-color: white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%)*/;
+  --main-nav-color: white;
+  /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
 }
 
 /****************************************************************************************************
@@ -91,8 +92,9 @@ input, button, textarea, select {
  body > #root > div {
   height: 100vh;
 }
-html, body{
-  overflow: hidden;
+
+ html, body{
+  overflow-x: hidden;
   width: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: large;
@@ -116,23 +118,6 @@ main {
   padding-bottom: 2%;
 }
 
-#CpLogo{
-  letter-spacing: .025em;
-  color: #000;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  width: 14em;
-  justify-self: end;
-}
-
-#CpLogo2{
-  justify-self: end;
-}
 
 
 .tab-list {  border-bottom: 1px solid rgb(0, 0, 0);
@@ -165,9 +150,6 @@ a.icon {
     margin: 0 1rem;
 }
 
-.fa-linkedin:before {
-  content: "\F0E1";
-}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
@@ -202,64 +184,14 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   overflow: auto;
 }
 
-#footer {
-  letter-spacing: .025em;
-  color: #000;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  background-color: var(--main-nav-color);
-}
 
-.footer-links {
-  letter-spacing: .025em;
-  color: #000;
-  box-sizing: border-box;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  margin: 0 0 2em;
-  display: flex;
-  list-style: none;
-  padding: 0;
+
+.Content{
+flex: 1 0 auto;
 }
 
 
-.footer-end {
-    letter-spacing: .025em;
-    box-sizing: border-box;
-    margin: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #343a40;
-    padding: .5em;
-    color: #e3e2db;
-}
-
-
-
-.copyright {
-  letter-spacing: .025em;
-  color: #e3e2db;
-  box-sizing: border-box;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  margin: 0;
-  font-size: .8em;
-  padding-left: 0;
-}
-
-:root {
+/* :root {
   --space: 1.5em 0;
   --space: 2em 0;
 }
@@ -282,5 +214,15 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   margin-top: var(--space);
   height: 0;
   visibility: hidden;
-}
+} */
 
+.mavens-module--Main--1u7R7{
+  letter-spacing: .025em;
+font-size: 100%;
+font: inherit;
+box-sizing: border-box;
+color: #000;
+display: flex;
+flex-direction: column;
+position: relative;
+}

@@ -191,7 +191,7 @@ flex: 1 0 auto;
 }
 
 
-:root {
+/* :root {
   --space: 1.5em 0;
   --space: 2em 0;
 }
@@ -214,7 +214,7 @@ flex: 1 0 auto;
   margin-top: var(--space);
   height: 0;
   visibility: hidden;
-}
+} */
 
 .mavens-module--Main--1u7R7{
   letter-spacing: .025em;

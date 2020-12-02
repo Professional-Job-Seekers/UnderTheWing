@@ -1,7 +1,17 @@
 import React from "react";
 import { Link, NavLink} from 'react-router-dom';
-import CompanyLogo from "../assets/CompanyLogo.svg";
+// import CompanyLogo from "../assets/CompanyLogo.svg";
+import {FaTwitter}  from 'react-icons/fa';
+import {IconContext} from 'react-icons';
 
+// import {
+//   Nav,
+//   NavLink,
+//   Bars,
+//   NavMenu,
+//   NavBtn,
+//   NavBtnLink
+// } from './NavbarElements';
 
 /* Auth */
 import AuthButtonGroup from './AuthButtonGroup';
@@ -9,12 +19,18 @@ import AuthButtonGroup from './AuthButtonGroup';
 export default class Navigation extends React.Component {
   render() {
     return (
+      <IconContext.Provider value={{color: "cornflowerblue", size: "4em"}}>
+      <>
+
       <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 container-fluid ">
         <Link className="navbar-brand" to="/">Under The Wing</Link> 
 
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
 
+        <FaTwitter/>
+
         <ul className="navbar-nav mr-auto  "> 
+
 
           <li className="nav-item"> 
             <NavLink className="nav-link" exact to="/"> Home </NavLink>
@@ -48,5 +64,7 @@ export default class Navigation extends React.Component {
           <li className="nav-item"><AuthButtonGroup/></li>
         </ul>
     </nav>  
+    </>
+    </IconContext.Provider>
   );}
 }

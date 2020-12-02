@@ -4,8 +4,14 @@ const matchQueries = require('./queries');
 
 router.get('/', async (req, res) => {
   try {
-    const user = req.user;
-    const matches = await matchQueries.getAllUserMatches(user);
+    const scope = req.query.scope || "mentees";
+    const user = req.user || req.query.username;
+    let matches = {}
+    if(scope === "mentors"){
+      matches = await matchQueries.getAllMenteesForMentor(user);
+    } else {
+      matches = await matchQueries.getAllMentorsForMentee(user);
+    }
     res.status(200).json(matches);
   } catch (err) {
     console.log(err);
@@ -14,10 +20,12 @@ router.get('/', async (req, res) => {
 });
 
 
+
+
 router.post('/match', async (req, res) => {
   try {
-    const sourceUser = req.user || req.body.source_user;
-    const targetUser = req.body.target_user;
+    const sourceUser = req.body.mentee;
+    const targetUser = req.body.mentor;
     const match = await matchQueries.matchUsers(sourceUser, targetUser);
     res.status(200).json(match);
   } catch (err) {

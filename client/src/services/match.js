@@ -2,8 +2,8 @@ const match = {
     async matchUserWithMentor(menteeUsername, mentorUsername) {
         const URL = '/api/matches/match/';
         const matchRequestJSON = {
+          "mentee": menteeUsername,
           "mentor": mentorUsername,
-          "mentee": menteeUsername
         };
         const requestOptions = {
             method: 'POST',

@@ -9,7 +9,7 @@ export default class MentorMatchResultPage extends React.Component {
   }
   async componentDidMount(){
     const mentorUsername = this.props.match.params.mentor;
-    const matchOutcome = await matchService.matchUserWithMentor(mentorUsername, getCookie('username'));
+    const matchOutcome = await matchService.matchUserWithMentor(getCookie('username'),mentorUsername);
     if(matchOutcome.status === 500){
       this.setState({
         failureMsg: "Unable to match with user. Please try again later.",        

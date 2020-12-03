@@ -5,7 +5,7 @@ const matchQueries = require('./queries');
 router.get('/', async (req, res) => {
   try {
     const scope = req.query.scope || "mentees";
-    const user = req.user || req.query.username;
+    const user = req.user.username || req.query.username;
     let matches = {}
     if(scope === "mentors"){
       matches = await matchQueries.getAllMenteesForMentor(user);

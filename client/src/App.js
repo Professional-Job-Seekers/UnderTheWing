@@ -7,8 +7,8 @@ import AboutUsPage from './pages/AboutUsPage';
 import UserDashboardPage from './pages/UserDashboardPage'
 import HomePage from './pages/HomePage';
 import MentorPage from './pages/MentorPage';
-import TaskStatusPage from './pages/TaskStatusPage';
 import MentorMatchResultPage from './pages/redirects/MentorMatchResultPage';
+import TaskStatusPage from './pages/TaskStatusPage';
 /* Pathways */
 import PathwayPage from "./pages/PathwayPage";
 import PathwayDetailPage from "./pages/PathwayDetailPage";
@@ -35,25 +35,21 @@ export default class App extends React.Component {
               <div className="row justify-content-center">
                 <Switch>
                   {/* SUB-ROUTES */}
-                  <Route exact path="/pathway/pathway-detail/:pathway" component={PathwayDetailPage} />
+                  <Route exact path="/userdash/pathways/progress/active-pathway-task/:activeTask" component={TaskStatusPage} />
                   <Route exact path="/pathway/commit/:pathway" component={PathwayCommitPage} />
-                  {/* BASE ROUTES */}
+                  <Route exact path="/pathway/pathway-detail/:pathway" component={PathwayDetailPage} />
                   <Route exact path="/mentor/match/:mentor" component={MentorMatchResultPage} />
-                  <Route exact path="/login" component={LoginPage} />
-                  <Route exact path="/pathway" component={PathwayPage} />
+                  {/* BASE ROUTES */}
                   <Route exact path="/pathway-creator" component={PathwayCreatorPage} />
                   <Route exact path="/userdash" component={UserDashboardPage} />
-                  <Route path="/about-us" component={AboutUsPage} />
-                  <Route exact path="/register" component={RegistrationPage} />
                   <Route exact path="/event" component={Events} />
                   <Route exact path="/mentor" component={MentorPage} />
-                  {/* <Route exact path ="/taskstatus" component={TaskStatusPage}/> */}
-                  {/* <Route exact path ="/userdash/taskstatus/:userdash" component={TaskStatusPage}/> */}
-                  {/* <Route exact path ="/taskdetail" component={TaskDetail}/> */}
-                  <Route exact path="/progress/update/:pathway" component={TaskStatusPage} />
-                  {/* <Route exact path ="/task" component={TaskStatusPage}/> */}
-                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/login" component={LoginPage} />
+                  <Route exact path="/register" component={RegistrationPage} />
+                  <Route excat path="/about-us" component={AboutUsPage} />
+                  <Route exact path="/pathway" component={PathwayPage} />
                   {/* NOT FOUND */}
+                  <Route exact path="/" component={HomePage} />
                   <Route path="*" component={NotFoundPage} />
                 </Switch>
               </div>

@@ -2,18 +2,18 @@
 import "../../styles/MentorCard.css";
 /*Components*/
 import React from "react";
-import PathwayTask from "./PathwayTask";
+import PathwayDashboardTask from "./PathwayDashboardTask";
 import { Tabs, Tab, Container, Row, Col } from "react-bootstrap";
 
 export default class PathwayObjectives extends React.Component {
   render() {
-
+    console.log(this.props)
     const activePathwayComponents = this.props.activePathwayData.map(
       (pathway, index) => (
         <Tab className="text-warning mt-5" eventKey={pathway.pathway} title={pathway.pathway} key={index} >
           {pathway.tasks.map((task, index) => (
             <div >
-              <PathwayTask
+              <PathwayDashboardTask
                 key={index}
                 taskTitle={task.title}
                 taskStatus={task.status}

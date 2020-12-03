@@ -12,8 +12,8 @@ export default class Navigation extends React.Component {
             <li className="nav-item">
               <NavLink className="nav-link" exact to="/"> Home </NavLink>
             </li>
-            <ProtectedLink URL="/userdash" linkDisplayText="Dashboard" checkType="auth" />
-            <ProtectedLink URL="/pathway-creator" linkDisplayText="Creator" checkType="mentor" />
+            <ProtectedLink URL="/userdash" linkDisplayText="Dashboard" checkType="" />
+            <ProtectedLink URL="/pathway-creator" linkDisplayText="Creator" checkType="" />
             <li className="nav-item">
               <NavLink className="nav-link" exact to="/pathway"> Pathways </NavLink>
             </li>

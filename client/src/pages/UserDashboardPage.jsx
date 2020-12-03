@@ -39,7 +39,6 @@ export default class Dash extends Component {
           <Col className="col-9">
             <Card bg="" text="black" className="d-flex justify-content-center ">
               <UserTimelineHeader username={this.state.username} />
-              <UserDashboardCard cardTitleText="About Me" cardBodyText="Lorem ipsum" />
               <PathwayObjectives activePathwayData={this.state.pathways} baseURL={this.props.match.url} />
             </Card>
           </Col>

@@ -1,6 +1,8 @@
-import ObjectiveLogo from "../assets/campaign-objective-icon.svg";
+/*Styles*/
 import "bootstrap/dist/css/bootstrap.min.css";
+/*Components*/
 import { Card, Button, Col } from "react-bootstrap";
+import ObjectiveLogo from "../../assets/campaign-objective-icon.svg";
 
 const ObjectiveComp = () => {
   const cardinfo = [

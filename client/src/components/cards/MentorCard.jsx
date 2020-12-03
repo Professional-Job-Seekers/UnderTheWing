@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+/*Styles*/
 import "bootstrap/dist/css/bootstrap.min.css";
+/*Components*/
+import React, { Component } from "react";
 import {Card} from "react-bootstrap";
-import UserAvatar from "../assets/UserLogo.svg";
+import UserAvatar from "../../assets/UserLogo.svg";
 
 export default class MentorCard extends Component {
   render() {

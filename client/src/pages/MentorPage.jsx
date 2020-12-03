@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import accountService from "../services/account"
 /*Components*/
 import React, { Component } from "react";
-import MentorCard from "../cards/MentorCard";
+import MentorCard from "../components/cards/MentorCard";
 import { Container, Row, Col } from "react-bootstrap";
 
 export default class MentorPage extends Component {

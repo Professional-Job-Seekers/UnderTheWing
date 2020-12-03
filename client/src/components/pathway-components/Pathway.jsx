@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Button, Container } from "react-bootstrap";
 import "../../styles/App.css";
-import "../../styles/MentorCard.css";
 
 
 export default class Pathway extends React.Component {

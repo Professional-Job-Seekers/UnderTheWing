@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs, Tab, Button, Container, Row, Col } from "react-bootstrap";
-import ObjectiveCards from "../../cards/ObjectiveCards";
+import ObjectiveCards from "../../components/cards/ObjectiveCards";
 import PathwayTask from "./PathwayTask";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import Route from "react-router-dom/Route";

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import MentorPageCard from "../Cards/MentorPageCard";
 import MentorCard from "../Cards/MentorCard";
 import accountService from "../services/account"
-import "../styles/MentorCard.css";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+// import "../styles/MentorCard.css";
 
 export default class MentorPage extends Component {
   state = {
@@ -28,7 +29,8 @@ export default class MentorPage extends Component {
     return (
       <section id="team">
         <Container className="mt-5">
-          <Row>
+          <Row className="d-flex flex-row ">
+
             {this.state.mentors}
           </Row>
         </Container>

@@ -1,4 +1,7 @@
+// Styles
 import "../styles/App.css";
+import "../styles/MentorCard.css";
+
 import PathwayObjectives from "../components/PathwayObjectives";
 // Services
 import { getCookie } from "../services/cookies"
@@ -35,6 +38,8 @@ export default class Dash extends Component {
     
   render() {
     return (
+      // <section id="team">
+
       <Container className="mt-2">
         <Row className="d-flex flex-row ">
           <Col className="d-flex flex-column">
@@ -46,6 +51,8 @@ export default class Dash extends Component {
           </Col>
         </Row>
       </Container>
+      // </section >
+
     );
   }
 }

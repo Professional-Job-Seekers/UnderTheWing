@@ -1,6 +1,7 @@
 import React from "react";
 import pathwayService from "../services/pathway";
 import { Card, Button } from "react-bootstrap";
+import "../styles/MentorCard.css";
 
 export default class PathwayTask extends React.Component {
   state = {
@@ -13,6 +14,8 @@ export default class PathwayTask extends React.Component {
   
   render() {
     return (
+      <section id="team">
+
       <Card className="text-center mb-4">
         <Card.Header className="bg-dark">
           {" "}
@@ -21,7 +24,7 @@ export default class PathwayTask extends React.Component {
           </Card.Title>
         </Card.Header>
         <Card.Body>
-          <Card.Text>
+          <Card.Text >
             {this.props.taskDescription || "Task Description not available."}
           </Card.Text>
 
@@ -43,6 +46,8 @@ export default class PathwayTask extends React.Component {
           </Card.Footer>
         </Card.Body>
       </Card>
+      </section>
+
     );
   }
 }

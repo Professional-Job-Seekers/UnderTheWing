@@ -8,6 +8,7 @@ export default class TaskDetail extends React.Component {
     }
     render(){
         return ( 
+          
             <Card className="text-center mb-4 bg-dark">
             <Card.Body>
               <Card.Title>{this.props.pathwayTitle}</Card.Title>

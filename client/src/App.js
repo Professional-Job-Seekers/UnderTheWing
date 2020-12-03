@@ -59,7 +59,6 @@ export default class App extends React.Component {
                   </Switch>
                 </div>
               </div>
-
             </Router>
           </div>
           <Footer className="Footer" />

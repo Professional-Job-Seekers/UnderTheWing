@@ -125,6 +125,30 @@ main {
   padding-bottom: 2%;
 }
 
+.cardcolor {
+  background:linear-gradient(90deg, #b2b2b2 0%, #8f8d8d 100%);
+
+}
+
+.cardbodycolor {
+  background:linear-gradient(90deg, #6d5903 100%, #8f8d8d 100%);
+  /* -main-body-color: #8f8d8d; */
+}
+
+.cardcolorhead {
+  background:linear-gradient(90deg, #99582A 0%, #0b3c44 100%);
+  /* background: #15616D; */
+}
+
+.mytextcolor {
+  color: #ffc107;
+
+}
+
+.complogo{
+  height: 100px;
+
+}
 
 
 .tab-list {  border-bottom: 1px solid rgb(0, 0, 0);

@@ -9,6 +9,9 @@ import TaskStatusPage from "../pages/TaskStatusPage";
 // Styles
 import "../styles/App.css";
 import "../styles/MentorCard.css";
+import { Card } from "react-bootstrap";
+import ObjectiveLogo from "../assets/campaign-objective-icon.svg";
+
 export default class PathwayObjectives extends React.Component {
   render() {
     // const newpage = <Redirect to={{
@@ -21,8 +24,7 @@ export default class PathwayObjectives extends React.Component {
         <Tab eventKey={pathway.pathway} title={pathway.pathway} key={index}>
           {pathway.tasks.map((task, index) => (
             <section id="team">
-
-            <div>
+             <div>
               <PathwayTask
                 key={index}
                 taskTitle={task.title}
@@ -44,7 +46,7 @@ export default class PathwayObjectives extends React.Component {
       )
     );
     return (
-      <Container>
+      <Container className="cardbodycolor">
         <Row>
           <Col>
             <Tabs fill>{activePathwayComponents}</Tabs>

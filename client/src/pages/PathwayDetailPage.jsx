@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/App.css'
 import "../styles/MentorCard.css";
+import "../styles/card-style.css"
 
 import pathwayService from '../services/pathway';
 import PathwayTask from '../components/PathwayTask';
@@ -24,12 +25,12 @@ export default class PathwayDetailPage extends React.Component {
   render(){
     return (
 
-      <Card className="text-center mb-4">
+      <Card className="text-center mb-4 cardbodycolor">
 
          <Card.Title className=" text-warning"><h1>{this.state.pathway}</h1></Card.Title>
          <Card.Body>
 
-         <Card.Text>{this.state.tasks}</Card.Text>
+         <Card.Text >{this.state.tasks}</Card.Text>
          </Card.Body>
         
 

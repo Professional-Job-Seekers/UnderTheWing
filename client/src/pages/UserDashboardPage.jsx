@@ -1,4 +1,7 @@
+// Styles
 import "../styles/App.css";
+import "../styles/MentorCard.css";
+
 import PathwayObjectives from "../components/PathwayObjectives";
 // Services
 import { getCookie } from "../services/cookies"
@@ -35,17 +38,21 @@ export default class Dash extends Component {
     
   render() {
     return (
+      // <section id="team">
+
       <Container className="mt-2">
         <Row className="d-flex flex-row ">
           <Col className="d-flex flex-column">
-            <Card bg="" text="black" className="d-flex justify-content-center">              
+            <Card bg="" text="black" className="d-flex justify-content-center ">              
               <UserTimelineHeader username = {this.state.username} />
-              <UserDashboardCard cardTitleText = "About Me" cardBodyText = "Lorem ipsum" />
+              {/* <UserDashboardCard cardTitleText = "About Me" cardBodyText = "Lorem ipsum" /> */}
               <PathwayObjectives activePathwayData = {this.state.pathways} baseURL={this.props.match.url} />
             </Card>
           </Col>
         </Row>
       </Container>
+      // </section >
+
     );
   }
 }

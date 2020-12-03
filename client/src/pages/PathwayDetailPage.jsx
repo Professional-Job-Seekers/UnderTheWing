@@ -1,5 +1,8 @@
 import React from 'react';
 import '../styles/App.css'
+import "../styles/MentorCard.css";
+import "../styles/card-style.css"
+
 import pathwayService from '../services/pathway';
 import PathwayTask from '../components/PathwayTask';
 import { Card, Button } from "react-bootstrap";
@@ -21,11 +24,20 @@ export default class PathwayDetailPage extends React.Component {
   }
   render(){
     return (
-      <Card className="text-center mb-4">
-         <Card.Title><h1>{this.state.pathway}</h1></Card.Title>
-         <Card.Text>{this.state.tasks}</Card.Text>
-        <Button href={`/pathway/commit/${this.state.pathway}`} className="mt-3">Commit to Pathway</Button>
+
+      <Card className="text-center mb-4 cardbodycolor">
+
+         <Card.Title><h1  className=" text-warning">{this.state.pathway}</h1></Card.Title>
+         <Card.Body>
+
+         <Card.Text >{this.state.tasks}</Card.Text>
+         </Card.Body>
+        
+
+        <Button href={`/pathway/commit/${this.state.pathway}`} className="mt-3 btn-dark btn-outline-warning">Commit to Pathway</Button>
+
       </Card>
+
     );
   }
 }

@@ -7,7 +7,12 @@ body{
     font-family:'Raleway', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #777;
+    color: #ffc107;
+}
+
+footer{
+    color: #ffc107;
+
 }
 
 h1 {
@@ -40,7 +45,7 @@ h3{
 
 #team .card{
     border-radius: 0;
-    box-shadow: 5px 5px 15px #e74c3c;
+    box-shadow: 5px 5px 15px #ffc107;
     transition: all 0.3s ease-in;
     -webkit-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
@@ -48,7 +53,7 @@ h3{
 }
 
 #team .card:hover{
-    background: #e74c3c;
+    background: #ffc107;
     color: #fff;
     border-radius: 5px;
     border: none;

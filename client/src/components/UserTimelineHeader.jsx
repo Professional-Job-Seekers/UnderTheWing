@@ -6,14 +6,14 @@ import UserAvatar from "../assets/UserLogo.svg";
 export default class UserTimelineHeader extends React.Component{
   render(){
     return (                    
-      <Card.Header>
+      <Card.Header className="cardcolorhead">
         <Card.Img
           className="mb-3 rounded mx-auto d-block"
           id="CpLogo"
           src={UserAvatar}
           alt="Card image cap"
         />
-        <h1> {this.props.username} </h1>
+        <h1 className="mytextcolor"> {this.props.username} </h1>
       </Card.Header>
     )
 }

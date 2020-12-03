@@ -73,7 +73,7 @@ export default class App extends React.Component {
 
             </Router>
           </div>
-          {/* <Footer className="Footer" /> */}
+          <Footer className="Footer" />
         </>
       </main>
     );

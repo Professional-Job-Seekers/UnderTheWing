@@ -22,7 +22,7 @@ export default class Navigation extends React.Component {
       // <IconContext.Provider value={{color: "cornflowerblue", size: "4em"}}>
       // <>
 
-      <nav className="bg-dark navbar navbar-expand-md navbar-dark shadow mb-0 container-fluid ">
+      <nav className="mynavback navbar navbar-expand-md navbar-dark shadow mb-0 container-fluid ">
         <Link className="navbar-brand" to="/">Under The Wing</Link> 
 
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">

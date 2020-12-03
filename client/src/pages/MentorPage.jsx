@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MentorPageCard from "../Cards/MentorPageCard";
-import MentorCard from "../Cards/MentorCard";
+import MentorPageCard from "../cards/MentorPageCard";
+import MentorCard from "../cards/MentorCard";
 import accountService from "../services/account"
 import { Card, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -3,6 +3,9 @@ const account = {
         const URL  = "/api/accounts/mentor/all";
         const response = await fetch(URL);
         return response.json();
+    },
+    async isMentor(){
+        
     }
 }
     

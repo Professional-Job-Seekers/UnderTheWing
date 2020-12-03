@@ -1,7 +1,6 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Col, Row, Container } from "react-bootstrap";
-import UserAvatar from "../assets/UserLogo.svg";
+import { Card } from "react-bootstrap";
+import UserAvatar from "../../assets/UserLogo.svg";
 
 export default class UserTimelineHeader extends React.Component{
   render(){

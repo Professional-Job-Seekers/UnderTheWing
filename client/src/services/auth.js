@@ -1,4 +1,4 @@
-import {getCookie, setCookie} from "./cookies";
+import {setCookie} from "./cookies";
 
 const auth = {
   isAuthenticated: false,

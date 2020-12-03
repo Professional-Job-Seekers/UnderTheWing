@@ -1,16 +1,13 @@
 import React from "react";
 import { Tabs, Tab, Button, Container, Row, Col } from "react-bootstrap";
-import ObjectiveCards from "../Cards/ObjectiveCards";
+import ObjectiveCards from "../../cards/ObjectiveCards";
 import PathwayTask from "./PathwayTask";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import Route from "react-router-dom/Route";
-import TaskStatusPage from "../pages/TaskStatusPage";
+import TaskStatusPage from "../../pages/TaskStatusPage";
 
 // Styles
-import "../styles/App.css";
-import "../styles/MentorCard.css";
-import { Card } from "react-bootstrap";
-import ObjectiveLogo from "../assets/campaign-objective-icon.svg";
+import "../../styles/MentorCard.css";
 
 export default class PathwayObjectives extends React.Component {
   render() {

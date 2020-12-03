@@ -1,7 +1,8 @@
-import React from 'react';
+/*Styles*/
 import '../styles/App.css'
-import '../components/forms/PathwayCreationForm'
+/*Components*/
 import PathwayCreationForm from '../components/forms/PathwayCreationForm';
+import React from 'react';
 export default class PathwayCreatorPage extends React.Component {
   render(){
     return (

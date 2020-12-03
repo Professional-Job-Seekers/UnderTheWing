@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SpawnTaskList from "../SpawnTaskList"
+import SpawnTaskList from "../pathway-components/SpawnTaskList"
 export default class PathwayCreationForm extends Component {
   constructor(props) {
     super(props);

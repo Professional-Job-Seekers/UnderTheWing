@@ -9,9 +9,6 @@ import UserDashboardPage from './pages/UserDashboardPage'
 import HomePage from './pages/HomePage';
 import MentorPage from './pages/MentorPage';
 import TaskStatusPage from './pages/TaskStatusPage';
-
-import TaskDetail from './components/TaskDetail';
-
 import MentorMatchResultPage from './pages/redirects/MentorMatchResultPage';
 
 // Pathways

@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/App.css";
-import SpotlightCard from "../Cards/SpotlightCardUI";
+import SpotlightCard from "../../cards/SpotlightCardUI";
 
 
 export default class SpotlightObjectives extends React.Component{    

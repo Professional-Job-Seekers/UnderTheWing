@@ -29,11 +29,8 @@ export default class MentorPage extends Component {
     return (
       <section id="team">
         <Container className="mt-5">
-          <Row className="d-flex flex-row ">
-            <Col className="">
+          <Row>
               {this.state.mentors}
-
-            </Col>
           </Row>
         </Container>
       </section>

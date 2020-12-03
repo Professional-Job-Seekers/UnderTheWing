@@ -2,13 +2,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 /*Components*/
 import React, { Component } from "react";
-import {Card} from "react-bootstrap";
+import {Card, Col} from "react-bootstrap";
 import UserAvatar from "../../assets/UserLogo.svg";
 
 export default class MentorCard extends Component {
   render() {
     return (
-      <Card className="mb-3 card-img-top  p-2 " key={this.props.index}>
+      <Card className="mb-5 card-img-top  p-2 col-4" key={this.props.index}>
         <Card.Header className="bg-dark">
           <Card.Img className="img-fluid rounded-circle w-50 mb-3 img-thumbnail mx-auto d-block" id="CpLogo" src={UserAvatar} alt="Card image cap" />
         </Card.Header>

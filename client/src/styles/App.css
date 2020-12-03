@@ -131,7 +131,7 @@ main {
 }
 
 .cardbodycolor {
-  background:linear-gradient(90deg, #6d5903 100%, #8f8d8d 100%);
+  background:linear-gradient(90deg, #000000 100%, #8f8d8d 100%);
   /* -main-body-color: #8f8d8d; */
 }
 
@@ -193,6 +193,10 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+
+.mytitle{
+  color: black;
 }
 
  :after, :before {

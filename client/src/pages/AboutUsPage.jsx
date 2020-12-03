@@ -11,10 +11,12 @@ function AboutUsPage(props) {
     <Container className="">
       <Row className=" ml-5 mr-5">
 
-        <div className="about-section m-4 ml-5 mr-5">
-          <h1>About Us </h1>
+        <div className="about-section m-4 ml-5 mr-5 ">
+          <h1 className="mytitle">About Us </h1>
+          <h4>
           <p className="text-left">{aboutStrings.utwPitch}</p>
           <p className="text-left pt-3">{aboutStrings.utwDetail}</p>
+          </h4>
         </div>
         {/* <section id="team"> */}
 

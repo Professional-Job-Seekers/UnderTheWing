@@ -30,8 +30,10 @@ export default class MentorPage extends Component {
       <section id="team">
         <Container className="mt-5">
           <Row className="d-flex flex-row ">
+          <Col className="">
+          {this.state.mentors}
 
-            {this.state.mentors}
+          </Col>
           </Row>
         </Container>
       </section>

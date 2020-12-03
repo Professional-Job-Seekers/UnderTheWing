@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 import auth from '../services/auth';
 import {getCookie,setCookie} from '../services/cookies'
 
-const classes = "btn btn-primary";
+const classes = "btn btn-dark btn-outline-warning";
 
 const AuthButtonGroup = withRouter(({ history }) => {
   const authCookieSet = getCookie("auth") === "true"; 
@@ -13,7 +13,7 @@ const AuthButtonGroup = withRouter(({ history }) => {
     return (
       <div>
         <Link className={classes}  to="/login">Login</Link>
-        <Link className="btn btn-primary ml-2" to="/register">Sign Up</Link>
+        <Link className="btn btn-dark btn-outline-warning ml-2" to="/register">Sign Up</Link>
       </div>
     );
   }

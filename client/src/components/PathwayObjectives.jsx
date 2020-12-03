@@ -14,17 +14,16 @@ import ObjectiveLogo from "../assets/campaign-objective-icon.svg";
 
 export default class PathwayObjectives extends React.Component {
   render() {
-    // const newpage = <Redirect to={{
-    //   pathname: '/login',
-    //   state: { from: props.location }
-    // }} />;
+
     const activePathwayComponents = this.props.activePathwayData.map(
       (pathway, index) => (
 
-        <Tab eventKey={pathway.pathway} title={pathway.pathway} key={index}>
+        <Tab className="text-warning" eventKey={pathway.pathway} title={pathway.pathway} key={index} >
           {pathway.tasks.map((task, index) => (
-            <section id="team">
-             <div>
+            <section id="team" >
+
+             <div >
+             
               <PathwayTask
                 key={index}
                 taskTitle={task.title}
@@ -49,7 +48,7 @@ export default class PathwayObjectives extends React.Component {
       <Container className="cardbodycolor">
         <Row>
           <Col>
-            <Tabs fill>{activePathwayComponents}</Tabs>
+            <Tabs className=" mynavback btn-outline-warning  nav-fill  "  >{activePathwayComponents}</Tabs>
           </Col>
         </Row>
       </Container>

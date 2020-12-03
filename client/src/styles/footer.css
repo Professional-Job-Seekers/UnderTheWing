@@ -23,7 +23,9 @@
     vertical-align: baseline;
   display: block;
   z-index: 1;
-  background: #b2b2b2;
+  /* background: #b2b2b2; */
+  background:linear-gradient(90deg, #b2b2b2 0%, #8f8d8d 100%);
+
   }
 
   .Footer{
@@ -104,6 +106,8 @@
     justify-content: space-between;
     align-items: center;
     background: #442c13;
+    background:linear-gradient(90deg, #442c13 0%, #8f8d8d 100%);
+
     padding: 2em 4em;
     color: #e3e2db;
   }

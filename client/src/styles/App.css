@@ -77,10 +77,10 @@ input, button, textarea, select {
 :root {
   /* background-color: #a37d1c; */
   /* background: linear-gradient(90deg, #9e7110 0%, #9e7110 100%); */
-  /* background: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
+  /* --main-bg-color: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
   /* --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
-  --main-bg-color:  linear-gradient(90deg, #ddc9b4 0%, #BB9457 100%);
+  --main-bg-color:  linear-gradient(90deg, #BB9457 0%, #e09b52 100%);
 
   
   /* --main-nav-color: white; */
@@ -112,6 +112,12 @@ body{
   background: var(--main-bg-color);
   margin:0px;
   padding: 0px;
+}
+
+.mynavback{
+  background:linear-gradient(90deg, #001524 0%, #073036 100%);
+
+
 }
 
 main {

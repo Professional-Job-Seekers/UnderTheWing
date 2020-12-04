@@ -43,7 +43,6 @@ export default class PathwayDashboardTask extends React.Component {
               <strong>See more</strong> 
             </Button>
           </Card.Footer>
-
         </Card>
       </section>
     );

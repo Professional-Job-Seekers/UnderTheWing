@@ -1,20 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    font-family:'Raleway', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #ffc107;
-}
-
-footer{
-    color: #ffc107;
-
-}
-
 h1 {
     font-size: 36px;
     color: #555;
@@ -28,22 +11,22 @@ h3{
     font-weight: bold;
 }
 
-#team img{
+.team img{
     margin-top: -50px;
 
 }
 
-#team i{
+.team i{
     font-size: 26px;
     color: #555;
 }
 
-#team p{
+.team p{
     font-weight: 500;
 
 }
 
-#team .card{
+.team .card{
     border-radius: 0;
     box-shadow: 5px 5px 15px #ffc107;
     transition: all 0.3s ease-in;
@@ -52,7 +35,7 @@ h3{
     
 }
 
-#team .card:hover{
+.team .card:hover{
     background: #ffc107;
     color: #fff;
     border-radius: 5px;
@@ -60,7 +43,7 @@ h3{
     box-shadow: 5px 5px 10px #9E9E9E;
 }
 
-#team .card:hover h3, #team .card:hover i{
+.team .card:hover h3, .team .card:hover i{
     color:#fff;
 }
 

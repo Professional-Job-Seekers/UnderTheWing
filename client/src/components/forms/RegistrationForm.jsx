@@ -101,7 +101,7 @@ export default class RegistrationForm extends Component {
                         </p>
                       </fieldset>
                     </div>
-                    <button className="btn btn-primary" type="submit"> Register </button>
+                    <button className="btn btn-dark btn-outline-warning" type="submit"> <strong> Register </strong> </button>
                 </form>
               </div>
           </div>

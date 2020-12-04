@@ -81,7 +81,7 @@ export default class PathwayCreationForm extends Component {
                       <fieldset>
                         <legend>Category:</legend>
                         <p>
-                          <select value={this.state.category} onChange={this.handleChange}>
+                          <select name = "category" value={this.state.category} onChange={this.handleChange}>
                             <option value = "mentors"> Mentors</option>
                             <option value = "mentees"> Mentees</option>
                           </select>

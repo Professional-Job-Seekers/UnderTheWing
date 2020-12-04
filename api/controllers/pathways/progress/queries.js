@@ -1,8 +1,6 @@
 const { Model } = require('sequelize');
 const db = require('../../../models');
-const {ActivePathway} = db;
-const {ActivePathwayTask} = db;
-const {Pathway} = db;
+const {ActivePathway, ActivePathwayTask, Pathway, pathwayTask} = db;
 
 /***************************************************************************************************
  **************************************** Progress Getters *****************************************
@@ -18,6 +16,21 @@ async function getUserPathwayTasks(userId, pathwayId){
         return null;
     }
 }
+
+async function getActivePathwayTask(activeTaskId){
+    try {
+        const activePathwayTask =  await ActivePathwayTask.findByPk(activeTaskId); 
+        const pathwayTask = await activePathwayTask.getPathwayTask();
+        return {
+            "active_task": activePathwayTask,
+            "task": pathwayTask
+        } ;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 
 async function getAllActiveUserPathwaysAndTasks(userId){
     try {
@@ -52,6 +65,15 @@ async function getAllActiveUserPathwaysAndTasks(userId){
         console.log(err);
         return null;
     }
+ }
+
+ async function textSubmissionForActivePathwayTask(){
+     try {
+         
+     } catch (error) {
+         console.log(error);
+         return null;
+     }
  }
 
 
@@ -100,3 +122,4 @@ async function getAllActivePathwaysForUser(userId){
 module.exports.getUserPathwayTasks = getUserPathwayTasks;
 module.exports.getAllActiveUserPathwaysAndTasks = getAllActiveUserPathwaysAndTasks;
 module.exports.updateActiveTaskStatus = updateActiveTaskStatus;
+module.exports.getActivePathwayTask = getActivePathwayTask;

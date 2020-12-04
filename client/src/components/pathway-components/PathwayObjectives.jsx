@@ -16,6 +16,7 @@ export default class PathwayObjectives extends React.Component {
               <PathwayDashboardTask
                 key={index}
                 taskTitle={task.title}
+                taskId={task.id}
                 taskStatus={task.status}
                 baseURL={this.props.baseURL}
               />

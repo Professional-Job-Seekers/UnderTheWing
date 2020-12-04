@@ -34,6 +34,9 @@
   - [Sample Response](#sample-response)
   - [Get All Task Categories](#get-all-task-categories)
   - [Sample Response](#sample-response-1)
+  - [Get Active Pathway Task](#get-active-pathway-task)
+  - [Query Request Parameters for Get Active Pathway Task](#query-request-parameters-for-get-active-pathway-task)
+  - [Sample Response for task_id = 4](#sample-response-for-task_id--4)
 
 ## Get Pathway
 
@@ -355,4 +358,44 @@ new_status|required| Any value from: ['completed','skipped','under_review', 'pen
         "updatedAt": "2020-11-28T23:09:20.866Z"
     }
 ]
+```
+
+### Get Active Pathway Task
+
+```GET```: pathways/progress/active-task/
+
+### Query Request Parameters for Get Active Pathway Task
+
+**Param**|**-** |**Description**
+:-----:|:-----: |:-----:
+task_id|required| Id of active pathway task.
+
+### Sample Response for task_id = 4
+
+```JSON
+{
+    "task": {
+        "active_task": {
+            "id": 4,
+            "status": "pending_start",
+            "submission": "",
+            "createdAt": "2020-12-03T21:31:18.196Z",
+            "updatedAt": "2020-12-03T21:31:18.196Z",
+            "pathway_task_id": 7,
+            "active_pathway_id": 2,
+            "account_id": 2
+        },
+        "task": {
+            "id": 7,
+            "title": "72278d2e9727",
+            "sequence": 0,
+            "requires_review": true,
+            "description": "b04bfe60bcc4cb8195cb6de1093ee72c1f9741a04202c130cc24f651d76b9ea297fcb96cf907ac44813f32e313bcbb36d54b",
+            "createdAt": "2020-12-03T20:47:12.696Z",
+            "updatedAt": "2020-12-03T20:47:12.696Z",
+            "PathwayId": 4,
+            "TaskCategoryId": null
+        }
+    }
+}
 ```

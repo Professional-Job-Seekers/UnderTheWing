@@ -1,7 +1,7 @@
 /*Styles*/
 import '../styles/App.css'
 /*Services*/
-import pathwayService from '../services/pathway';
+import activePathwayService from '../services/activePathway';
 /*Components*/
 import React, { Component } from "react";
 import ActivePathwayTaskTextSubmissionForm from "../components/forms/ActivePathwayTaskTextSubmissionForm"
@@ -13,13 +13,20 @@ class TaskStatusPage extends Component {
     task: {},
   }
   async componentDidMount() {
-// {this.props.match.params.activeTask}
+    try {
+      const activeTask = await activePathwayService.getActivePathwayTask(this.props.match.params.activeTaskId);
+      this.setState({
+        "task": activeTask.task
+      })
+    } catch (error) {
+      console.log(error);
+    } 
   }
 
   render() {
     return (
       <div>
-        <h1 className="mt-3 mb-3">Task: {this.state.task.title}</h1>
+        <h1 className="mt-3 mb-3">Task: {this.state.task.id}</h1>
         {this.state.pathways}
         <ActivePathwayTaskTextSubmissionForm task={this.state.task}/>
       </div>

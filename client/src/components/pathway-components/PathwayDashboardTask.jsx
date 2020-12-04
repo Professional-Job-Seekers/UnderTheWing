@@ -14,6 +14,8 @@ export default class PathwayDashboardTask extends React.Component {
     tasks: [],
   }
 
+  
+
   render() {
     return (
       <section id="team">
@@ -39,7 +41,7 @@ export default class PathwayDashboardTask extends React.Component {
             <Button
               className="mt-3 mynavback btn-outline-warning text-warning"
               exact
-              href={`${this.props.baseURL}/pathways/progress/active-pathway-task/${this.props.taskTitle}`}
+              href={`${this.props.baseURL}/pathways/progress/active-pathway-task/${this.props.taskId}/${this.props.taskTitle}`}
             >
               <strong>See more</strong> 
             </Button>

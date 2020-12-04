@@ -1,6 +1,6 @@
 const activePathway = {
-    getActivePathwayTask : async (pathway) => {
-      const URL  = `/api/pathways/?pathway=${pathway}`;
+    getActivePathwayTask : async (activeTaskId) => {
+      const URL  = `/api/pathways/progress/active-task/?task_id=${activeTaskId}`;
       const response = await fetch(URL);
       console.log(response);
       return response.json();

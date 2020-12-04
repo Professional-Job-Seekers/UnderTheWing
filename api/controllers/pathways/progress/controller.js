@@ -24,7 +24,6 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-
 router.get('/', async (req, res) =>{
     try {
         const user =  req.user || await accountQueries.findUser(req.query.username);
@@ -35,6 +34,18 @@ router.get('/', async (req, res) =>{
         res.sendStatus(500);
     }
 });
+
+router.get('/active-task', async (req, res) =>{
+    try {
+        const response = await progressQueries.getActivePathwayTask(req.query.task_id);
+        console.log(response);
+        res.status(200).json(response);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+});
+
 
 /***************************************************************************************************
  ********************************************* Update **********************************************

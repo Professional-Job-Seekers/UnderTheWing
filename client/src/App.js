@@ -35,7 +35,7 @@ export default class App extends React.Component {
               <div className="row justify-content-center">
                 <Switch>
                   {/* SUB-ROUTES */}
-                  <Route exact path="/userdash/pathways/progress/active-pathway-task/:activeTask" component={TaskStatusPage} />
+                  <Route exact path="/userdash/pathways/progress/active-pathway-task/:activeTaskId/:activeTask" component={TaskStatusPage} />
                   <Route exact path="/pathway/commit/:pathway" component={PathwayCommitPage} />
                   <Route exact path="/pathway/pathway-detail/:pathway" component={PathwayDetailPage} />
                   <Route exact path="/mentor/match/:mentor" component={MentorMatchResultPage} />

@@ -5,11 +5,11 @@ const activePathway = {
       console.log(response);
       return response.json();
     },  
-    updateActivePathwayTaskProgress : async (taskId, status) =>{
+    updateActivePathwayTaskProgress : async (taskId, submission) =>{
       const URL  = `/api/pathways/progress/update`;
       const requestJSON = {
         "task_id": taskId,
-        "new_status": status
+        "submission": submission
       };
       const requestOptions = {
         method: 'POST',

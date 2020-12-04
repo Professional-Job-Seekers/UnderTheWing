@@ -21,7 +21,7 @@ export default class PathwayTask extends React.Component {
           <Card.Body className="">
 
               <Card.Text className="text-dark">
-                {this.props.pathwayDescription || "No Description Available"}
+                {this.props.taskDescription || "No Description Available"}
               </Card.Text>
             {this.props.taskStatus ? (
               <p>

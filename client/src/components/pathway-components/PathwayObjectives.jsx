@@ -7,7 +7,8 @@ import { Tabs, Tab, Container, Row, Col } from "react-bootstrap";
 
 export default class PathwayObjectives extends React.Component {
   render() {
-    console.log(this.props)
+
+    console.log(this.props.activePathwayData);
     const activePathwayComponents = this.props.activePathwayData.map(
       (pathway, index) => (
         <Tab className="text-warning mt-5" eventKey={pathway.pathway} title={pathway.pathway} key={index} >
@@ -17,7 +18,6 @@ export default class PathwayObjectives extends React.Component {
                 key={index}
                 taskTitle={task.title}
                 taskId={task.id}
-                taskStatus={task.status}
                 baseURL={this.props.baseURL}
               />
             </div>

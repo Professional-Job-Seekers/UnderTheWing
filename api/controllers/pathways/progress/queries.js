@@ -51,10 +51,11 @@ async function getAllActiveUserPathwaysAndTasks(userId){
  **************************************** Progress Mutators ****************************************
  ***************************************************************************************************/
 
- async function updateActiveTaskStatus(taskId, newStatus){
+ async function updateActiveTaskStatus(taskId, newStatus, submission){
     try {
         const activeTask = await ActivePathwayTask.findByPk(taskId);
         activeTask.status = newStatus;
+        activeTask.submission = submission;
         activeTask.save();
         return {
             "task_id": activeTask.id,

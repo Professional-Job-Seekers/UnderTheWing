@@ -15,7 +15,6 @@ export default class PathwayDashboardTask extends React.Component {
   }
 
   
-
   render() {
     return (
       <section id="team">
@@ -31,9 +30,7 @@ export default class PathwayDashboardTask extends React.Component {
               <Card.Text >
                 {this.props.taskDescription || "No Description Available"}
               </Card.Text>
-              <p>
-                <strong>Status: </strong> {pathwayService.taskStatus[this.props.taskStatus]}
-              </p>
+    
             </Card.Subtitle>
           </Card.Body>
 

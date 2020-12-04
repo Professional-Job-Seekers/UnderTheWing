@@ -54,8 +54,9 @@ router.get('/active-task', async (req, res) =>{
  router.post('/update', async (req, res) => {
     try {
         const activeTaskId = req.body.task_id;
-        const newStatus =  req.body.new_status;
-        const response = await progressQueries.updateActiveTaskStatus(activeTaskId, newStatus);
+        const submission = req.body.submission;
+        const newStatus =  "completed";
+        const response = await progressQueries.updateActiveTaskStatus(activeTaskId, newStatus, submission);
         res.status(200).json(response);
     } catch (err) {
         console.log(err);

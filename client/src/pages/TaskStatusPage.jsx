@@ -1,30 +1,30 @@
-/*Components*/
-import React, { Component } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
-import TaskDetail from "../components/pathway-components/TaskDetail";
-/*Services*/
-import pathwayService from '../services/pathway';
 /*Styles*/
 import '../styles/App.css'
+/*Services*/
+import pathwayService from '../services/pathway';
+/*Components*/
+import React, { Component } from "react";
+import ActivePathwayTaskTextSubmissionForm from "../components/forms/ActivePathwayTaskTextSubmissionForm"
+import {withRouter} from 'react-router-dom';
 
-export default class TaskStatusPage extends Component {
+class TaskStatusPage extends Component {
   state = {
     pathways: [],
-    taskStatus: ""// 
+    task: {},
   }
   async componentDidMount() {
+// {this.props.match.params.activeTask}
   }
 
   render() {
     return (
       <div>
-        <h1 className="mt-3 mb-3">{}</h1>
+        <h1 className="mt-3 mb-3">Task: {this.state.task.title}</h1>
         {this.state.pathways}
+        <ActivePathwayTaskTextSubmissionForm task={this.state.task}/>
       </div>
     );
   }
 }
 
-
-
-
+export default withRouter(TaskStatusPage);

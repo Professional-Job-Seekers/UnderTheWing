@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import pathwayService from '../services/pathway';
-import Pathway from "../components/Pathway";
 import '../styles/App.css'
+import pathwayService from '../services/pathway';
+import Pathway from "../components/pathway-components/Pathway";
 
 export default class PathwayPage extends Component {
   state = {

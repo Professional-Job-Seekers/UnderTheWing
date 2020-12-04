@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import MentorPageCard from "../Cards/MentorPageCard";
-import MentorCard from "../Cards/MentorCard";
-import accountService from "../services/account"
-import { Card, Container, Row, Col } from "react-bootstrap";
+/*Styles*/
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// import "../styles/MentorCard.css";
+/*Services*/
+import accountService from "../services/account"
+/*Components*/
+import React, { Component } from "react";
+import MentorCard from "../components/cards/MentorCard";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default class MentorPage extends Component {
   state = {
@@ -29,11 +29,8 @@ export default class MentorPage extends Component {
     return (
       <section id="team">
         <Container className="mt-5">
-          <Row className="d-flex flex-row ">
-          <Col className="">
-          {this.state.mentors}
-
-          </Col>
+          <Row>
+              {this.state.mentors}
           </Row>
         </Container>
       </section>

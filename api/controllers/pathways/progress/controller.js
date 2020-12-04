@@ -24,7 +24,6 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-
 router.get('/', async (req, res) =>{
     try {
         const user =  req.user || await accountQueries.findUser(req.query.username);
@@ -36,6 +35,18 @@ router.get('/', async (req, res) =>{
     }
 });
 
+router.get('/active-task', async (req, res) =>{
+    try {
+        const response = await progressQueries.getActivePathwayTask(req.query.task_id);
+        console.log(response);
+        res.status(200).json(response);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+});
+
+
 /***************************************************************************************************
  ********************************************* Update **********************************************
  ***************************************************************************************************/
@@ -43,8 +54,9 @@ router.get('/', async (req, res) =>{
  router.post('/update', async (req, res) => {
     try {
         const activeTaskId = req.body.task_id;
-        const newStatus =  req.body.new_status;
-        const response = await progressQueries.updateActiveTaskStatus(activeTaskId, newStatus);
+        const submission = req.body.submission;
+        const newStatus =  "completed";
+        const response = await progressQueries.updateActiveTaskStatus(activeTaskId, newStatus, submission);
         res.status(200).json(response);
     } catch (err) {
         console.log(err);

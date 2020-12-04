@@ -1,10 +1,12 @@
-import React from 'react';
+/*Styles*/
 import '../styles/App.css'
 import "../styles/MentorCard.css";
 import "../styles/card-style.css"
-
+/*Services*/
 import pathwayService from '../services/pathway';
-import PathwayTask from '../components/PathwayTask';
+/*Components*/
+import React from 'react';
+import PathwayTask from '../components/pathway-components/PathwayTask';
 import { Card, Button } from "react-bootstrap";
 
 export default class PathwayDetailPage extends React.Component {

@@ -25,15 +25,18 @@
   - [Sample GET Request With Scope](#sample-get-request-with-scope)
   - [Sample Response With Scope](#sample-response-with-scope)
 - [Update Pathway Task Progress](#update-pathway-task-progress)
-  - [Route & Request](#route--request-3)
-  - [JSON Request Parameters](#json-request-parameters-2)
-  - [Sample JSON Request](#sample-json-request-1)
+  - [Route & Request for Update Pathway Task Progress](#route--request-for-update-pathway-task-progress)
+  - [JSON Request Parameters for Update Pathway Task Progress](#json-request-parameters-for-update-pathway-task-progress)
+  - [Sample JSON Request for Update Pathway Task Progress](#sample-json-request-for-update-pathway-task-progress)
   - [Sample JSON Request ads](#sample-json-request-ads)
 - [Tasks](#tasks)
   - [Create Task Category](#create-task-category)
   - [Sample Response](#sample-response)
   - [Get All Task Categories](#get-all-task-categories)
-  - [Sample Response](#sample-response-1)
+  - [Sample Response for Get All Task Categories](#sample-response-for-get-all-task-categories)
+  - [Get Active Pathway Task](#get-active-pathway-task)
+  - [Query Request Parameters for Get Active Pathway Task](#query-request-parameters-for-get-active-pathway-task)
+  - [Sample Response for task_id = 4](#sample-response-for-task_id--4)
 
 ## Get Pathway
 
@@ -288,18 +291,18 @@ scope|optional| Set scope to 'all' to get all active user pathways.
 
 ## Update Pathway Task Progress
 
-### Route & Request
+### Route & Request for Update Pathway Task Progress
 
 ```POST``` : pathways/progress/update
 
-### JSON Request Parameters
+### JSON Request Parameters for Update Pathway Task Progress
 
 **Param**|**-** |**Description**
 :-----:|:-----: |:-----:
 task_id|required| ID of the task to update.
 new_status|required| Any value from: ['completed','skipped','under_review', 'pending_start', 'pending_review', 'in_progress']
 
-### Sample JSON Request
+### Sample JSON Request for Update Pathway Task Progress
 
 ```JSON
 {
@@ -338,7 +341,7 @@ new_status|required| Any value from: ['completed','skipped','under_review', 'pen
 
 ```GET```: pathways/tasks/category/all
 
-### Sample Response
+### Sample Response for Get All Task Categories
 
 ```JSON
 [
@@ -355,4 +358,44 @@ new_status|required| Any value from: ['completed','skipped','under_review', 'pen
         "updatedAt": "2020-11-28T23:09:20.866Z"
     }
 ]
+```
+
+### Get Active Pathway Task
+
+```GET```: pathways/progress/active-task/
+
+### Query Request Parameters for Get Active Pathway Task
+
+**Param**|**-** |**Description**
+:-----:|:-----: |:-----:
+task_id|required| Id of active pathway task.
+
+### Sample Response for task_id = 4
+
+```JSON
+{
+    "task": {
+        "active_task": {
+            "id": 4,
+            "status": "pending_start",
+            "submission": "",
+            "createdAt": "2020-12-03T21:31:18.196Z",
+            "updatedAt": "2020-12-03T21:31:18.196Z",
+            "pathway_task_id": 7,
+            "active_pathway_id": 2,
+            "account_id": 2
+        },
+        "task": {
+            "id": 7,
+            "title": "72278d2e9727",
+            "sequence": 0,
+            "requires_review": true,
+            "description": "b04bfe60bcc4cb8195cb6de1093ee72c1f9741a04202c130cc24f651d76b9ea297fcb96cf907ac44813f32e313bcbb36d54b",
+            "createdAt": "2020-12-03T20:47:12.696Z",
+            "updatedAt": "2020-12-03T20:47:12.696Z",
+            "PathwayId": 4,
+            "TaskCategoryId": null
+        }
+    }
+}
 ```

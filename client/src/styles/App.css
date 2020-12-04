@@ -6,7 +6,9 @@
  */
 
 /* Box sizing rules */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -18,10 +20,17 @@ ol[class] {
 
 /* Remove default margin */
 
-h1, h2, h3, h4,
+h1,
+h2,
+h3,
+h4,
 p,
-ul[class], ol[class], li,
-figure, figcaption, blockquote,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
 dl,
 dd {
   margin: 0;
@@ -45,30 +54,31 @@ img {
 }
 
 /* Natural flow and rhythm in articles by default */
-article > * + * {
+article>*+* {
   margin-top: 1em;
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
-
 
 /***************************************************************************************************
  ********************************************* App.css *********************************************
  ***************************************************************************************************/
-
 
 /****************************************************************************************************
 ******************************************* CSS VARIABLES ******************************************
@@ -80,63 +90,61 @@ input, button, textarea, select {
   /* --main-bg-color: linear-gradient(90deg, #9e7110 0%, #135e90 100%); */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%); */
   /* --main-bg-color:  white;/*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
-  --main-bg-color:  linear-gradient(90deg, #BB9457 0%, #e09b52 100%);
-
-  
+  /*linear-gradient(90deg, #BB9457 0%, #e09b52 100%); */
   /* --main-nav-color: white; */
   /*linear-gradient(90deg, #9e7110 0%, #c09a1c 100%);*/
+  --main-bg-color: white;
+  --nav-dark: #001524;
+  --nav-light: #073036;
+  --nav-bg-color: linear-gradient(90deg, #001524 0%, #073036 100%);
+  --main-bg-footer-color: linear-gradient(90deg, #b2b2b2 0%, #8f8d8d 100%);
 }
 
 /****************************************************************************************************
  ********************************************** Content *********************************************
  ****************************************************************************************************/
- body > #root > div {
-  height: 100vh;
-}
-
- html, body{
+html,
+body {
   overflow-x: hidden;
-  width: 100%;
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: large;
 }
 
-body{
+body {
   background-color: var(--main-bg-color);
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;    
-  min-height: 100vh;
   background: var(--main-bg-color);
-  margin:0px;
-  padding: 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.mynavback{
-  background:linear-gradient(90deg, #001524 0%, #073036 100%);
-
-
-}
-
-main {
+.content {
   flex: 1 0 auto;
-  padding-bottom: 2%;
+  min-height: 100vh;
+
 }
+
+.mynavback {
+  background: var(--nav-bg-color);
+}
+
+
 
 .cardcolor {
-  background:linear-gradient(90deg, #b2b2b2 0%, #8f8d8d 100%);
-
+  background: linear-gradient(90deg, #b2b2b2 0%, #8f8d8d 100%);
 }
 
 .cardbodycolor {
-  background:linear-gradient(90deg, #000000 100%, #8f8d8d 100%);
+  background: linear-gradient(90deg, #000000 100%, #8f8d8d 100%);
   /* -main-body-color: #8f8d8d; */
 }
 
 .cardcolorhead {
-  background:linear-gradient(90deg, #99582A 0%, #0b3c44 100%);
+  background: linear-gradient(90deg, #99582A 0%, #0b3c44 100%);
   /* background: #15616D; */
 }
 
@@ -145,13 +153,13 @@ main {
 
 }
 
-.complogo{
+.complogo {
   height: 100px;
 
 }
 
-
-.tab-list {  border-bottom: 1px solid rgb(0, 0, 0);
+.tab-list {
+  border-bottom: 1px solid rgb(0, 0, 0);
   padding-left: 0;
 }
 
@@ -168,40 +176,19 @@ main {
   border-width: 1px 1px 0 1px;
 }
 
-
 a.icon {
-    transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
 }
+
 .icon {
-    text-decoration: none;
-    border-bottom: none;
-    position: relative;
-    color: #fff;
-    font-size: 2rem;
-    margin: 0 1rem;
+  text-decoration: none;
+  border-bottom: none;
+  position: relative;
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 1rem;
 }
 
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-.mytitle{
-  color: black;
-}
-
- :after, :before {
-  box-sizing: border-box;
-}
 
 .PageContainer-module--PageContainer--15a8r {
   background: #f4cf64;
@@ -210,54 +197,14 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   min-height: 100vh;
 }
 
-.wrap {
-  height: auto;
-  margin: 0 auto -80px; /* footer height + space */
-  min-height: 100%;
-  padding: 0 0 80px; /* footer height + space */
+
+.mavens-module--Main--1u7R7 {
+  letter-spacing: .025em;
+  font-size: 100%;
+  font: inherit;
   box-sizing: border-box;
-  overflow: auto;
-}
-
-
-
-.Content{
-flex: 1 0 auto;
-}
-
-
-/* :root {
-  --space: 1.5em 0;
-  --space: 2em 0;
-}
-
-.Site {
+  color: #000;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-
-.Site-content {
-  flex: 1 0 auto;
-  padding: var(--space) var(--space) 0;
-  width: 100%;
-}
-
-.Site-content:after {
-  content: '\00a0';
-  display: block;
-  margin-top: var(--space);
-  height: 0;
-  visibility: hidden;
-} */
-
-.mavens-module--Main--1u7R7{
-  letter-spacing: .025em;
-font-size: 100%;
-font: inherit;
-box-sizing: border-box;
-color: #000;
-display: flex;
-flex-direction: column;
-position: relative;
+  position: relative;
 }

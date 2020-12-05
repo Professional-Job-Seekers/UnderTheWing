@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import SpawnTaskList from "../pathway-components/SpawnTaskList"
+import SpawnTaskList from "../pathway-components/SpawnTaskList";
+import { Redirect } from 'react-router-dom';;
+
 export default class PathwayCreationForm extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +24,7 @@ export default class PathwayCreationForm extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+    console.log(this.state);
   }
 
   updateTaskList(event) {
@@ -61,8 +64,7 @@ export default class PathwayCreationForm extends Component {
     };
     try {
       const response = await fetch('api/pathways/create', requestOptions);
-      console.log(response);
-      window.location.replace(`pathway/pathway-detail/${title}`)
+      setTimeout(()=> window.location.replace("/pathway"), 1000);
     } catch (err) {
       console.log(err);
     }

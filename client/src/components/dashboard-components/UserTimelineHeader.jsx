@@ -12,7 +12,7 @@ export default class UserTimelineHeader extends React.Component{
           src={UserAvatar}
           alt="Card image cap"
         />
-        <h1 className="mytextcolor"> {this.props.username} </h1>
+        <h1 className="text-dark"> {"@"+this.props.username} </h1>
       </Card.Header>
     )
 }

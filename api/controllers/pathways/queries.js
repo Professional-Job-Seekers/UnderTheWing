@@ -95,7 +95,7 @@ async function getUserPathwayProgress(){
 async function createPathway(pathway){
   let newPathway = null; 
   try{
-    newPathway = Pathway.create(pathway);
+    newPathway = await Pathway.create(pathway);
   } catch(err){
     console.log(err);
     return null;
@@ -119,18 +119,17 @@ async function createPathwayWithTasks(pathway, tasks){
       description: newPathway.description, 
       title: newPathway.title, 
       tasks :  newPathwayTasks
-    } ,
+    } 
   };
   return response;
 }
 
-async function createPathwayWithTasksAndCategories(pathway, tasks, categories){
+async function createPathwayWithTasksAndCategories(pathway, tasks){
   let newPathway = null, newPathwayTasks = null, newPathwayCategories = null;   
   try{
-    newPathway = await Pathway.create({ title : pathway});
-    newPathwayCategories = await newPathway.addPathwayCategories(categories);
-    newPathwayCategories = await newPathway.getPathwayCategories();
-    newPathwayCategories = newPathwayCategories.map(categoryJSON => categoryJSON.category);
+    newPathway = await Pathway.create({ "title" : pathway.title});
+    newPathwayCategories = await newPathway.addPathwayCategories(pathway.categories);
+    console.log(newPathwayCategories);
     tasks.forEach(task => task.PathwayId = newPathway.id);
     newPathwayTasks = await PathwayTask.bulkCreate(tasks);
   } catch(err){
@@ -141,7 +140,7 @@ async function createPathwayWithTasksAndCategories(pathway, tasks, categories){
     pathway : {
       id: newPathway.id, 
       title: newPathway.title,
-      categories: newPathwayCategories,
+      categories: pathway.categories,
       tasks :  newPathwayTasks
     } ,
   };

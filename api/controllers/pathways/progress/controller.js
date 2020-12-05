@@ -37,7 +37,7 @@ router.get('/', async (req, res) =>{
 
 router.get('/active-task', async (req, res) =>{
     try {
-        const response = await progressQueries.getActivePathwayTask(req.query.task_id);
+        const response = await progressQueries.getActivePathwayTask(req.user.id, req.query.task_id);
         console.log(response);
         res.status(200).json(response);
     } catch (err) {

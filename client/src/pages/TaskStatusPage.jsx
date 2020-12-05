@@ -27,11 +27,13 @@ class TaskStatusPage extends Component {
   }
 
   render() {
+    console.log(this.state.active_task.status);
     return (
       <div>
         <h1 className="mt-3 mb-3">Task: {this.state.task.title}</h1>
         <p> <strong>Description: </strong> {this.state.task.description || "No Description available!"} </p>
         <p> <strong>Requires Mentor Review: </strong>{this.state.task.requires_review? " Yes" : " No"} </p>
+      
         <p> <strong>Current Status: </strong>{ pathwayService.taskStatus[this.state.active_task.status]} </p>
         <ActivePathwayTaskTextSubmissionForm activeTaskId={this.state.active_task.id}/>
       </div>

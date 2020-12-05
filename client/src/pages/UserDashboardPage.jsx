@@ -9,7 +9,6 @@ import pathwayService from "../services/pathway";
 import PathwayObjectives from "../components/pathway-components/PathwayObjectives";
 import UserTimelineHeader from "../components/dashboard-components/UserTimelineHeader";
 import AssociatedMentors from "../components/dashboard-components/AssociatedMentors";
-import UserDashboardCard from "../components/dashboard-components/UserDashboardCard";
 import {Card, Col, Row, Container} from "react-bootstrap";
 
 export default class Dash extends Component {
@@ -29,17 +28,19 @@ export default class Dash extends Component {
     this.setState({
       pathways: activeUserPathways,
       "username": username,
+      "updatedKey": 99999,
     });
   }
 
   render() {
+    console.log(this.state);
     return (
       <Container className="mt-2">
         <Row className="">
           <Col className="col-9">
             <Card bg="" text="black" className="d-flex justify-content-center ">
               <UserTimelineHeader username={this.state.username} />
-              <PathwayObjectives activePathwayData={this.state.pathways} baseURL={this.props.match.url} />
+              <PathwayObjectives activePathwayData={this.state.pathways} baseURL={this.props.match.url} key={this.state.updatedKey}/>
             </Card>
           </Col>
           <Col className="col-3">

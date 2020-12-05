@@ -77,16 +77,6 @@ async function findPathway(pathway_title){
   return response;
 }
 
-async function findPathwaysByCategory(){
-
-  
-}
-
-
-async function getUserPathwayProgress(){
-  
-
-}
 
 /***************************************************************************************************
  ******************************************** Creation *********************************************

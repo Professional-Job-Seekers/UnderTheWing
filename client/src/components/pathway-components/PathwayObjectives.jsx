@@ -9,21 +9,19 @@ export default class PathwayObjectives extends React.Component {
   state = {
     "activePathwayComponents": []
   }
-
+  
   async componentDidMount() {
-    if(this.props.activePathwayData === null){
+    if(this.props.activePathwayData === null || this.props.activePathwayData === []){
       console.log(this.props.activePathwayData);
-      this.setState({
-        "activePathwayComponents": [],
-      });
       return;
     }
+    console.log(this.props.activePathwayData);
     const activePathwayComponents = this.props.activePathwayData.map((pathway, index) => (
       <Tab className="text-warning mt-5" eventKey={pathway.pathway} title={pathway.pathway} key={index} >
-        {pathway.tasks.map((task, index) => (
+        {pathway.tasks.map((task, nestedIndex) => (
           <div >
             <PathwayDashboardTask
-              key={index}
+              key={nestedIndex}
               taskTitle={task.title}
               taskId={task.id}
               baseURL={this.props.baseURL}

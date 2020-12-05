@@ -9,9 +9,11 @@ async function commitUserToPathway(userId, pathwayId){
       "account_id": userId,     
       "pathway_id": pathwayId,
     });
-    await createActivePathwayTasks(userId, pathwayId, activePathway.id);
+    const activePathwayTasks = await createActivePathwayTasks(userId, pathwayId, activePathway.id);
+    console.log("\n\n\n\n\n\n", activePathwayTasks, "\n\n\n\n\n\n\n" );
     return {
       "active_pathway" : activePathway,
+      "activePathwayTasks" : activePathwayTasks
     };
   } catch(err){
       console.log(err);
@@ -37,7 +39,7 @@ async function userCommittedToPathway(userId, pathwayId){
 async function createActivePathwayTasks(userId, pathwayId, activePathwayId){
   try {
     const tasks = await pathwayQueries.getPathwayTasks(pathwayId);
-    const activeTaskListJob = tasks.map( function (task) {
+    const activeTaskListJob = tasks.map(function (task) {
       return { 
         "pathway_task_id" : task.id,
         "account_id" : userId,

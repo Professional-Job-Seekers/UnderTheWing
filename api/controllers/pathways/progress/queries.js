@@ -1,6 +1,6 @@
 const { Model } = require('sequelize');
 const db = require('../../../models');
-const { ActivePathway, ActivePathwayTask, Pathway, pathwayTask } = db;
+const { ActivePathway, ActivePathwayTask, Pathway, PathwayTask} = db;
 
 /***************************************************************************************************
  **************************************** Progress Getters *****************************************
@@ -19,14 +19,19 @@ async function getUserPathwayTasks(userId, pathwayId) {
 
 async function getActivePathwayTask(userId, activeTaskId) {
   try {
-    const activePathwayTask = await ActivePathwayTask.findAll({
+    const activePathwayTask = await ActivePathwayTask.findOne({
       where: {
         "id": activeTaskId,
         "account_id": userId
       }
     }
     );
-    const pathwayTask = await activePathwayTask.getPathwayTask();
+    if (activePathwayTask === null) { return null };
+    const pathwayTask = await Pathway.findOne({
+      where: {
+        "id": activePathwayTask.pathway_task_id
+      }
+    });
     return {
       "active_task": activePathwayTask,
       "task": pathwayTask
@@ -36,7 +41,6 @@ async function getActivePathwayTask(userId, activeTaskId) {
     return null;
   }
 }
-
 
 async function getAllActiveUserPathwaysAndTasks(userId) {
   try {
@@ -88,7 +92,6 @@ async function getActivePathwayFromPathwayAndUser(userId, pathwayId) {
 }
 
 async function getAllActivePathwayTasks(userId, activePathwayId) {
-
   const activePathwayTasks = await ActivePathwayTask.findAll({
     where: {
       "active_pathway_id": activePathwayId,
@@ -96,13 +99,12 @@ async function getAllActivePathwayTasks(userId, activePathwayId) {
     }
   });
   return await Promise.all(activePathwayTasks.map(async function (activeTask) {
-    const pathway = await Pathway.findByPk(activeTask.pathway_task_id);
-    console.log(activeTask);
+    const pathwayTask = await PathwayTask.findByPk(activeTask.pathway_task_id);
     return {
       "id": activeTask.id,
       "status": activeTask.status,
-      "title": pathway.title,
-      "description": pathway.description,
+      "title": pathwayTask.title,
+      "description": pathwayTask.description,
     }
   }));
 }

@@ -27,11 +27,7 @@ async function getActivePathwayTask(userId, activeTaskId) {
     }
     );
     if (activePathwayTask === null) { return null };
-    const pathwayTask = await Pathway.findOne({
-      where: {
-        "id": activePathwayTask.pathway_task_id
-      }
-    });
+    const pathwayTask = await PathwayTask.findByPk(activePathwayTask.pathway_task_id);
     return {
       "active_task": activePathwayTask,
       "task": pathwayTask

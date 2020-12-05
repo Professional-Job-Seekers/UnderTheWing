@@ -17,10 +17,11 @@ class TaskStatusPage extends Component {
   async componentDidMount() {
     try {
       const activeTask = await activePathwayService.getActivePathwayTask(this.props.match.params.activeTaskId);
+      console.log(activeTask);
       this.setState({
         "task": activeTask.task,
         "active_task": activeTask.active_task
-      })
+      });
     } catch (error) {
       console.log(error);
     } 

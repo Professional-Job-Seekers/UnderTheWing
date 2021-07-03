@@ -7,7 +7,6 @@ const db = require('./models');
 const passport = require('./middlewares/authentication');
 const app = express();
 const dds =  require("./tests/generateDummyData");
-const {generateDemoData} =  require("./tests/generateDemoData");
 const PORT = process.env.PORT || 8000;
 
 // this lets us parse 'application/json' content in http requests
@@ -44,8 +43,8 @@ if(process.env.NODE_ENV==='production') {
 const syncMode = process.env.NODE_ENV==='docker' ? true : false;
 
 if (syncMode) {
-  db.sequelize.sync({ force:true }).then(async res => {
-  generateDemoData();
+  db.sequelize.sync({ force:false }).then(async res => {
+  
   }).catch(err => {
     console.log(err);
   })

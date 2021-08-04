@@ -8,7 +8,9 @@
     "dev": "nodemon -r dotenv/config api/app.js",
     "docker_dev": "nodemon --legacy-watch ./api/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "resolve": "npx npm-force-resolutions"
+
   },
   "author": "Edgardo Molina",
   "license": "ISC",
@@ -35,5 +37,8 @@
     "ignore": [
       "client/"
     ]
+  },
+  "resolutions": {
+    "tar": "6.1.2 "
   }
 }

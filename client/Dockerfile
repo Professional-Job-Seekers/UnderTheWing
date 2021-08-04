@@ -11,7 +11,7 @@ COPY ./package*.json ./
 # If you are building your code for production
 # RUN npm ci --only=production
 #RUN npm ci -qy
-RUN npm ci
+RUN npm ci && npm run resolve && npm audit
 
 # Bundle app source
 COPY . .

@@ -28,6 +28,11 @@ Under the Wing is a virtual mentoring platform that pairs college students & wor
 
 ![Alt text](docs/design/wireframes/views/Mentee-Mentor-Pathway-Commit-Flow.gif?raw=true "Account View")
 
+![Alt text](docs/design/wireframes/views/Pathway-Creation-Flow.gif?raw=true "Account View")
+
+
+![Alt text](docs/design/wireframes/views/Signup-Flow.gif?raw=true "Account View")
+
 ## Stack
 
 ### API

@@ -1,4 +1,4 @@
-# Fall 2020 CTP Project: Under The Wing <!-- omit in toc -->
+![Alt text](docs/design/wireframes/views/under-the-wing.png?raw=true "Account View")
 
 ## Table Of Contents <!-- omit in toc -->
 

@@ -25,7 +25,7 @@ const ObjectiveComp = () => {
           <Button href="http://localhost:4960/pathway">Take a Look</Button>
 
           {/* btn btn-bd-download d-none d-lg-inline-block
-             mb-3 mb-md-0 ml-md-3 */}
+             mb-3 mb-md-0 ms-md-3 */}
         </Card>
       </Col>
     );

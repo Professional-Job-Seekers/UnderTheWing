@@ -72,16 +72,16 @@ export default class PathwayCreationForm extends Component {
 
   render() {
     return (
-      <div class="custom-form-wrapper container justify-content-center">
-        <div class="row align-items-center">
-          <div class="col-12">
+      <div className="custom-form-wrapper container justify-content-center">
+        <div className="row align-items-center">
+          <div className="col-12">
             <h1> Welcome to the Pathway Creator </h1>
             {/* Pathway */}
             <form className="custom-form" onSubmit={this.handleSubmit}>
-              <div class="form-group">
+              <div className="mb-3">
                 <input className="form-control" type="text" name="title" placeholder="Pathway Title" value={this.state.title} onChange={this.handleChange} required />
               </div>
-              <div classname="form-group">
+              <div className="mb-3">
                 <fieldset>
                   <legend>Category:</legend>
                   <p>
@@ -93,17 +93,17 @@ export default class PathwayCreationForm extends Component {
                 </fieldset>
               </div>
               <br></br>
-              <button className="btn btn-primary mr-2" onClick={this.updateTaskList} type="button"> Add Task </button>
+              <button className="btn btn-primary me-2" onClick={this.updateTaskList} type="button"> Add Task </button>
               <button className="btn btn-primary" type="submit"> Submit </button>
             </form>
             {/* Tasks */}
             <form className="custom-form">
               <h2 className="mt-3"> Task </h2>
               <p> {this.state.taskError || ""}</p>
-              <div class="form-group">
+              <div className="mb-3">
                 <input className="form-control" type="text" name="taskTitle" placeholder="Task Title" onChange={this.handleChange} required />
               </div>
-              <div class="form-group">
+              <div className="mb-3">
                 <input 
                   className="form-control"
                   type="text" 
@@ -112,10 +112,10 @@ export default class PathwayCreationForm extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div class="form-group">
+              <div className="mb-3">
                 <input className="form-control" min="0" type="number" name="taskSequence" placeholder="Task Sequence" value={this.state.tasks.length} onChange={this.handleChange} required />
               </div>
-              <div class="form-group">
+              <div className="mb-3">
                 <fieldset>
                   <legend> Does Task Require Review?:</legend>
                   <p>

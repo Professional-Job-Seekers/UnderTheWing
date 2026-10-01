@@ -39,9 +39,9 @@ export default class ActivePathwayTaskTextSubmissionForm extends React.Component
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div class="form-group">
+        <div className="mb-3">
           <label
-            for="task-text-submission"
+            htmlFor="task-text-submission"
             name="submission"
           >
             <strong>Text Submission:</strong>
@@ -51,7 +51,7 @@ export default class ActivePathwayTaskTextSubmissionForm extends React.Component
           </label>
           <textarea
             onChange={this.handleChange}
-            class="form-control"
+            className="form-control"
             name="submission"
             id="task-text-submission"
             rows="3"

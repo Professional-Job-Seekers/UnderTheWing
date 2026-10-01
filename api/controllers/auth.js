@@ -32,12 +32,14 @@ router.post('/login', passport.authenticate('local'), async (req, res) =>{
 });
 
 
-router.post('/logout', async (req, res) => {
-  req.logout();
-  res.status(200).json({ msg: 'Logout successful' });
+router.post('/logout', (req, res, next) => {
+  req.logout(err => {
+    if (err) return next(err);
+    res.status(200).json({ msg: 'Logout successful' });
+  });
 });
 
 
 
 
-module.exports = router; 
+module.exports = router;

@@ -13,7 +13,7 @@ const AuthButtonGroup = withRouter(({ history }) => {
     return (
       <div>
         <Link className={classes}  to="/login"> <strong>Login</strong></Link>
-        <Link className="btn btn-dark btn-outline-warning ml-2" to="/register"> <strong> Sign Up </strong> </Link>
+        <Link className="btn btn-dark btn-outline-warning ms-2" to="/register"> <strong> Sign Up </strong> </Link>
       </div>
     );
   }

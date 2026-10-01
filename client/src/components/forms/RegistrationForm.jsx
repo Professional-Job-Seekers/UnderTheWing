@@ -65,32 +65,32 @@ export default class RegistrationForm extends Component {
 
   render() {
     return (
-      <div class="custom-form-wrapper container justify-content-center">    
-        <div class="row align-items-center">
-            <div class="col-12">
+      <div className="custom-form-wrapper container justify-content-center">
+        <div className="row align-items-center">
+            <div className="col-12">
                 <h1> Sign Up</h1>
                 <form className="custom-form" onSubmit = {this.handleSubmit}>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <input  className="form-control" type="text" name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required/>
                     </div>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <input className="form-control" type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleChange} required />
                     </div>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <input className="form-control" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}  required />
                     </div>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <input className="form-control" type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
                     </div>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <input className="form-control" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/>
                     </div>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <input className="form-control" type="password" name="passwordConfirmation" placeholder="Retype Password" value={this.state.password_Confirmation}
                         onChange={this.handleChange} required
                       />
                     </div>
-                    <div class="form-group">
+                    <div className="mb-3">
                       <fieldset>
                         <legend> Join As:</legend>
                         <p>

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import auth from '../../services/auth'
 import {getCookie,setCookie} from '../../services/cookies'

@@ -32,7 +32,7 @@ const CardSpot = () => {
           Take a Look
               </a>
         {/* btn btn-bd-download d-none d-lg-inline-block
-               mb-3 mb-md-0 ml-md-3 */}
+               mb-3 mb-md-0 ms-md-3 */}
 
 
       </Card>

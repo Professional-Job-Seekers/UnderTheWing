@@ -1,52 +1,64 @@
-version: '3.3'
 services:
   postgres:
     image: postgres:13.0-alpine
     ports:
-      - "5432:5432" 
+      - "5432:5432"
     environment:
-        POSTGRES_USER: ctp_user
-        POSTGRES_PASSWORD: ctp_pass
-        POSTGRES_DB: app2020_docker
+      POSTGRES_USER: ctp_user
+      POSTGRES_PASSWORD: ctp_pass
+      POSTGRES_DB: app2020_docker
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ctp_user -d app2020_docker"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
-  server: 
-    build: 
+  server:
+    build:
       context: .
-      dockerfile: ./api/Dockerfile
-    volumes: 
-      - './api:/usr/app/api'
-      - /usr/app/node_modules
+      dockerfile: api/Dockerfile
+    volumes:
+      - type: bind
+        source: ./api
+        target: /usr/app/api
     command: npm run docker_dev
     ports:
       - "8000:8000"
-    depends_on: 
-      - postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
     environment:
       PORT: 8000
-      NODE_ENV: "docker"
-      SESSION_SECRET: "fa6312l3&0pzjcq#x3sadopgllurz#wknu*s=o#63ouv^entei"
-      CHOKIDAR_USEPOLLING: "true"
+      NODE_ENV: docker
+      SESSION_SECRET: "${SESSION_SECRET:-local-development-only-change-before-deployment}"
 
   client:
     build:
-      context: ./client/
-      dockerfile: ./Dockerfile
-    stdin_open: true    
-    volumes: 
-      - ./client:/usr/app
-      - /usr/app/node_modules
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./client/src
+        target: /usr/app/src
+      - type: bind
+        source: ./client/public
+        target: /usr/app/public
+      - type: bind
+        source: ./client/index.html
+        target: /usr/app/index.html
+      - type: bind
+        source: ./client/vite.config.mjs
+        target: /usr/app/vite.config.mjs
     command: npm start
-    depends_on: 
-      - server
     ports:
-        - target: 3000
-          published: 4960
-          protocol: tcp
-          mode: host
-    # If all else fails: SKIP_PREFLIGHT_CHECK: "true"
-
-    # npm ci
+      - "4960:3000"
+    depends_on:
+      - server
     environment:
-      PROXY: "http://server:8000"
-      SKIP_PREFLIGHT_CHECK: "true"
+      PROXY: http://server:8000
       CHOKIDAR_USEPOLLING: "true"
+
+volumes:
+  postgres_data:

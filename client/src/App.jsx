@@ -46,7 +46,7 @@ export default class App extends React.Component {
                   <Route exact path="/mentor" component={MentorPage} />
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/register" component={RegistrationPage} />
-                  <Route excat path="/about-us" component={AboutUsPage} />
+                  <Route exact path="/about-us" component={AboutUsPage} />
                   <Route exact path="/pathway" component={PathwayPage} />
                   {/* NOT FOUND */}
                   <Route exact path="/" component={HomePage} />

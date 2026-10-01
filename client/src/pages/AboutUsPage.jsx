@@ -6,11 +6,11 @@ import "../styles/App.css";
 export default  function AboutUsPage(props) {
   return (
     <Container className="mb-5">
-      <Row className=" ml-5 mr-5">
-        <Col className="about-section m-4 ml-5 mr-5 col-12">
+      <Row className=" ms-5 me-5">
+        <Col className="about-section m-4 ms-5 me-5 col-12">
           <h1 className="mytitle">About Us </h1>
-          <p className="text-left">{aboutStrings.utwPitch}</p>
-          <p className="text-left pt-2">{aboutStrings.utwDetail}</p>
+          <p className="text-start">{aboutStrings.utwPitch}</p>
+          <p className="text-start pt-2">{aboutStrings.utwDetail}</p>
         </Col>
       </Row>
       <Row>

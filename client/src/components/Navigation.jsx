@@ -7,8 +7,8 @@ export default class Navigation extends React.Component {
     return (
       <nav className="mynavback navbar navbar-expand-md navbar-dark shadow mb-0 container-fluid">
         <Link className="navbar-brand" to="/">Under The Wing</Link>
-        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
-          <ul className="navbar-nav mr-auto  ">
+        <div className="mx-auto d-sm-flex d-block flex-sm-nowrap">
+          <ul className="navbar-nav me-auto  ">
             <li className="nav-item">
               <NavLink className="nav-link" exact to="/"> Home </NavLink>
             </li>

@@ -46,162 +46,64 @@ A web platform that helps college students find working professional mentors.
 
 ### React client
 
-- Built using `create-react-app` and configured to work with the api.
-- Bootstrap 4.x added to `/client/public/index.html`
-- React Router
+- React 19 with Vite 8; development API requests are proxied to Express.
+- Bootstrap 5 and React-Bootstrap 2.
+- React Router 5 (existing route API retained).
 
 ## Getting Started
 
 ### Project Structure
 
-<pre>
-.
-│   .dockerignore
-│   .env.example
-│   .gitignore
-│   docker-compose.yaml
-│   package-lock.json
-│   package.json
-│   README.md
-│
-├───api
-│   │   .dockerignore
-│   │   app.js
-│   │   Dockerfile
-│   │
-│   ├───config
-│   │       config.json
-│   │
-│   ├───controllers
-│   │   │   appConfig.js
-│   │   │   auth.js
-│   │   │   index.js
-│   │   │
-│   │   ├───accounts
-│   │   │       accounts.js
-│   │   │       queries.js
-│   │   │
-│   │   ├───mentees
-│   │   │       mentees.js
-│   │   │       queries.js
-│   │   │
-│   │   ├───mentors
-│   │   │       mentors.js
-│   │   │       queries.js
-│   │   │
-│   │   └───pathways
-│   │       │   pathways.js
-│   │       │   queries.js
-│   │       │
-│   │       ├───commit
-│   │       │       controller.js
-│   │       │       queries.js
-│   │       │
-│   │       ├───creation
-│   │       │       controller.js
-│   │       │       queries.js
-│   │       │
-│   │       ├───progress
-│   │       │       controller.js
-│   │       │       queries.js
-│   │       │
-│   │       └───update
-│   │               controller.js
-│   │               queries.js
-│   │
-│   ├───middlewares
-│   │       authentication.js
-│   │
-│   ├───migrations
-│   └───models
-│           account.js
-│           activePathway.js
-│           activePathwayTask.js
-│           index.js
-│           login.js
-│           mentee.js
-│           mentor.js
-│           pathway.js
-│           pathwayCategory.js
-│           pathwayTask.js
-│           taskCategory.js
-│
-├───client
-│   │   .dockerignore
-│   │   .gitignore
-│   │   Dockerfile
-│   │   package-lock.json
-│   │   package.json
-│   │   README.md
-│   │
-│   ├───public
-│   │       favicon.ico
-│   │       index.html
-│   │       logo192.png
-│   │       logo512.png
-│   │       manifest.json
-│   │       robots.txt
-│   │
-│   └───src
-│       │   App.css
-│       │   App.js
-│       │   App.test.js
-│       │   index.css
-│       │   index.js
-│       │   logo.svg
-│       │   serviceWorker.js
-│       │   setupProxy.js
-│       │
-│       ├───components
-│       │       Loading.js
-│       │       Post.js
-│       │
-│       ├───pages
-│       │       AboutUsPage.js
-│       │       PostFormPage.js
-│       │       PostsListPage.js
-│       │       ShowPostPage.js
-│       │
-│       └───views
-│           └───Accounts
-│                   LoginPage.js
-│                   RegisterPage.js
-│
-└───docs
-    │   api.md
-    │   design.md
-    │
-    ├───api
-    │       accounts.md
-    │       auth.md
-    │       mentee.md
-    │       mentors.md
-    │       pathways.md
-    │
-    └───design
-        ├───draw.io-src-files
-        │   ├───models
-        │   │       schema.drawio
-        │   │
-        │   └───views
-        │           account-view.drawio
-        │           login-view.drawio
-        │           scheduling-view.drawio
-        │
-        ├───models
-        │       schema.png
-        │
-        └───wireframes
-            └───views
-                    account-view.png
-                    login-view.png
-                    pathways-view.png
-                    scheduling-view.png
-</pre>
+```text
+api/                     Express API, Sequelize models and controllers
+api/tests/               Backend compatibility tests and data-generation scripts
+client/index.html        Vite HTML entry point
+client/vite.config.mjs   React plugin, API proxy and production output configuration
+client/src/index.jsx     React 19 createRoot entry point
+client/src/App.jsx       Application routes
+client/src/              Pages, components, assets and styles
+client/public/           Static files copied into the production build
+client/tests/            Vite integration check (legacy examples are not test suites)
+client/build/            Generated production assets served by Express (ignored)
+docs/                    API and design documentation
+```
 
 ## Dev Setup
 
 Each team member will need to do this on their local machine.
+
+Use Node.js 24.15 or newer within the Node 24 LTS line (see `.nvmrc`) and
+npm 10 or newer. With nvm installed, run `nvm install && nvm use`.
+Both apps use committed npm lockfiles; use `npm ci` for repeatable installs.
+Docker uses Node 24 as well.
+
+From the project root:
+
+```bash
+npm ci
+npm ci --prefix client
+npm test                         # Backend model, logout and UUID compatibility
+npm test --prefix client         # React mount, navigation and Bootstrap tabs
+npm run test:integration --prefix client # Build, deep links and API/cookie proxy
+npm run build                    # Clean client install and Vite production build
+npm audit
+npm audit --prefix client
+```
+
+Vite writes production assets into `client/build`, the directory Express already
+serves. Its development server stays on port 3000 and proxies `/api` to
+`http://localhost:8080`. Set `PROXY` in `client/.env.local` (or the shell) to use
+another backend address. Docker supplies `PROXY=http://server:8000` and enables
+file-watch polling. Vite preview is for locally checking built assets, not
+production hosting. The full API still requires Postgres as described below.
+
+Create React App, its unused service-worker template, and the old forced
+resolution scripts have been removed. Both full dependency audits reported zero
+vulnerabilities after the migration. Sequelize 6 currently needs a scoped npm
+`overrides` entry for `uuid` 11.1.1 or newer in the 11.x line: this fixes the
+buffer-bounds advisory while preserving CommonJS support. The backend tests
+exercise Sequelize's UUID defaults and transaction IDs against this override.
+Do not replace it with an ESM-only UUID major without retesting Sequelize.
 
 ### Create a postgres db
 
@@ -233,14 +135,14 @@ For local development you will need two terminals open, one for the api-backend 
 ```bash
 # api-backend terminal 1
 cp .env.example .env
-npm install
+npm ci
 npm run dev
 ```
 
 ```bash
 # react-client terminal 2
 cd client
-npm install
+npm ci
 npm start
 ```
 
@@ -253,8 +155,25 @@ npm start
 
 ```bash
 # From project root.
-docker-compose build && docker-compose up
+docker compose up --build
 ```
+
+Open [http://localhost:4960](http://localhost:4960). The API is available on
+port 8000 and Postgres on port 5432. Docker supplies the database configuration;
+no separate local Postgres installation is required.
+
+The API directory is bind-mounted and nodemon polls for changes. The client
+`src/`, `public/`, `index.html`, and `vite.config.mjs` are bind-mounted, with Vite
+polling enabled for Docker Desktop. Code edits reload without rebuilding.
+Dependencies stay inside each image so host `node_modules` cannot overwrite
+Linux container packages. After changing either package manifest or lockfile,
+run `docker compose up --build` again.
+
+Postgres has a persistent `postgres_data` volume, and the API waits for its
+health check before starting. `docker compose down` stops the stack and preserves
+the database. Avoid adding `--volumes` unless you intend to delete database data.
+The development session secret can be set with `SESSION_SECRET` in the root
+`.env` file. View service output with `docker compose logs -f server client`.
 
 ## Deployment
 

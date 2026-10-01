@@ -3,43 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.5.3",
-    "http-proxy-middleware": "^1.0.6",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-cookie": "^4.0.3",
-    "react-dom": "^17.0.1",
-    "react-icons": "^4.1.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^4.0.3",
-    "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "bootstrap": "^5.3.8",
+    "prop-types": "^15.8.1",
+    "react": "^19.3.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.3.0",
+    "react-icons": "^5.7.0",
+    "react-router-dom": "^5.3.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "resolve": "npx npm-force-resolutions"
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "npm run build && node --test tests/vite.test.mjs"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "engines": {
+    "node": ">=24.15 <25",
+    "npm": ">=10"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "resolutions": {
-    "browserslist": "4.16.5",
-    "glob-parent": "5.1.2",
-    "css-what": "5.0.1"
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.3",
+    "jsdom": "^30.1.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/dom": "^10.4.1"
   }
 }

@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 /*Styles*/
 import "bootstrap/dist/css/bootstrap.min.css";
 /*Components*/
@@ -14,8 +15,7 @@ export default class MentorCard extends Component {
           <Card.Img className="img-fluid rounded-circle w-50 mb-3 img-thumbnail mx-auto d-block" id="CpLogo" src={UserAvatar} alt="Card image cap" />
         </Card.Header>
         <Card.Title className="pt-2 -pb-1"> <h3> {this.props.firstName + " " + this.props.lastName}</h3></Card.Title>
-        <a href=
-          {`${this.props.baseURL}/match/${this.props.mentorUsername}`}
+        <a href={appHref(`${this.props.baseURL}/match/${this.props.mentorUsername}`)}
           className="btn btn-dark btn"> <strong>Match</strong>
           </a>
       </Card>

@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 /*Styles*/
 import "bootstrap/dist/css/bootstrap.min.css";
 /*Components*/
@@ -22,7 +23,7 @@ const ObjectiveComp = () => {
           </Card.Body>
           <Card.Title>{card.title} </Card.Title>
           <Card.Subtitle> {index + 1} </Card.Subtitle>
-          <Button href="http://localhost:4960/pathway">Take a Look</Button>
+          <Button href={appHref("/pathway")}>Take a Look</Button>
 
           {/* btn btn-bd-download d-none d-lg-inline-block
              mb-3 mb-md-0 ms-md-3 */}

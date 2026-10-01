@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 /*Styles*/
 /*Services*/
 import activePathwayService from '../../services/activePathway'
@@ -27,7 +28,7 @@ export default class ActivePathwayTaskTextSubmissionForm extends React.Component
       this.setState({
         "flash": "Success!",
       });   
-      setTimeout(()=> window.location.replace("/userdash"), 2000);
+      setTimeout(()=> window.location.replace(appHref("/userdash")), 2000);
     } catch (err) {
       this.setState({
         "flash": "Failure!",

@@ -1,3 +1,5 @@
+import { appHref } from '../../config/deployment';
+import { apiFetch } from '../../services/api';
 import React, { Component } from "react";
 import '../../styles/forms.css'
 import authService from "../../services/auth"
@@ -13,6 +15,8 @@ export default class RegistrationForm extends Component {
       username: "",
       email: "",
       password: "",
+      passwordConfirmation: "",
+      submitting: false,
       registrationErrors: "",
       userType: "mentee"
     };
@@ -24,12 +28,18 @@ export default class RegistrationForm extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log(this.state);
+
   }
 
   async handleSubmit(event) {
     event.preventDefault();
-    const { email, password, firstName, lastName, username, userType} = this.state;
+    const { email, password, passwordConfirmation, firstName, lastName, username, userType} = this.state;
+    if (this.state.submitting) return;
+    if (password !== passwordConfirmation) {
+      this.setState({ registrationErrors: 'Passwords do not match' });
+      return;
+    }
+    this.setState({ registrationErrors: '', submitting: true });
     const signupRequestJSON = {
       "first_name": firstName,
       "last_name": lastName,
@@ -43,23 +53,24 @@ export default class RegistrationForm extends Component {
       body: JSON.stringify(signupRequestJSON)
     };
     try {
-      const creationResponse = await fetch('api/auth/signup/', requestOptions);
-      if(creationResponse){
-        const configResponse = await fetch(`api/accounts/${userType}/`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify({"username": username})
-        });
-        if(configResponse){
-          await authService.authenticate(username, password);
-          setCookie("auth", true);
-          setCookie("username", username);
-          setCookie("user_type", userType);
-          window.location.replace("/"); 
-        }
-      }
+      const creationResponse = await apiFetch('/api/auth/signup/', requestOptions);
+      if (!creationResponse.ok) throw new Error('Registration failed. Check your details or try another username/email.');
+      const configResponse = await apiFetch(`/api/accounts/${userType}/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username })
+      });
+      if (!configResponse.ok) throw new Error('Account created, but profile setup failed. Please try signing in.');
+      await authService.authenticate(username, password);
+      setCookie("auth", true);
+      setCookie("username", username);
+      setCookie("user_type", userType);
+      window.location.replace(appHref("/"));
     } catch (err) {
-      console.log(err);
+      authService.isAuthenticated = false;
+      this.setState({ registrationErrors: err.message || 'Registration failed. Please try again.' });
+    } finally {
+      this.setState({ submitting: false });
     }
   }
 
@@ -69,6 +80,7 @@ export default class RegistrationForm extends Component {
         <div className="row align-items-center">
             <div className="col-12">
                 <h1> Sign Up</h1>
+                {this.state.registrationErrors && <div className="alert alert-danger" role="alert">{this.state.registrationErrors}</div>}
                 <form className="custom-form" onSubmit = {this.handleSubmit}>
                     <div className="mb-3">
                       <input  className="form-control" type="text" name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required/>
@@ -86,7 +98,7 @@ export default class RegistrationForm extends Component {
                       <input className="form-control" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/>
                     </div>
                     <div className="mb-3">
-                      <input className="form-control" type="password" name="passwordConfirmation" placeholder="Retype Password" value={this.state.password_Confirmation}
+                      <input className="form-control" type="password" name="passwordConfirmation" placeholder="Retype Password" value={this.state.passwordConfirmation}
                         onChange={this.handleChange} required
                       />
                     </div>
@@ -101,7 +113,7 @@ export default class RegistrationForm extends Component {
                         </p>
                       </fieldset>
                     </div>
-                    <button className="btn btn-dark btn-outline-warning" type="submit"> <strong> Register </strong> </button>
+                    <button className="btn btn-dark btn-outline-warning" type="submit" disabled={this.state.submitting}> <strong> Register </strong> </button>
                 </form>
               </div>
           </div>

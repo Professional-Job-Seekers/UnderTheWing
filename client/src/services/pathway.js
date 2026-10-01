@@ -1,24 +1,25 @@
+import { apiFetch } from './api';
 const pathway = {
   getPathway : async (pathway) => {
     const URL  = `/api/pathways/?pathway=${pathway}`;
-    const response = await fetch(URL);
+    const response = await apiFetch(URL);
     console.log(response);
     return response.json();
   },
   getAllPathways : async () => {
     const URL  = '/api/pathways/';
-    const response = await fetch(URL);
+    const response = await apiFetch(URL);
     return response.json();
   },
   getAllActiveUserPathways : async () =>{
     const scope = 'all';
     const URL  = `/api/pathways/progress/?scope=${scope}`;
-    const response = await fetch(URL);
+    const response = await apiFetch(URL);
     return response.json();
   },
   getActiveUserPathway : async (pathway) =>{
     const URL  = `/api/pathways/${pathway}`;
-    const response = await fetch(URL);
+    const response = await apiFetch(URL);
     return response.json();
   },
   commitUserToPathway: async (pathway) => {
@@ -31,7 +32,7 @@ const pathway = {
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(requestJSON)
     };
-    const response = await fetch(URL, requestOptions);
+    const response = await apiFetch(URL, requestOptions);
     return response;
   },
   taskStatus : {
@@ -54,7 +55,7 @@ const pathway = {
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(requestJSON)
     };
-    const response = await fetch(URL, requestOptions);
+    const response = await apiFetch(URL, requestOptions);
     return response;
   } 
 }

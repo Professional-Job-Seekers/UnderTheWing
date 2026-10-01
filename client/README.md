@@ -31,3 +31,26 @@ Tests in `src/` run in jsdom. `tests/vite.test.mjs` starts temporary local HTTP
 servers to check proxy paths, POST bodies, session cookies and production assets.
 The older `tests/learn-sequelize.test.js` is a standalone database experiment,
 not part of the client test suite.
+
+## GitHub Pages frontend preview
+
+The `pages.yml` workflow tests both apps and deploys `client/build-pages` on
+pushes to `master`. Pull requests run the same checks without publishing.
+Pages uses Node 24, a repository-relative Vite base, and hash routing, so a URL
+such as `/UnderTheWing/#/about-us` works when refreshed directly.
+
+```bash
+npm run test:pages
+npm run preview -- --mode pages
+```
+
+Home and About Us are available in the preview. Database-backed screens show a
+preview notice. GitHub Pages cannot run Express or Postgres, and the preview
+never sends `/api` requests to GitHub. Local development and Docker keep browser
+routing, the API proxy, and the full application.
+
+`PAGES_BASE_PATH` overrides the default `/UnderTheWing/` build base. An optional
+`VITE_API_ORIGIN` can connect a separately deployed API later; that requires an
+HTTPS backend with credentialed CORS for the exact frontend origin and correctly
+configured cross-site session cookies. It is deliberately not set in the preview
+workflow. VITE variables are public build-time values and must not contain secrets.

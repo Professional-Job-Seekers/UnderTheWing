@@ -7,7 +7,7 @@
     "start": "node api/app.js",
     "dev": "nodemon -r dotenv/config api/app.js",
     "docker_dev": "nodemon --legacy-watch ./api/app.js",
-    "test": "node --test api/tests/dependencies.test.js",
+    "test": "node --test api/tests/dependencies.test.js api/tests/auth-access.test.js",
     "build": "npm ci --prefix client && npm run build --prefix client"
   },
   "author": "Edgardo Molina",

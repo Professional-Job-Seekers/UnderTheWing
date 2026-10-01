@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
 import "../../styles/App.css";
@@ -25,7 +26,7 @@ export default class Pathway extends React.Component {
             <Button
               className="mt-3 mynavback btn-outline-warning text-warning"
               exact
-              href={`${this.props.baseURL}/pathway-detail/${this.props.pathwayTitle}`}
+              href={appHref(`${this.props.baseURL}/pathway-detail/${this.props.pathwayTitle}`)}
             >
               <strong> See more </strong>
             </Button>

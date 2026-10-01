@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 import React from "react";
 import { Card, Button, Container } from "react-bootstrap";
 
@@ -20,7 +21,7 @@ export default class TaskDetail extends React.Component {
             <Card.Footer>
               <Button
                 className="mt-3"
-                href={`${this.props.baseURL}/progress/update/${this.props.pathwayTitle}`}
+                href={appHref(`${this.props.baseURL}/progress/update/${this.props.pathwayTitle}`)}
               >
                 Learn More stuff
               </Button>

@@ -1,7 +1,8 @@
+import { apiFetch } from './api';
 const account = {
     async getAllMentors() {
         const URL = "/api/accounts/mentor/all";
-        const response = await fetch(URL);
+        const response = await apiFetch(URL);
         return response.json();
     },
     async isMentor() {
@@ -9,7 +10,7 @@ const account = {
     },
     async getAssociatedMentors(username) {
         const URL = "/api/matches";
-        const response = await fetch(URL);
+        const response = await apiFetch(URL);
         return response.json();
     }
 }

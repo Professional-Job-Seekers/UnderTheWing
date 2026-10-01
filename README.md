@@ -177,6 +177,18 @@ The development session secret can be set with `SESSION_SECRET` in the root
 
 ## Deployment
 
+### GitHub Pages frontend preview
+
+The GitHub Actions workflow in `.github/workflows/pages.yml` runs backend tests,
+client tests, the Vite proxy integration check, and Pages asset checks before
+publishing `client/build-pages`. It deploys pushes to `master`; pull requests
+only run validation. The frontend preview uses hash routes under `/UnderTheWing/`.
+It includes Home and About Us; features requiring the API show a preview notice.
+See `client/README.md` for preview commands and deployment configuration.
+
+The Heroku instructions below describe the older full-stack deployment, separate
+from the GitHub Pages frontend preview.
+
 ### Setting up Heroku
 
 Install the heroku cli if you don't already have it.

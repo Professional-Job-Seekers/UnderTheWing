@@ -3,7 +3,7 @@ const accountQueries = require('./accounts/queries');
 const passport = require('../middlewares/authentication');
 
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res, next) => {
 	const password = req.body.password;
 	let user = {
         "first_name": req.body.first_name,
@@ -15,7 +15,10 @@ router.post('/signup', async (req, res) => {
     try {
     	new_user = await accountQueries.createUser(user, password);
 		if(new_user){
-            req.login(user, () => res.status(201).json(user));
+            req.login(new_user, err => {
+              if (err) return next(err);
+              res.status(201).json(new_user);
+            });
 		} else{
 			res.sendStatus(500);
 		}

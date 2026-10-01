@@ -18,7 +18,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:integration": "npm run build && node --test tests/vite.test.mjs"
+    "test:integration": "npm run build && node --test tests/vite.test.mjs",
+    "build:pages": "vite build --mode pages",
+    "test:pages": "npm run build:pages && node --test tests/pages.test.mjs"
   },
   "engines": {
     "node": ">=24.15 <25",

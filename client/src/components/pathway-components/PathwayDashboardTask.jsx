@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 /*Styles*/
 import "../../styles/App.css";
 /*Services*/
@@ -38,7 +39,7 @@ export default class PathwayDashboardTask extends React.Component {
             <Button
               className="mt-3 mynavback btn-outline-warning text-warning"
               exact
-              href={`${this.props.baseURL}/pathways/progress/active-pathway-task/${this.props.taskId}/${this.props.taskTitle}`}
+              href={appHref(`${this.props.baseURL}/pathways/progress/active-pathway-task/${this.props.taskId}/${this.props.taskTitle}`)}
             >
               <strong>See more</strong> 
             </Button>

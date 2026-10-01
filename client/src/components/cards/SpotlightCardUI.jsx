@@ -1,3 +1,4 @@
+import { appHref } from '../../config/deployment';
 /*Styles*/
 import "bootstrap/dist/css/bootstrap.min.css";
 /*Components*/
@@ -26,7 +27,7 @@ const CardSpot = () => {
         <Card.Title>{card.title} </Card.Title>
         <Card.Subtitle> {index + 1} </Card.Subtitle>
         <a
-          href="http://localhost:4960/pathway"
+          href={appHref("/pathway")}
           className="btn btn-outline-warning"
         >
           Take a Look

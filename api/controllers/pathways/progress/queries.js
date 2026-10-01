@@ -57,21 +57,13 @@ async function getAllActiveUserPathwaysAndTasks(userId) {
  **************************************** Progress Mutators ****************************************
  ***************************************************************************************************/
 
-async function updateActiveTaskStatus(taskId, newStatus, submission) {
-  try {
-    const activeTask = await ActivePathwayTask.findByPk(taskId);
-    activeTask.status = newStatus;
-    activeTask.submission = submission;
-    activeTask.save();
-    return {
-      "task_id": activeTask.id,
-      "status": activeTask.status,
-      "msg": "Successfully Updated!"
-    };
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
+async function updateActiveTaskStatus(userId, taskId, newStatus, submission) {
+  const [updated] = await ActivePathwayTask.update(
+    { status: newStatus, submission },
+    { where: { id: taskId, account_id: userId } }
+  );
+  if (!updated) return null;
+  return { task_id: taskId, status: newStatus, msg: 'Successfully Updated!' };
 }
 
 /***************************************************************************************************

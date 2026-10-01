@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
   };
 
   return {
+    base: mode === 'pages' ? (env.PAGES_BASE_PATH || '/UnderTheWing/') : '/',
     plugins: [react()],
     server: {
       host: '0.0.0.0',
@@ -21,7 +22,7 @@ export default defineConfig(({ mode }) => {
     },
     preview: { proxy },
     // Express serves this directory in production.
-    build: { outDir: 'build' },
+    build: { outDir: mode === 'pages' ? 'build-pages' : 'build' },
     test: {
       environment: 'jsdom',
       include: ['src/**/*.test.{js,jsx}'],

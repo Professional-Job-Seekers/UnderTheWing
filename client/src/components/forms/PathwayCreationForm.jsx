@@ -1,3 +1,5 @@
+import { appHref } from '../../config/deployment';
+import { apiFetch } from '../../services/api';
 import React, { Component } from "react";
 import SpawnTaskList from "../pathway-components/SpawnTaskList";
 import { Redirect } from 'react-router-dom';;
@@ -63,8 +65,8 @@ export default class PathwayCreationForm extends Component {
       body: JSON.stringify(creationRequestJSON)
     };
     try {
-      const response = await fetch('api/pathways/create', requestOptions);
-      setTimeout(()=> window.location.replace("/pathway"), 1000);
+      const response = await apiFetch('api/pathways/create', requestOptions);
+      setTimeout(()=> window.location.replace(appHref("/pathway")), 1000);
     } catch (err) {
       console.log(err);
     }

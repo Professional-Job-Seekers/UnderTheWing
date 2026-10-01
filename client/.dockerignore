@@ -4,3 +4,5 @@ coverage
 .env
 .env.*
 npm-debug.log*
+
+**/build-pages

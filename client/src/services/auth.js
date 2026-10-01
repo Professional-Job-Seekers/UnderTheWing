@@ -1,9 +1,10 @@
+import { apiFetch } from './api';
 import {setCookie} from "./cookies";
 
 const auth = {
   isAuthenticated: false,
   async authenticate(username, password) {
-    const URL = 'api/auth/login/';
+    const URL = '/api/auth/login/';
     const loginRequestJSON = {
       "username": username,
       "password": password
@@ -14,15 +15,16 @@ const auth = {
       body: JSON.stringify(loginRequestJSON)
     };
     try {
-      const response = await fetch(URL, requestOptions);
+      const response = await apiFetch(URL, requestOptions);
       if(!response.ok) {
         throw new Error('Login Failed');
       }
+      const result = await response.json();
       this.isAuthenticated = true;
-      
-      return response.json();
+      return result;
     } catch (err) {
-      console.log(err);
+      this.isAuthenticated = false;
+      throw err;
     }
   },
   async signout(cb) {
@@ -34,7 +36,7 @@ const auth = {
       headers: { 'Content-Type': 'application/json'},
     };
     try {
-      const response = await fetch(URL, requestOptions);
+      const response = await apiFetch(URL, requestOptions);
       if(!response.ok) {
         throw new Error('Logout Failed');
       }

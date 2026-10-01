@@ -1,9 +1,10 @@
+import { apiFetch } from '../../services/api';
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import auth from '../../services/auth'
-import {getCookie,setCookie} from '../../services/cookies'
+import {setCookie} from '../../services/cookies'
 import '../../styles/login.css';
 
 class LoginForm extends React.Component {
@@ -30,18 +31,17 @@ class LoginForm extends React.Component {
     event.preventDefault();
     const {username, password} = this.state;
     try {
-      const authResponse = await auth.authenticate(username, password);
-      if(authResponse){
-        this.setState({ redirectToReferrer: true });
-        setCookie("auth", true);
-        setCookie("username", username);
-        const isMentor = await fetch(`api/accounts/mentor/?username=${username}`);
-        const userType = isMentor.is_mentor ? "mentor" : "mentee";
-        console.log(userType);
-        setCookie("user_type", userType);
-      }
+      this.setState({ failed: false });
+      await auth.authenticate(username, password);
+      const response = await apiFetch(`/api/accounts/mentor/?username=${encodeURIComponent(username)}`);
+      if (!response.ok) throw new Error('Could not load account role');
+      const profile = await response.json();
+      setCookie("auth", true);
+      setCookie("username", username);
+      setCookie("user_type", profile.is_mentor ? "mentor" : "mentee");
+      this.setState({ redirectToReferrer: true });
     } catch (err) {
-      console.log(err);
+      auth.isAuthenticated = false;
       this.setState({ failed: true });
     }
   }

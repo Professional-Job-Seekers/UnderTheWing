@@ -1,7 +1,8 @@
+import { apiFetch } from './api';
 const activePathway = {
   getActivePathwayTask: async (activeTaskId) => {
     const URL = `/api/pathways/progress/active-task/?task_id=${activeTaskId}`;
-    const response = await fetch(URL);
+    const response = await apiFetch(URL);
     console.log(response);
     return response.json();
   },
@@ -16,7 +17,7 @@ const activePathway = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestJSON)
     };
-    const response = await fetch(URL, requestOptions);
+    const response = await apiFetch(URL, requestOptions);
     return response;
   }
 }

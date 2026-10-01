@@ -1,3 +1,4 @@
+import { apiFetch } from './api';
 const match = {
     async matchUserWithMentor(menteeUsername, mentorUsername) {
         const URL = '/api/matches/match/';
@@ -11,7 +12,7 @@ const match = {
             body: JSON.stringify(matchRequestJSON)
           };
           try {
-            const response = await fetch(URL, requestOptions);
+            const response = await apiFetch(URL, requestOptions);
             return response.json();
           } catch (err) {
             console.log(err);
@@ -19,13 +20,13 @@ const match = {
     },
     async getAllMentorsForMentee() {
         const URL  = `/api/matches/`;
-        const response = await fetch(URL);
+        const response = await apiFetch(URL);
         return response.json();
     },
     async getAllMenteesForMentor() {
         const scope = 'mentors';
         const URL  = `/api/matches/?scope=${scope}`;
-        const response = await fetch(URL);
+        const response = await apiFetch(URL);
         return response.json();
     },
 }

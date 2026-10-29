@@ -32,6 +32,9 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// uptime check for the host and keep-alive pings
+app.get('/healthz', (req, res) => res.json({ ok: true }));
+
 // this mounts controllers/index.js at the route `/api`
 app.use('/api', require('./controllers'));
 
@@ -40,13 +43,12 @@ if(process.env.NODE_ENV==='production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 
   // all unknown routes should be handed to our react app
-  app.get('*', function (req, res) {
+  // Express 5 rejects the bare '*' path, so use a plain fallback handler
+  app.use(function (req, res, next) {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return next();
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   });
 }
-
-// uptime check for the host and keep-alive pings
-app.get('/healthz', (req, res) => res.json({ ok: true }));
 
 // update DB tables based on model updates. Does not handle renaming tables/columns
 // NOTE: toggling this to true drops all tables (including data)

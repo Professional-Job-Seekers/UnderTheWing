@@ -1,0 +1,35 @@
+name: PR changelog
+
+# A pull request must carry its changelog entry: real text under "Changelog" in the PR description (.github/pull_request_template.md).
+# The project's CHANGELOG.md lives outside this repository (DevHiveMind/Projects/iron-log/), so CI cannot see whether the file changed;
+# this makes the entry exist where CI can see it, and whoever merges pastes it into CHANGELOG.md. "n/a: <why>" is accepted for a change that
+# needs none. Only the repository's own automation (README screenshots, Dependabot) is skipped: any other bot, such as an agent, is checked. The test is on the PR author, not the triggering actor, so a Dependabot PR stays skipped when a person rebases or edits it.
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  changelog:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "github-actions[bot]"]'), github.event.pull_request.user.login) }}
+    runs-on: ubuntu-26.04
+    timeout-minutes: 2
+    steps:
+      - name: The description has a changelog entry
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if ! printf '%s\n' "$BODY" | grep -qE '^## Changelog'; then
+            echo "::error title=Changelog section missing::The PR description has no \"## Changelog\" heading. Regenerate it with: node scripts/pr-body.mjs --what \"...\" (it fills .github/pull_request_template.md)."
+            exit 1
+          fi
+          # The section's text without HTML comments (the template's hint) and blank lines.
+          entry="$(printf '%s\n' "$BODY" | sed -n '/^## Changelog/,/^## /p' | sed '1d;/^## /d' | perl -0pe 's/<!--.*?-->//gs' | grep -v '^[[:space:]]*$' || true)"
+          # "n/a: <why>" counts as an entry however short; anything else needs a sentence.
+          if ! printf '%s' "$entry" | grep -qiE '^n/a:[[:space:]]*[^[:space:]]' && [ "${#entry}" -lt 10 ]; then
+            echo "::error title=Changelog entry empty::Write one or two sentences under \"Changelog\" in the PR description (or \"n/a: <why>\" if the change needs none). node scripts/pr-body.mjs --changelog \"...\" fills it."
+            exit 1
+          fi
+          echo "Changelog entry present."

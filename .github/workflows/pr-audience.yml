@@ -1,0 +1,32 @@
+name: PR audience
+
+# A pull request must say who can see its change: tick exactly one box under "Audience" in the PR description
+# (.github/pull_request_template.md). Fails when none, or more than one, is ticked. Only the repository's own automation (README screenshots, Dependabot) is skipped: any other bot, such as an agent, is checked. The test is on the PR author, not the triggering actor, so a Dependabot PR stays skipped when a person rebases or edits it.
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  audience:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "github-actions[bot]"]'), github.event.pull_request.user.login) }}
+    runs-on: ubuntu-26.04
+    timeout-minutes: 2
+    steps:
+      - name: Exactly one audience box is ticked
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if ! printf '%s\n' "$BODY" | grep -qE '^## Audience'; then
+            echo "::error title=Audience section missing::The PR description has no \"## Audience\" heading. Regenerate it with: node scripts/pr-body.mjs --what \"...\" (it fills in .github/pull_request_template.md and ticks the audience), or paste the template's Audience section."
+            exit 1
+          fi
+          section="$(printf '%s\n' "$BODY" | sed -n '/^## Audience/,/^## /p')"
+          ticked="$(printf '%s\n' "$section" | grep -ciE '^\s*- \[x\]' || true)"
+          if [ "$ticked" -ne 1 ]; then
+            echo "::error title=Audience not chosen::Tick exactly one box under \"Audience\" in the PR description (see the audiences in .github/pull_request_template.md). Found $ticked. node scripts/pr-body.mjs picks it from the diff."
+            exit 1
+          fi
+          echo "Audience chosen."

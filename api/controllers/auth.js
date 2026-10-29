@@ -4,6 +4,10 @@ const passport = require('../middlewares/authentication');
 
 
 router.post('/signup', async (req, res, next) => {
+	// The hosted portfolio demo uses shared seeded accounts only
+	if (process.env.SEED_DEMO_DATA === 'true') {
+		return res.status(403).json({ msg: 'Sign-ups are disabled on the demo' });
+	}
 	const password = req.body.password;
 	let user = {
         "first_name": req.body.first_name,

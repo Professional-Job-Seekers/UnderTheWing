@@ -177,6 +177,17 @@ The development session secret can be set with `SESSION_SECRET` in the root
 
 ## Deployment
 
+### Hosted demo (Render + Neon)
+
+`render.yaml` describes a free Render web service that serves the API and the React
+build from one origin, with a free Neon Postgres database in `DATABASE_URL`. With
+`SEED_DEMO_DATA=true` the server seeds two public demo accounts (`demo_mentor`,
+`demo_mentee`, password `demo1234`) and three pathways, and sign-up is disabled
+(`POST /api/auth/signup` answers 403). The site has no login form: **Try the demo**
+offers **Explore as Mentee** and **Explore as Mentor**, which sign in as those
+accounts. Demo data is shared between visitors. The free Render service sleeps after
+about 15 minutes idle, so the first request can take up to a minute.
+
 ### GitHub Pages frontend preview
 
 The GitHub Actions workflow in `.github/workflows/pages.yml` runs backend tests,

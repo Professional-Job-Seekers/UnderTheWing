@@ -3,9 +3,10 @@ import{ Redirect, Route } from 'react-router-dom';
 
 import auth from '../services/auth';
 
+// The role cookie outlives a page refresh; the in-memory flag does not.
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-    auth.isAuthenticated === true
+    auth.hasSession()
       ? <Component {...props} />
       : <Redirect to={{
           pathname: '/login',
@@ -14,4 +15,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 );
 
-export default PrivateRoute; 
+export default PrivateRoute;

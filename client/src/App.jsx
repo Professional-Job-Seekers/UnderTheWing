@@ -26,8 +26,8 @@ import PathwayCreatorPage from "./pages/PathwayCreatorPage";
 /* Auth */
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
 /* Components */
+import PrivateRoute from "./components/PrivateRoute";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 /* Core Features */
@@ -46,17 +46,16 @@ export default class App extends React.Component {
               <div className="row justify-content-center">
                 <Switch>
                   {/* SUB-ROUTES */}
-                  <Route exact path="/userdash/pathways/progress/active-pathway-task/:activeTaskId/:activeTask" component={backendPage(TaskStatusPage)} />
-                  <Route exact path="/pathway/commit/:pathway" component={backendPage(PathwayCommitPage)} />
+                  <PrivateRoute exact path="/userdash/pathways/progress/active-pathway-task/:activeTaskId/:activeTask" component={backendPage(TaskStatusPage)} />
+                  <PrivateRoute exact path="/pathway/commit/:pathway" component={backendPage(PathwayCommitPage)} />
                   <Route exact path="/pathway/pathway-detail/:pathway" component={backendPage(PathwayDetailPage)} />
-                  <Route exact path="/mentor/match/:mentor" component={backendPage(MentorMatchResultPage)} />
+                  <PrivateRoute exact path="/mentor/match/:mentor" component={backendPage(MentorMatchResultPage)} />
                   {/* BASE ROUTES */}
-                  <Route exact path="/pathway-creator" component={backendPage(PathwayCreatorPage)} />
-                  <Route exact path="/userdash" component={backendPage(UserDashboardPage)} />
+                  <PrivateRoute exact path="/pathway-creator" component={backendPage(PathwayCreatorPage)} />
+                  <PrivateRoute exact path="/userdash" component={backendPage(UserDashboardPage)} />
                   <Route exact path="/event" component={backendPage(Events)} />
                   <Route exact path="/mentor" component={backendPage(MentorPage)} />
                   <Route exact path="/login" component={backendPage(LoginPage)} />
-                  <Route exact path="/register" component={backendPage(RegistrationPage)} />
                   <Route exact path="/about-us" component={AboutUsPage} />
                   <Route exact path="/pathway" component={backendPage(PathwayPage)} />
                   {/* NOT FOUND */}

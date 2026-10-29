@@ -1,0 +1,26 @@
+name: CI timeouts
+
+# Every job must set timeout-minutes (ci-budget.md). Keeps an agent or a person from adding an unbounded job.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/ci-timeouts.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-timeouts-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  timeouts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/ci-timeouts.mjs

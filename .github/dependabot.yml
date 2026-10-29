@@ -1,0 +1,27 @@
+# Version and security updates, grouped weekly so they arrive as one PR per ecosystem instead of many (feature-delivery.md).
+# Rule: dependency-security.md. Add an ecosystem block per manifest the project has (pip, uv, docker, github-actions).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      npm-minor-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: /client
+    schedule:
+      interval: weekly
+    groups:
+      client-npm-minor-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']

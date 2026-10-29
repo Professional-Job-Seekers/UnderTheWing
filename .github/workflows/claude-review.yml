@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15 # timeout-ok: an Opus review of a large diff runs longer than a Sonnet one; set from the first runs, then about 2x the slowest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Pick the review model

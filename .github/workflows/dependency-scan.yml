@@ -1,0 +1,76 @@
+name: Dependency scan
+
+# Rule: dependency-security.md. An AI agent (or a person) can add a vulnerable, malicious or typosquatted package without noticing; this blocks it before merge.
+#   audit       known high or critical advisories in production dependencies fail the run; dev dependencies are reported (a project with old dev findings can tighten later)
+#   review      GitHub dependency review: a PR that adds a package with a known vulnerability fails, and the whole delta shows in the run (needs Dependency graph turned on in Settings, Code security: the job fails with "not supported" otherwise, even in a public repo)
+#   new-package scripts/dep-vet.mjs: a package that is new to package.json must not be days old, near-zero downloads, unknown to the registry or a lookalike of a popular name,
+#               unless the PR description carries "Dependency approval: <name>" written by the owner after checking it
+# It also runs weekly, so an advisory published after a merge still shows up. Only the package.json at the repository root is scanned; add paths for other manifests.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Production dependencies have no known high or critical advisory
+        run: npm audit --omit=dev --audit-level=high
+      - name: Development dependencies are reported only
+        run: npm audit --audit-level=high || echo "::warning title=Dev dependency advisories::npm audit reports high or critical advisories in development dependencies (not blocking)."
+
+  review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+      # The review needs Dependency graph turned on (Settings, Code security). Until it is, say so in the run instead of failing every PR; the audit and new-package jobs still guard.
+      - name: Is the dependency graph on
+        id: graph
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/dependency-graph/sbom" --silent 2>/dev/null; then
+            echo "on=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "on=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Dependency review skipped::Dependency graph is off for this repository, so GitHub's dependency review cannot run. Turn it on in Settings, Code security (also Dependabot alerts and security updates)."
+          fi
+      - if: steps.graph.outputs.on == 'true'
+        uses: actions/dependency-review-action@v5
+        with:
+          fail-on-severity: high
+          comment-summary-in-pr: on-failure
+
+  new-package:
+    if: github.event_name == 'pull_request' && !contains(fromJSON('["dependabot[bot]", "github-actions[bot]"]'), github.event.pull_request.user.login)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Vet the packages this PR adds
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: node scripts/dep-vet.mjs --base "origin/$BASE_REF" --pr-body "$PR_BODY"

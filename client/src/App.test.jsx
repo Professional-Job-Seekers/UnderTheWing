@@ -4,21 +4,28 @@ import App from './App';
 import PathwayObjectives from './components/pathway-components/PathwayObjectives';
 
 describe('React compatibility', () => {
-  it('navigates from the home page to login and registration', async () => {
+  it('offers the demo from the home page and has no sign-up', async () => {
     render(<App />);
     expect(screen.getByText(/Life’s most persistent/)).toBeTruthy();
-    fireEvent.click(screen.getByRole('link', { name: 'Login' }));
-    expect(await screen.findByRole('heading', { name: 'Login' })).toBeTruthy();
-    expect(screen.getByPlaceholderText('Username or Email')).toBeTruthy();
-    fireEvent.click(screen.getByRole('link', { name: 'Sign Up' }));
-    expect(await screen.findByRole('heading', { name: 'Sign Up' })).toBeTruthy();
-    expect(screen.getByPlaceholderText('First Name')).toBeTruthy();
+    expect(screen.queryByRole('link', { name: 'Dashboard' })).toBeNull();
+    expect(screen.queryByRole('link', { name: 'Sign Up' })).toBeNull();
+    fireEvent.click(screen.getByRole('link', { name: 'Try the demo' }));
+    expect(await screen.findByRole('heading', { name: 'Try the demo' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Explore as Mentee' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Explore as Mentor' })).toBeTruthy();
   });
 
-  it('renders the login page when opened directly', () => {
+  it('renders the demo picker when opened directly', () => {
     window.history.replaceState({}, '', '/login');
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'Login' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Try the demo' })).toBeTruthy();
+  });
+
+  it('sends a signed-out visitor from a signed-in page to the demo picker', () => {
+    window.history.replaceState({}, '', '/userdash');
+    render(<App />);
+    expect(screen.getByRole('heading', { name: 'Try the demo' })).toBeTruthy();
+    expect(window.location.pathname).toBe('/login');
   });
 
   it('switches pathway tabs using the upgraded Bootstrap components', async () => {

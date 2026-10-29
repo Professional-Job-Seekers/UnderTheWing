@@ -12,8 +12,7 @@ const AuthButtonGroup = withRouter(({ history }) => {
   if(!authCookieSet && !auth.isAuthenticated) {
     return (
       <div>
-        <Link className={classes}  to="/login"> <strong>Login</strong></Link>
-        <Link className="btn btn-dark btn-outline-warning ms-2" to="/register"> <strong> Sign Up </strong> </Link>
+        <Link className={classes}  to="/login"> <strong>Try the demo</strong></Link>
       </div>
     );
   }
@@ -26,7 +25,8 @@ const AuthButtonGroup = withRouter(({ history }) => {
   
   return (
     <div>
-      <button className={classes} onClick={logout}> <strong> Logout </strong> </button>
+      <Link className={classes} to="/login"> <strong>Switch role</strong></Link>
+      <button className={`${classes} ms-2`} onClick={logout}> <strong> Exit demo </strong> </button>
     </div>
   );
 });

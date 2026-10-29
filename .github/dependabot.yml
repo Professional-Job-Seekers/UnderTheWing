@@ -1,4 +1,5 @@
 # Version and security updates, grouped weekly so they arrive as one PR per ecosystem instead of many (feature-delivery.md).
+# Major bumps are ignored on purpose: the app is pinned to React Router 5, Express 4 and similar; migrate by hand.
 # Rule: dependency-security.md. Add an ecosystem block per manifest the project has (pip, uv, docker, github-actions).
 version: 2
 updates:
@@ -10,6 +11,9 @@ updates:
       npm-minor-patch:
         update-types: [minor, patch]
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
   - package-ecosystem: npm
     directory: /client
     schedule:
@@ -18,6 +22,9 @@ updates:
       client-npm-minor-patch:
         update-types: [minor, patch]
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
   - package-ecosystem: github-actions
     directory: /
     schedule:

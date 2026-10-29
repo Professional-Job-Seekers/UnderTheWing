@@ -1,0 +1,20 @@
+# Render Blueprint: one free web service serves the API and the built React client.
+services:
+  - type: web
+    name: under-the-wing
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm ci --include=dev --prefix client && npm run build --prefix client
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 24
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SEED_DEMO_DATA
+        value: "true"
+      - key: DATABASE_URL
+        sync: false # Neon pooled connection string, pasted in the dashboard

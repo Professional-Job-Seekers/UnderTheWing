@@ -6,7 +6,7 @@
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
-  "docker":{
+  "docker": {
     "database": "app2020_docker",
     "username": "ctp_user",
     "password": "ctp_pass",
@@ -23,6 +23,12 @@
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": true
+      }
+    }
   }
 }

@@ -6,8 +6,15 @@ const path = require('path');
 const db = require('./models');
 const passport = require('./middlewares/authentication');
 const app = express();
-const dds =  require("./tests/generateDummyData");
 const PORT = process.env.PORT || 8000;
+
+const isProduction = process.env.NODE_ENV === 'production';
+if (isProduction && !process.env.SESSION_SECRET) {
+  throw new Error('SESSION_SECRET must be set in production');
+}
+
+// Render terminates TLS in front of us; trust it so secure cookies work
+if (isProduction) app.set('trust proxy', 1);
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
@@ -20,7 +27,8 @@ app.use(morgan(logFormat));
 app.use(expressSession({ 
   secret: process.env.SESSION_SECRET, 
   resave: false,
-  saveUninitialized: true }));
+  saveUninitialized: false,
+  cookie: { httpOnly: true, sameSite: 'lax', secure: isProduction ? 'auto' : false } }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -37,6 +45,9 @@ if(process.env.NODE_ENV==='production') {
   });
 }
 
+// uptime check for the host and keep-alive pings
+app.get('/healthz', (req, res) => res.json({ ok: true }));
+
 // update DB tables based on model updates. Does not handle renaming tables/columns
 // NOTE: toggling this to true drops all tables (including data)
 
@@ -49,7 +60,9 @@ if (syncMode) {
     console.log(err);
   })
 } else {
-  db.sequelize.sync({ force: false });
+  db.sequelize.sync({ force: false }).then(async () => {
+    if (process.env.SEED_DEMO_DATA === 'true') await require('./seed/demo').seedDemoData();
+  }).catch(err => console.log(err));
 }
 
 // start up the server
